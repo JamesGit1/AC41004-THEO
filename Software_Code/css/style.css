@@ -17,7 +17,7 @@ p {
   color: white;
 }
 
-.button-sign-up {
+.button-orange {
   background-color: #db6e20;
 }
 
@@ -25,5 +25,24 @@ p {
   margin-top: 100px;
 }
 
-.overlay {
+.background {
+  background-color: #0297a2;
+}
+
+.create-form {
+  background-color: white;
+}
+
+.form-group {
+  margin-top: 5px;
+}
+
+body {
+  background-image: url("https://www.theohealth.com/wp-content/uploads/2021/02/theo-Promo-grid.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+label {
+  size: 10px;
 }
