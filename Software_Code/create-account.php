@@ -15,7 +15,7 @@
 
 <body class="background">
   <div class="content-box container p-5 mt-5 border">
-    <a href="index.html">
+    <a href="index.php">
       <img src="images/theo-logo.png" alt="" class="img-fluid w-25"
     /></a>
     <div class="container w-90 mt-4">
@@ -47,7 +47,7 @@
           <label>Confirm Password: </label>
           <input type="password" class="form-control" id="#" placeholder="" />
         </div>
-        <a href="./landing-page.html"
+        <a href="./landing-page.php"
           ><button class="btn button-orange mt-4 btn-lg">Register</button></a
         >
       </form>

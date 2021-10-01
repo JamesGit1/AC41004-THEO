@@ -39,7 +39,7 @@
                 Dolores quo atque illo perspiciatis aut accusantium aperiam
                 aliquid ducimus, voluptatibus, dolor officiis fuga in.
               </p>
-              <a href="track-progress.html" class="btn button-orange"
+              <a href="track-progress.php" class="btn button-orange"
                 >Track progress</a
               >
             </div>
@@ -56,7 +56,7 @@
                 Dolorum voluptates architecto sit vero laudantium animi nihil
                 rem, non maxime.
               </p>
-              <a href="track-progress.html" class="btn button-orange"
+              <a href="track-progress.php" class="btn button-orange"
                 >Track progress</a
               >
             </div>
@@ -73,7 +73,7 @@
                 voluptates nemo officia dolores, hic, explicabo libero veritatis
                 corporis aspernatur quaerat eveniet id.
               </p>
-              <a href="track-progress.html" class="btn button-orange"
+              <a href="track-progress.php" class="btn button-orange"
                 >Track progress</a
               >
             </div>

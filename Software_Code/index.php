@@ -26,7 +26,7 @@
 
   <header>
     <nav class="navbar navbar-expand-lg">
-      <a href="index.html">
+      <a href="index.php">
         <img src="images/theo-logo.png" alt="Logo" width="100" />
       </a>
       <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
@@ -39,7 +39,7 @@
           >
             Log In
           </button>
-          <a href="create-account.html"
+          <a href="create-account.php"
             ><button class="btn">Sign Up</button></a
           >
         </ul>
@@ -87,13 +87,13 @@
                 />
               </div>
               <div class="container p-0">
-                <a href="landing-page.html"><button class="btn button-orange w-100" type="submit">Log In</button></a>
+                <a href="landing-page.php"><button class="btn button-orange w-100" type="submit">Log In</button></a>
               </div>
             </form>
           </div>
           <div class="container text-center p-0">
             <p style="color: black">No account?
-            <a href="create-account.html">Create one</p></a>
+            <a href="create-account.php">Create one</p></a>
           </div>
         </div>
       </div>
@@ -118,7 +118,7 @@
           <br />
           Sign up to get started!
         </p>
-        <a href="../Software_Code/create-account.html"
+        <a href="../Software_Code/create-account.php"
           ><button class="btn button-orange">Sign Up</button></a
         >
       </div>

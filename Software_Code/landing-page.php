@@ -34,17 +34,17 @@
                 <div class="col-md-4">
                     <i class="fas fa-user-circle fa-7x"></i>
                     <br></br>
-                    <a href="my-profile.html"><button class="btn btn-outline-dark w-50">My Profile</button></a>
+                    <a href="my-profile.php"><button class="btn btn-outline-dark w-50">My Profile</button></a>
                 </div>
                 <div class="col-md-4">
                     <i class="fas fa-users fa-7x"></i>
                     <br></br>
-                    <a href="clients.html"><button class="btn btn-outline-dark w-50">My Clients</button></a>
+                    <a href="clients.php"><button class="btn btn-outline-dark w-50">My Clients</button></a>
                 </div>
                 <div class="col-md-4">
                     <i class="fas fa-chart-line fa-7x"></i>
                     <br></br>
-                    <a href="track-progress.html"><button class="btn btn-outline-dark w-50">Progress</button></a>
+                    <a href="track-progress.php"><button class="btn btn-outline-dark w-50">Progress</button></a>
                 </div>
             </div>
         </div>
