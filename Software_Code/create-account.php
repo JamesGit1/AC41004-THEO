@@ -45,7 +45,7 @@ if (isset($_POST['submitAccount'])) {
       $stmt->execute();
       unset($stmt);
 
-      header("Location: index.php");
+      header("Location: landing-page.php");
     }
   }
 }
@@ -64,7 +64,7 @@ if (isset($_POST['submitAccount'])) {
 </head>
 
 <body class="background">
-    <div class="create-form container p-5 mt-5 border">
+    <div class="content-box container p-5 mt-5 border">
         <a href="./index.php">
             <img src="images/theo-logo.png" alt="" class="img-fluid w-25" /></a>
         <div class="container w-90 mt-4">

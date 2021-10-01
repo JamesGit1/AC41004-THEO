@@ -117,12 +117,13 @@ if (isset($_POST['loginRequest'])) {
   </div>
   <!-- End of login pop-up -->
 </header>
+<body class="background">
 <div class="container">
   <div class="row">
     <div class="col-6 overlay">
       <img src="images/theo-logo.png" width="400px" class="img-fluid" alt="Responsive image" />
       <h3>coming soon..</h3>
-      <p>
+      <p class="home-text">
         Revolutionising how we train and recover from injury by allowing you
         to measure, track and analyse your muscle development, even before
         progress is physically visible.
@@ -143,4 +144,5 @@ if (isset($_POST['loginRequest'])) {
   <script src="js/script.js"></script>
 </footer>
 
+</body>
 </html>
