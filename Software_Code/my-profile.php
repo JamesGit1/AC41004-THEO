@@ -1,15 +1,15 @@
+<?php
+require('php/conn.php');
+session_start();
+?>
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-    crossorigin="anonymous"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
@@ -24,7 +24,7 @@
         <b> Username: </b>
       </div>
       <div class="col-md-10">
-        <p>Example username</p>
+        <p><?php echo $_SESSION['username'] ?></p>
       </div>
     </div>
     <div class="row">
@@ -32,7 +32,7 @@
         <b> First name: </b>
       </div>
       <div class="col-md-10">
-        <p>Example name</p>
+        <p><?php echo $_SESSION['firstname'] ?></p>
       </div>
     </div>
     <div class="row">
@@ -40,7 +40,7 @@
         <b> Last name: </b>
       </div>
       <div class="col-md-10">
-        <p>Example surname</p>
+        <p><?php echo $_SESSION['lastname'] ?></p>
       </div>
     </div>
     <div class="row">
@@ -48,7 +48,7 @@
         <b> Email: </b>
       </div>
       <div class="col-md-10">
-        <p>Example email</p>
+        <p><?php echo $_SESSION['email'] ?></p>
       </div>
     </div>
     <div class="row">
@@ -69,12 +69,7 @@
     </div>
 
     <!--Button to edit information -->
-    <button
-      type="button"
-      class="btn button-orange text-left mt-3"
-      data-toggle="modal"
-      data-target="#editModal"
-    >
+    <button type="button" class="btn button-orange text-left mt-3" data-toggle="modal" data-target="#editModal">
       Edit details
     </button>
   </div>
@@ -95,61 +90,31 @@
             <form class="p-3">
               <div class="form-group">
                 <label>Username: </label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="#"
-                  placeholder="Username"
-                />
+                <input type="text" class="form-control" placeholder="Username" value="<?php echo $_SESSION['username']; ?>" required />
               </div>
               <div class="form-group">
                 <label>First Name: </label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="#"
-                  placeholder="First Name"
-                />
+                <input type="text" class="form-control" value="<?php echo $_SESSION['firstname']; ?>" placeholder="First Name" required />
               </div>
               <div class="form-group">
                 <label>Last Name: </label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="#"
-                  placeholder="Last Name"
-                />
+                <input type="text" class="form-control" value="<?php echo $_SESSION['lastname']; ?>" placeholder="Last Name" required />
               </div>
               <div class="form-group">
                 <label>Email: </label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="#"
-                  placeholder="email@gmail.com"
-                />
+                <input type="email" class="form-control" value="<?php echo $_SESSION['email']; ?>" placeholder="email@gmail.com" required />
               </div>
               <div class="form-group">
                 <label>Phone Number: </label>
-                <input type="text" class="form-control" id="#" placeholder="" />
+                <input type="text" class="form-control" placeholder="---" disabled />
               </div>
               <div class="form-group">
                 <label>Password: </label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="#"
-                  placeholder=""
-                />
+                <input type="password" class="form-control" placeholder="******" required />
               </div>
               <div class="form-group">
                 <label>Confirm Password: </label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="#"
-                  placeholder=""
-                />
+                <input type="password" class="form-control" placeholder="******" required />
               </div>
               <div class="container mt-4 p-0 text-left">
                 <button class="btn" type="submit">Save changes</button>
@@ -166,15 +131,7 @@
 </body>
 <footer>
   <!-- jQuery then Bootstrap JS for pop-ups -->
-  <script
-    src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-    crossorigin="anonymous"
-  ></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   <script src="js/script.js"></script>
 </footer>
