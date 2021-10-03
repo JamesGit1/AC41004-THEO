@@ -1,10 +1,13 @@
 <?php 
 session_start();
-
-include 'header.php'
 require('./php/conn.php');
+include('header.php');
 include('./php/login.php');
-
+if(isset($_SESSION['loggedIn'])){
+  if($_SESSION['loggedIn']){
+    header("Location: landing-page.php");
+  }
+}
 ?>
 
 <body class="background">

@@ -1,5 +1,8 @@
 <html lang="en">
-<?php include "Header.php" ?>
+<?php 
+session_start();
+include("header.php");
+?>
 <title>Home</title>
     <style>
       body {

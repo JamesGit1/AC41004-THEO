@@ -1,13 +1,13 @@
-<?php include 'header.php';?>
-<?php
-require('./php/conn.php');
+<?php 
 session_start();
+include('header.php');
+require('./php/conn.php');
 include('php/createAccount.php');
 ?>
 
 <!-- Even though these 2 lines are in the header.php file, if I delete them from here - it does not work-->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-<link rel="stylesheet" type="text/css" href="css/style.css" />
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+<link rel="stylesheet" type="text/css" href="css/style.css" /> -->
 
 <body class="background">
   <div class="content-box container p-5 mb-5 border">

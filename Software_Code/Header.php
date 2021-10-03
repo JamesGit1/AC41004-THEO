@@ -21,15 +21,22 @@
     </a>
     <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
       <ul class="navbar-nav">
-          <!-- When user is logged in -->
-          <a href="./landing-page.php"><button class="btn button-orange">Home</button></a>
-          <a href="./my-profile.php"><button class="btn button-orange">My Profile</button></a>
-          <a href="./index.php"><button class="btn">Log out</button></a>
-          <!-- When user is not logged in-->
-        <button type="button" class="btn" data-toggle="modal" data-target="#loginModal">
-          Log In
-        </button>
-        <a href="./create-account.php"><button class="btn">Sign Up</button></a>
+        <?php
+        if (isset($_SESSION['loggedIn'])) {
+          // When user is logged in 
+          if ($_SESSION['loggedIn']) {
+            echo '<a href="./landing-page.php"><button class="btn button-orange">Home</button></a>
+              <a href="./my-profile.php"><button class="btn button-orange">My Profile</button></a>
+              <a href="./php/logoff.php"><button class="btn">Log out</button></a>';
+          } 
+        }
+        else { // When user not logged in
+          echo '<button type="button" class="btn" data-toggle="modal" data-target="#loginModal">
+            Log In
+          </button>
+          <a href="./create-account.php"><button class="btn">Sign Up</button></a>';
+        }
+        ?>
       </ul>
     </div>
   </nav>
@@ -56,9 +63,9 @@
               <label> Password: </label>
               <input type="password" class="form-control" name="inputPassword" placeholder="Password" />
             </div>
-            <span class="help-block"><?php echo $login_err; ?></span>
+            <span class="help-block"><?php if(isset($login_err)) echo $login_err; ?></span>
             <div class="container p-0">
-              <button class="btn button-orange w-100" type="submit" name="loginRequest">
+              <button class="btn button-orange w-100 mt-4" type="submit" name="loginRequest">
                 Log In
               </button>
             </div>

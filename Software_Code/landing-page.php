@@ -1,8 +1,7 @@
-
 <?php 
-include 'header.php'
-require('php/conn.php');
 session_start();
+require('php/conn.php');
+include('header.php');
 ?>
 
 <body class="background">
