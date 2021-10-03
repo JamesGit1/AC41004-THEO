@@ -1,4 +1,4 @@
-<?php include 'header.php';?>
+<?php include 'header.php'; ?>
 <!doctype html>
 <html lang="en">
 
@@ -8,24 +8,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <title>Heatmap Example Page</title>
 
     <style>
-    body {
-        background-image: url('https://www.theohealth.com/wp-content/uploads/2021/02/theo-Promo-grid.png');
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-      }
-      label {
-          font : white;
-          color : white;
-      }
-     h1{
-         color : white;
-     }
+        body {
+            background-image: url('https://www.theohealth.com/wp-content/uploads/2021/02/theo-Promo-grid.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        label {
+            font: white;
+            color: white;
+        }
+
+        h1 {
+            color: white;
+        }
 
         #share {
             display: none;
@@ -118,11 +119,11 @@
 <body>
     <h1>Track Progress - Sensor1</h1>
     <div id="inputs" class="clearfix">
-    <input type="file" id="files" name="files[]" multiple />
-  </div>
+        <input type="file" id="files" name="files[]" multiple />
+    </div>
     <div class="animation-wrapper">
         <div class="heatmap">
-            <img src="images/body.jpg" alt="Body">
+            <img src="images/body.png" alt="Body">
         </div>
         <div class="timeline-wrapper"></div>
     </div>
@@ -133,22 +134,20 @@
     </div> -->
 
     <!-- Optional JavaScript; choose one of the two! -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-      <script src="http://evanplaice.github.io/jquery-csv/src/jquery.csv.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="https://evanplaice.github.io/jquery-csv/src/jquery.csv.min.js"></script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
-  <!--  <script src="\build\heatmap.min.js"></script> -->
-  <script src="\node_modules\heatmap.js\build\heatmap.min.js"></script>
+    <!--  <script src="\build\heatmap.min.js"></script> -->
+    <script src="heatmap.min.js"></script>
     <script src="getfile.js"></script>
-  <!--  <script src="main.js">
+    <!--  <script src="main.js">
   </script> -->
 
     <!-- <script type="text/javascript">
