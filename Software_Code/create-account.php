@@ -1,23 +1,18 @@
+<?php include 'header.php';?>
 <?php
-require('php/conn.php');
+require('./php/conn.php');
 session_start();
 include('php/createAccount.php');
 ?>
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
-</head>
+<!-- Even though these 2 lines are in the header.php file, if I delete them from here - it does not work-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
 
 <body class="background">
-  <div class="content-box container p-5 mt-5 border">
+  <div class="content-box container p-5 mb-5 border">
     <a href="./index.php">
-      <img src="images/theo-logo.png" alt="" class="img-fluid w-25" /></a>
+      <img src="images/theo-logo2.png" alt="" class="img-fluid w-25" /></a>
     <div class="container w-90 mt-4">
       <h2>Create your account</h2>
     </div>
@@ -61,3 +56,12 @@ include('php/createAccount.php');
     </div>
   </div>
 </body>
+
+<footer>
+  <!-- jQuery then Bootstrap JS for pop-ups -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+  </script>
+  <script src="js/script.js"></script>
+</footer>

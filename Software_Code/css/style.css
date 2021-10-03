@@ -21,10 +21,6 @@ h3 {
   background-color: #db6e20;
 }
 
-#picture {
-  margin-top: 100px;
-}
-
 .background {
   background-color: #0297a2;
 }
@@ -39,13 +35,11 @@ h3 {
 
 .background {
   background-image: url("https://www.theohealth.com/wp-content/uploads/2021/02/theo-Promo-grid.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-.background-plain {
-  background-color: #0297a2;
+  background-repeat: repeat;
+  height: 100%;
+  width: 100%;
 }
 
-label {
-  size: 10px;
+.background-plain {
+  background-color: #90cfd4;
 }
