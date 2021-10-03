@@ -171,8 +171,8 @@ $(document).ready(function() {
               //console.log(values[i]);
               //console.log(val);
               var point = {
-                  x: 245,
-                  y: 500,
+                  x: 160,
+                  y: 470,
                   value: val
                 };
             points.push(point);
