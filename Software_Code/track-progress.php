@@ -142,6 +142,7 @@ include('header.php');
     <!--  <script src="\build\heatmap.min.js"></script> -->
     <script src="heatmap.min.js"></script>
     <script src="getfile.js"></script>
+    <script src="./retrieveData.js"></script>
     <!--  <script src="main.js">
   </script> -->
 
