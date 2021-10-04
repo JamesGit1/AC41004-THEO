@@ -1,4 +1,7 @@
-<?php include 'header.php'; ?>
+<?php 
+session_start();
+include('header.php');
+?>
 <head>
   <style>
     label {
@@ -139,6 +142,7 @@
     <!--  <script src="\build\heatmap.min.js"></script> -->
     <script src="heatmap.min.js"></script>
     <script src="getfile.js"></script>
+    <script src="./retrieveData.js"></script>
     <!--  <script src="main.js">
   </script> -->
 
