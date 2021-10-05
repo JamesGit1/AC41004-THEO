@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include('header.php');
 ?>
@@ -98,13 +98,11 @@ include('header.php');
 
 <body class="background">
     <div class="content-box container p-5 mt-5 border">
-        <h3>Track Progress</h3>
+        <h3>Review Session</h3>
         <select class="form-select form-select mb-3 w-25" aria-label=".form-select-lg example">
-          <option selected>Select sensor</option>
-          <option value="1">Sensor 1</option>
-          <option value="2">Sensor 2</option>
-          <option value="3">Sensor 3</option>
-          <option value="4">Sensor 4</option>
+          <option selected>Select view</option>
+          <option value="1">Front</option>
+          <option value="2">Back</option>
         </select>
         <div class="input-group w-50 clearfix" id="inputs">
           <input type="file" class="form-control" id="files"  name="files[]" multiple>
@@ -115,13 +113,55 @@ include('header.php');
         </div>
       -->
         <!--if sensor selected - show slider -->
-        <div class="animation-wrapper">
+        <div class="animation-wrapper d-flex justify-content-center">
             <div class="heatmap">
                 <img src="images/body.png" alt="Body">
             </div>
             <div class="timeline-wrapper"></div>
         </div>
+      <div class="d-flex justify-content-start">
+        <button
+          type="button"
+          class="btn button-orange"
+          data-toggle="modal"
+          data-target="#addFeedback"
+        >
+          Add Feedback
+        </button>
+      </div>
     </div>
+
+    <div class="modal" id="addFeedback">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <h4 class="modal-title">Add feedback</h4>
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+
+            <div class="modal-body p-0">
+              <div class="container w-90">
+                <form>
+                  <div class="form-group">
+                      <label for="exampleFormControlTextarea1">Example textarea</label>
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Leave comment here.."></textarea>
+                  </div>
+                  <div class="container mt-3 mb-4 p-0 text-left">
+                    <button class="btn" type="submit">Save feedback</button>
+                    <button type="button" class="btn" data-dismiss="modal">
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
     <p id="timestamp"></p>
     <pre id="arrPrint"></pre>
     <!-- <div style="position: relative; height: 800px; width: 800px;" class="heatmap">
@@ -152,6 +192,18 @@ include('header.php');
             console.log(timePoints);
         });
     </script> -->
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
