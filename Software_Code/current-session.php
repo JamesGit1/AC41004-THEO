@@ -24,6 +24,7 @@ include('header.php');
     .animation-wrapper {
       position: relative;
       align-items: center;
+      text-align: center;
     }
 
     /* animation player css */
@@ -116,7 +117,7 @@ include('header.php');
       -->
         <!--if sensor selected - show slider -->
 
-        <div class="animation-wrapper d-flex justify-content-center">
+        <div class="animation-wrapper">
             <div class="heatmap">
             <img src="images/updatedlegs.jpg" alt="Body">
             </div>
