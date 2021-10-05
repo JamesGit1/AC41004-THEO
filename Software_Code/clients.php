@@ -25,6 +25,7 @@ include('header.php');
               <a href="track-progress.php" class="btn button-orange"
                 >Track progress</a
               >
+              <a href="DELETE"  class="btn button-green" > DELETE</a>
             </div>
           </div>
         </div>
@@ -42,6 +43,7 @@ include('header.php');
               <a href="track-progress.php" class="btn button-orange"
                 >Track progress</a
               >
+              <a href="DELETE"  class="btn button-green" > DELETE</a>
             </div>
           </div>
         </div>
@@ -59,7 +61,7 @@ include('header.php');
               </p>
               <a href="track-progress.php" class="btn button-orange"
                 >Track progress</a >
-                <a href="DELETE"  class="DeleteButton" > DELETE</a>
+                <a href="DELETE"  class="btn button-green" > DELETE</a>
                 
             </div>
           </div>
