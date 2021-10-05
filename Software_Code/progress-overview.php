@@ -59,7 +59,7 @@ include('header.php');
 
 <div class="col-6">
   <div class="content-box container mt-5 p-5 border">
-    <a href="track-progress.php"><button type="button" class="btn button text-left mb-3">
+    <a href="current-session.php"><button type="button" class="btn button text-left mb-3">
       Start New Session
     </button></a>
     <div class="container mb-4 p-0">

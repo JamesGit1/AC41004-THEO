@@ -37,22 +37,41 @@ const getData = () => {
 
 function loadHeatmap(dataObj) {
     var points = [];
-    var max = 1000;
+    var max = 1024;
+    var containerWidth = container.offsetWidth;
 
     // Get sensor 1 and 2 data and put on model
-    var point = {
-        x: 450,
-        y: 470,
-        value: dataObj.sensor1.value
-    };
-    points.push(point);
-    var point = {
-        x: 790,
-        y: 470,
-        value: dataObj.sensor2.value
-    };
-    points.push(point);
-
+    if(viewValue == "f"){
+        var point = {
+            x: Math.floor(0.37 * containerWidth), // We got to move the heatmaps with the width of the container changes
+            y: Math.floor(0.37 * containerWidth),
+            value: dataObj.sensor3.value // Extract value from json object for each sensor
+        };
+        points.push(point);
+    
+        var point = {
+            x: Math.floor(0.63 * containerWidth),
+            y: Math.floor(0.37 * containerWidth),
+            value: dataObj.sensor4.value
+        };
+        points.push(point);
+    }
+    else if(viewValue == "b"){
+        var point = {
+            x: Math.floor(0.35 * containerWidth), // We got to move the heatmaps with the width of the container changes
+            y: Math.floor(0.48 * containerWidth),
+            value: dataObj.sensor1.value // Extract value from json object for each sensor
+        };
+        points.push(point);
+    
+        var point = {
+            x: Math.floor(0.65 * containerWidth),
+            y: Math.floor(0.48 * containerWidth),
+            value: dataObj.sensor2.value
+        };
+        points.push(point);
+    }
+    
     var data = {
         max: max,
         data: points
@@ -63,9 +82,41 @@ function loadHeatmap(dataObj) {
 
 }
 
+var container = document.querySelector('.heatmap');
+var viewValue = "f";
+
 var heatmapInstance = h337.create({
     // only container is required, the rest will be defaults
-    container: document.querySelector('.heatmap')
+    container: container,
+    opacity: 0.7,
+    radius: Math.floor(0.06 * container.offsetWidth)
 });
 
+// Trying to change the size of the heatmap when resizing
+// function onWindowResize(){
+//     container = document.querySelector('.heatmap');
+//     var newRadius = Math.floor(0.1 * container.offsetWidth);
+//     console.log(newRadius);
+//     heatmapInstance.configure({
+//         container: container,
+//         opacity : 0.7,
+//         radius : newRadius
+//     });
+// }
+//
+// window.addEventListener('resize', onWindowResize);
+
+// On select change
+function selectChange() {
+    viewValue = document.getElementById("viewSelector").value;
+    
+    if (viewValue == "f") {
+        document.getElementById("legsimg").src="./images/legsf.jpg";
+    }
+    else if (viewValue == "b") {
+        document.getElementById("legsimg").src="./images/legsb.jpg";
+    }
+}
+
+// Start recursion loop to fetch data from api
 getData();

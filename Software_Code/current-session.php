@@ -22,8 +22,9 @@ include('header.php');
     }
 
     .animation-wrapper {
-      position: relative;
-      align-items: center;
+      /* position: relative;
+      align-items: center; */
+      text-align: center;
     }
 
     /* animation player css */
@@ -101,14 +102,13 @@ include('header.php');
     <div class="content-box container p-5 mt-5 border">
 
         <h3>Current Session</h3>
-        <select class="form-select form-select mb-3 w-25" aria-label=".form-select-lg example">
-          <option selected>Select view</option>
-          <option value="1">Front</option>
-          <option value="2">Back</option>
+        <select class="form-select form-select mb-3 w-25" aria-label=".form-select-lg example" onchange="selectChange()" id="viewSelector">
+          <option selected value="f">Front</option>
+          <option value="b">Back</option>
         </select>
-        <button type="button" class="btn button-orange">
+        <!-- <button type="button" class="btn button-orange">
           START
-        </button>
+        </button> -->
         <!--
         <div id="inputs" class="clearfix">
             <input class="" type="file" id="files" name="files[]" multiple />
@@ -116,9 +116,9 @@ include('header.php');
       -->
         <!--if sensor selected - show slider -->
 
-        <div class="animation-wrapper d-flex justify-content-center">
+        <div class="animation-wrapper">
             <div class="heatmap">
-                <img src="images/body.png" alt="Body">
+            <img src="images/legsf.jpg" alt="Body" id="legsimg" style="width: 50%;height: auto;">
             </div>
         </div>
         <div class="d-flex justify-content-end">

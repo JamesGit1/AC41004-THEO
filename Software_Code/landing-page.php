@@ -26,7 +26,7 @@ include('header.php');
             echo '<div class="col-md">
             <i class="fas fa-chart-line fa-7x"></i>
             <br></br>
-            <a href="track-progress.php"><button class="btn btn-outline-dark w-50">Progress</button></a>
+            <a href="progress-overview.php"><button class="btn btn-outline-dark w-50">Progress</button></a>
           </div>';
           } ?>
 
