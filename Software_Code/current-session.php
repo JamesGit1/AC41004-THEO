@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include('header.php');
 ?>
@@ -98,28 +98,28 @@ include('header.php');
 
 <body class="background">
     <div class="content-box container p-5 mt-5 border">
-        <h3>Track Progress</h3>
+        <h3>Current Session</h3>
         <select class="form-select form-select mb-3 w-25" aria-label=".form-select-lg example">
-          <option selected>Select sensor</option>
-          <option value="1">Sensor 1</option>
-          <option value="2">Sensor 2</option>
-          <option value="3">Sensor 3</option>
-          <option value="4">Sensor 4</option>
+          <option selected>Select view</option>
+          <option value="1">Front</option>
+          <option value="2">Back</option>
         </select>
-        <div class="input-group w-50 clearfix" id="inputs">
-          <input type="file" class="form-control" id="files"  name="files[]" multiple>
-        </div>
+        <button type="button" class="btn button-orange">
+          START
+        </button>
         <!--
         <div id="inputs" class="clearfix">
             <input class="" type="file" id="files" name="files[]" multiple />
         </div>
       -->
         <!--if sensor selected - show slider -->
-        <div class="animation-wrapper">
+        <div class="animation-wrapper d-flex justify-content-center">
             <div class="heatmap">
                 <img src="images/body.png" alt="Body">
             </div>
-            <div class="timeline-wrapper"></div>
+        </div>
+        <div class="d-flex justify-content-end">
+            <a href="review-session.php"><button class="btn button-orange">Post Analysis</button></a>
         </div>
     </div>
     <p id="timestamp"></p>
