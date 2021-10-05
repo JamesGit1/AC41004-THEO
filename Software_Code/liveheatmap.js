@@ -29,7 +29,7 @@ const getData = () => {
             return response.json(); // Return another promise to extract data from response
         })
         .then(responseData => { // Resolve promise from data
-            //console.log(responseData);
+            console.log(responseData);
             loadHeatmap(responseData);
             delay(400).then(getData()); // Don't want to make too many uneccasary calls to api so put a little delay
         });
@@ -43,13 +43,14 @@ function loadHeatmap(dataObj) {
     var point = {
         x: 450,
         y: 470,
-        value: dataObj.sensor1.value
+        value: 1000
     };
     points.push(point);
+
     var point = {
         x: 790,
         y: 470,
-        value: dataObj.sensor2.value
+        value: 1000
     };
     points.push(point);
 

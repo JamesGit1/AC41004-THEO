@@ -118,7 +118,7 @@ include('header.php');
 
         <div class="animation-wrapper d-flex justify-content-center">
             <div class="heatmap">
-                <img src="images/body.png" alt="Body">
+            <img src="images/updatedlegs.jpg" alt="Body">
             </div>
         </div>
         <div class="d-flex justify-content-end">
