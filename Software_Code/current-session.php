@@ -102,14 +102,14 @@ include('header.php');
   <div class="content-box container p-5 mt-5 border">
 
     <h3>Current Session</h3>
-    <div class="row">
-      <div class="col-md">
-        <select class="form-select form-select mb-3 w-75" aria-label=".form-select-lg example" onchange="selectChange()" id="viewSelector">
-          <option selected value="f">Front</option>
-          <option value="b">Back</option>
-        </select>
+    <div class="container">
+      <div class="row">
+          <select class="form-select form-select mb-3 mt-3" aria-label=".form-select-lg example" onchange="selectChange()" id="viewSelector">
+            <option selected value="f">Front</option>
+            <option value="b">Back</option>
+          </select>
       </div>
-      <div class="col-md">
+      <div class="row">
         <table id="dataTable" class="table">
           <thead>
             <tr>
@@ -126,8 +126,8 @@ include('header.php');
             </tr>
           </tbody>
         </table>
-      </div>
     </div>
+  </div>
     <!-- <button type="button" class="btn button-orange">
           START
         </button> -->
@@ -140,11 +140,11 @@ include('header.php');
 
     <div class="animation-wrapper">
       <div class="heatmap">
-        <img src="images/legsfcolored.png" alt="Body" id="legsimg" style="width: 30%;height: auto;">
+        <img src="images/legsfcolored.png" alt="Body" id="legsImage">
       </div>
     </div>
-    <div class="d-flex justify-content-end">
-      <a href="review-session.php"><button class="btn button-orange">Post Analysis</button></a>
+    <div class="d-flex" id="postAnalysisButton">
+      <a href="review-session.php"><button class="btn button-orange" >Post Analysis <i class="fas fa-arrow-right"></i> </button></a>
     </div>
   </div>
   <p id="timestamp"></p>

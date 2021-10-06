@@ -43,3 +43,42 @@ h3 {
 .background-plain {
   background-color: #90cfd4;
 }
+
+#dataTable {
+  width: 50%;
+}
+
+#viewSelector {
+  width: 25%;
+}
+
+#postAnalysisButton {
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+#legsImage {
+  width: 30%;
+  height: auto;
+}
+
+/*RESPONSIVE DESIGN FOR SMALL SCREENS*/
+@media screen and (max-width: 992px) {
+  .h3 {
+    font-size: 40px !important;
+  }
+
+  #viewSelector {
+    width: 50%;
+  }
+
+  #dataTable {
+    width: 100%;
+  }
+
+  #postAnalysisButton {
+    margin-top: 10px;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
