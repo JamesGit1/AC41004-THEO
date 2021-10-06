@@ -4,6 +4,7 @@ AC41004 - Industrial Team Project Group Number [9]
 Group Members:
 - James Shaw (180005665)
 - Bruce Miller (190017979)
+- Emilija Budryte (180003228)
 - Member X (Matriculation Number)
 
 ## Hints:
