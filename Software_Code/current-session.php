@@ -2,6 +2,7 @@
 session_start();
 include('header.php');
 ?>
+
 <head>
   <style>
     label {
@@ -94,59 +95,81 @@ include('header.php');
     .heatmap-timeline .time-point.active {
       background: black;
     }
-
-    </style>
+  </style>
 </head>
 
 <body class="background">
-    <div class="content-box container p-5 mt-5 border">
+  <div class="content-box container p-5 mt-5 border">
 
-        <h3>Current Session</h3>
-        <select class="form-select form-select mb-3 w-25" aria-label=".form-select-lg example" onchange="selectChange()" id="viewSelector">
+    <h3>Current Session</h3>
+    <div class="row">
+      <div class="col-md">
+        <select class="form-select form-select mb-3 w-75" aria-label=".form-select-lg example" onchange="selectChange()" id="viewSelector">
           <option selected value="f">Front</option>
           <option value="b">Back</option>
         </select>
-        <!-- <button type="button" class="btn button-orange">
+      </div>
+      <div class="col-md">
+        <table id="dataTable" class="table">
+          <thead>
+            <tr>
+              <th scope="col">Time</th>
+              <th scope="col">Left Quad</th>
+              <th scope="col">Right Quad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">00:00:00</th>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- <button type="button" class="btn button-orange">
           START
         </button> -->
-        <!--
+    <!--
         <div id="inputs" class="clearfix">
             <input class="" type="file" id="files" name="files[]" multiple />
         </div>
       -->
-        <!--if sensor selected - show slider -->
+    <!--if sensor selected - show slider -->
 
-        <div class="animation-wrapper">
-            <div class="heatmap">
-            <img src="images/legsf.jpg" alt="Body" id="legsimg" style="width: 50%;height: auto;">
-            </div>
-        </div>
-        <div class="d-flex justify-content-end">
-            <a href="review-session.php"><button class="btn button-orange">Post Analysis</button></a>
-        </div>
+    <div class="animation-wrapper">
+      <div class="heatmap">
+        <img src="images/legsfcolored.png" alt="Body" id="legsimg" style="width: 30%;height: auto;">
+      </div>
     </div>
-    <p id="timestamp"></p>
-    <pre id="arrPrint"></pre>
-    <!-- <div style="position: relative; height: 800px; width: 800px;" class="heatmap">
+    <div class="d-flex justify-content-end">
+      <a href="review-session.php"><button class="btn button-orange">Post Analysis</button></a>
+    </div>
+  </div>
+  <p id="timestamp"></p>
+  <pre id="arrPrint"></pre>
+  <!-- <div style="position: relative; height: 800px; width: 800px;" class="heatmap">
         <img src="img/body.jpg" alt="Body">
     </div> -->
 
-    <!-- Optional JavaScript; choose one of the two! -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script src="https://evanplaice.github.io/jquery-csv/src/jquery.csv.min.js"></script>
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <!-- Optional JavaScript; choose one of the two! -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script src="https://evanplaice.github.io/jquery-csv/src/jquery.csv.min.js"></script>
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-    <script src="./heatmap.min.js"></script>
-    <script src="./liveheatmap.js"></script>
-    <!--  <script src="main.js">
+  <script src="./heatmap.min.js"></script>
+  <script src="./liveheatmap.js"></script>
+  <!--  <script src="main.js">
   </script> -->
 
-    <!-- <script type="text/javascript">
+  <!-- <script type="text/javascript">
         window.addEventListener('load', (event) => {
             var timePoints = document.getElementsByClassName('heatmap-timeline');
             console.log(timePoints);
         });
     </script> -->
 </body>
+
 </html>

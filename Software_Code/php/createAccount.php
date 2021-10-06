@@ -42,10 +42,27 @@ if (isset($_POST['submitAccount'])) {
         $stmt->execute();
         unset($stmt);
 
+        // Do a call to the database to get id
+        $query = "SELECT * FROM account where username = :username";
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(":username", $inputUsername, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $row = $stmt->fetch();
+        $id = $row['id'];
+
+        unset($stmt);
+
+        $_SESSION['loggedIn'] = true;
+        $_SESSION['userID'] = $id;
+        $_SESSION['username'] = $inputusername;
+        $_SESSION['firstname'] = $firstname;
+        $_SESSION['lastname'] = $lastname;
+        $_SESSION['email'] = $email;
+        $_SESSION['role'] = $role;
+
         header("Location: landing-page.php");
       }
     }
   }
 }
-
-?>
