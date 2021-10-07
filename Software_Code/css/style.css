@@ -71,6 +71,25 @@ h3 {
   justify-content: flex-start;
 }
 
+#progressOverviewTitle {
+  margin-bottom: 1%;
+}
+
+#personalInfoBox {
+  width: 25%;
+  padding: 2%;
+}
+
+#feedbackTableHeader {
+  background-color: #f36d21;
+  color: white;
+}
+
+#feedbackBox {
+  margin-top: 2%;
+  margin-bottom: 1%;
+}
+
 /*RESPONSIVE DESIGN FOR SMALL SCREENS*/
 @media screen and (max-width: 992px) {
   .h3 {
@@ -104,7 +123,25 @@ h3 {
   }
 
   .content-box {
-    margin-top: 2%;
+    margin-top: 1%;
     padding: 4%;
+  }
+
+  #progressOverviewTitle {
+    margin-bottom: 3%;
+  }
+
+  #personalInfoBox {
+    width: 100%;
+    padding: 3%;
+  }
+
+  #physiotherapist {
+    max-width: 100px;
+  }
+
+  #feedbackBox {
+    margin-top: 4%;
+    margin-bottom: 2%;
   }
 }
