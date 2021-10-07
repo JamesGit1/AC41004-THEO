@@ -71,9 +71,18 @@ include('./php/progressmanager.php');
         </ul>
       </div>
       <!--Button to edit information -->
-      <button type="button" class="btn text-left" data-toggle="modal" data-target="#editModal">
-        Edit details
-      </button>
+      <?php if ($_SESSION['role'] == "physiotherapist") {
+            } ?>
+          <?php if ($_SESSION['role'] == "athlete") {
+            echo '<button
+            type="button"
+            class="btn text-left"
+            data-toggle="modal"
+            data-target="#editModal"
+          >
+            Edit details
+          </button>';
+          } ?>
     </div>
 
     <div class="container p-0" id="feedbackBox">
