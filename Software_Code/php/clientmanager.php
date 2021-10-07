@@ -53,7 +53,7 @@ if (isset($_POST['addClient'])) {
 }
 
 
-// Logs in and checks user details to log in
+// Check list of clients user has
 $query = "SELECT * FROM clients WHERE physioid = :id";
 $stmt = $pdo->prepare($query);
 $stmt->bindParam(":id", $userId, PDO::PARAM_STR);
