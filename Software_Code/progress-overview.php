@@ -31,6 +31,29 @@ include('./php/progressmanager.php');
                                         }
                                         ?> </li>
         </ul>
+        
+     <?php if ($_SESSION['role'] == "physiotherapist") {
+            } ?>
+          <?php if ($_SESSION['role'] == "athlete") {
+            echo '<button
+            type="button"
+            class="btn text-left"
+            data-toggle="modal"
+            data-target="#editModal"
+          >
+            Edit details
+          </button>';
+          } ?>
+     <!--Button to edit information -->
+     <!-- <button
+       type="button"
+       class="btn text-left"
+       data-toggle="modal"
+       data-target="#editModal"
+     >
+       Edit details
+     </button> -->
+   </div>
       </div>
       <div class="row">
         <ul class="list-inline">
