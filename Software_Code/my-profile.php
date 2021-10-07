@@ -1,7 +1,8 @@
-<?php 
+<?php
 session_start();
 require('php/conn.php');
 include('header.php');
+include('./php/updateDetails.php');
 ?>
 
 <body class="background">
@@ -10,58 +11,44 @@ include('header.php');
       <h2>My Profile</h2>
     </div>
     <!-- Account details -->
-    <div class="row">
-      <div class="col-md-2">
-        <b> Username: </b>
-      </div>
-      <div class="col-md-10">
-        <p><?php echo $_SESSION['username'] ?></p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-2">
-        <b> First name: </b>
-      </div>
-      <div class="col-md-10">
-        <p><?php echo $_SESSION['firstname'] ?></p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-2">
-        <b> Last name: </b>
-      </div>
-      <div class="col-md-10">
-        <p><?php echo $_SESSION['lastname'] ?></p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-2">
-        <b> Email: </b>
-      </div>
-      <div class="col-md-10">
-        <p><?php echo $_SESSION['email'] ?></p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-2">
-        <b> Phone number: </b>
-      </div>
-      <div class="col-md-10">
-        <p>-</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-2">
-        <b> Password: </b>
-      </div>
-      <div class="col-md-10">
-        <p>******</p>
-      </div>
-    </div>
+    <table class="table">
+      <thead id="feedbackTableHeader">
+        <tr>
+          <th scope="col">Detail</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+      <tr>
+        <td scope="col"> Username</td>
+        <td scope="col"> <?php echo $_SESSION['username'] ?></td>
+      </tr>
+      <tr>
+        <td scope="col"> First Name:</td>
+        <td scope="col"> <?php echo $_SESSION['firstname'] ?></td>
+      </tr>
+      <tr>
+        <td scope="col"> Last Name</td>
+        <td scope="col"> <?php echo $_SESSION['lastname'] ?></td>
+      </tr>
+      <tr>
+        <td scope="col"> Email</td>
+        <td scope="col"> <?php echo $_SESSION['email'] ?></td>
+      </tr>
+      <tr>
+        <td scope="col"> Phone</td>
+        <td scope="col"> --- </td>
+      </tr>
+      <tr>
+        <td scope="col"> Password</td>
+        <td scope="col"> ******</td>
+      </tr>
+    </table>
 
     <!--Button to edit information -->
     <button type="button" class="btn button-orange text-left mt-3" data-toggle="modal" data-target="#editModal">
-      Edit details
+      Edit details <i class="fas fa-user-edit"></i>
     </button>
   </div>
 
@@ -78,37 +65,37 @@ include('header.php');
 
         <div class="modal-body p-0">
           <div class="container w-90">
-            <form class="p-3">
+            <form class="p-3" method="post">
               <div class="form-group">
                 <label>Username: </label>
-                <input type="text" class="form-control" placeholder="Username" value="<?php echo $_SESSION['username']; ?>" required />
+                <input type="text" name="inputusername" class="form-control" placeholder="Username" value="<?php echo $_SESSION['username']; ?>" required />
               </div>
               <div class="form-group">
                 <label>First Name: </label>
-                <input type="text" class="form-control" value="<?php echo $_SESSION['firstname']; ?>" placeholder="First Name" required />
+                <input type="text" name="inputfirstname" class="form-control" value="<?php echo $_SESSION['firstname']; ?>" placeholder="First Name" required />
               </div>
               <div class="form-group">
                 <label>Last Name: </label>
-                <input type="text" class="form-control" value="<?php echo $_SESSION['lastname']; ?>" placeholder="Last Name" required />
+                <input type="text" name="inputlastname" class="form-control" value="<?php echo $_SESSION['lastname']; ?>" placeholder="Last Name" required />
               </div>
               <div class="form-group">
                 <label>Email: </label>
-                <input type="email" class="form-control" value="<?php echo $_SESSION['email']; ?>" placeholder="email@gmail.com" required />
+                <input type="email" name="inputemail" class="form-control" value="<?php echo $_SESSION['email']; ?>" placeholder="email@gmail.com" required />
               </div>
               <div class="form-group">
                 <label>Phone Number: </label>
-                <input type="text" class="form-control" placeholder="---" disabled />
+                <input type="text" name="inputphone" class="form-control" placeholder="---" disabled />
               </div>
               <div class="form-group">
-                <label>Password: </label>
-                <input type="password" class="form-control" placeholder="******" required />
+                <label>New Password: </label>
+                <input type="password" name="inputpassword1" class="form-control" placeholder="******" required />
               </div>
               <div class="form-group">
                 <label>Confirm Password: </label>
-                <input type="password" class="form-control" placeholder="******" required />
+                <input type="password" name="inputpassword2" class="form-control" placeholder="******" required />
               </div>
               <div class="container mt-4 p-0 text-left">
-                <button class="btn" type="submit">Save changes</button>
+                <button class="btn" type="submit" name="updateDetails">Save changes</button>
                 <button type="button" class="btn" data-dismiss="modal">
                   Cancel
                 </button>
