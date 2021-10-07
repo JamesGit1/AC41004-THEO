@@ -44,15 +44,28 @@ include('header.php');
          <li class="list-inline-item"> N/A </li>
        </ul>
      </div>
+
+     <?php if ($_SESSION['role'] == "physiotherapist") {
+            } ?>
+          <?php if ($_SESSION['role'] == "athlete") {
+            echo '<button
+            type="button"
+            class="btn text-left"
+            data-toggle="modal"
+            data-target="#editModal"
+          >
+            Edit details
+          </button>';
+          } ?>
      <!--Button to edit information -->
-     <button
+     <!-- <button
        type="button"
        class="btn text-left"
        data-toggle="modal"
        data-target="#editModal"
      >
        Edit details
-     </button>
+     </button> -->
    </div>
 
   <div class="container p-0" id="feedbackBox">
