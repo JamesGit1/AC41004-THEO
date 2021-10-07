@@ -22,16 +22,19 @@ include('header.php');
     }
 
     .animation-wrapper {
-      position: relative;
-      align-items: center;
+      /* position: relative;
+      align-items: center; */
+      text-align: center;
     }
 
     /* animation player css */
     .timeline-wrapper {
-      position: absolute;
+      /* position: absolute;
       top: 10px;
       left: 0px;
-      right: 10px;
+      right: 10px; */
+      margin-top: 10px;
+      margin-bottom: 10px;
       height: 30px;
       background: white;
       transition: 1s ease all;
@@ -97,38 +100,48 @@ include('header.php');
 </head>
 
 <body class="background">
-    <div class="content-box container p-5 mt-5 border">
+    <div class="content-box container border">
+
         <h3>Review Session</h3>
-        <select class="form-select form-select mb-3 w-25" aria-label=".form-select-lg example">
-          <option selected>Select view</option>
-          <option value="1">Front</option>
-          <option value="2">Back</option>
-        </select>
-        <div class="input-group w-50 clearfix" id="inputs">
-          <input type="file" class="form-control" id="files"  name="files[]" multiple>
-        </div>
-        <!--
-        <div id="inputs" class="clearfix">
-            <input class="" type="file" id="files" name="files[]" multiple />
-        </div>
-      -->
-        <!--if sensor selected - show slider -->
-        <div class="animation-wrapper d-flex justify-content-center">
-            <div class="heatmap">
-                <img src="images/body.png" alt="Body">
-            </div>
+          <select class="form-select form-select" aria-label=".form-select example" onchange="selectChange()" id="viewSelector">
+            <option selected value="f">Front</option>
+            <option value="b">Back</option>
+          </select>
+          <div class="input-group" id="inputs">
+            <input type="file" class="form-control" id="files"  name="files[]" multiple>
+          </div>
+          <!--if sensor selected - show slider, table and legs image  -->
             <div class="timeline-wrapper"></div>
+
+              <table id="dataTable" class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Time</th>
+                    <th scope="col">Left Quad</th>
+                    <th scope="col">Right Quad</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">00:00:00</th>
+                    <td>0</td>
+                    <td>0</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            <div class="animation-wrapper">
+                <div class="heatmap">
+                    <img src="images/legsfcolored.png" alt="Legs" id="legsimg">
+                </div>
+            </div>
+
+        <div class="d-flex" id="addFeedbackButton">
+          <button type="button" class="btn button-orange" data-toggle="modal" data-target="#addFeedback">
+            Add Feedback
+            <i class="far fa-comment-alt"></i>
+          </button>
         </div>
-      <div class="d-flex justify-content-start">
-        <button
-          type="button"
-          class="btn button-orange"
-          data-toggle="modal"
-          data-target="#addFeedback"
-        >
-          Add Feedback
-        </button>
-      </div>
     </div>
 
     <div class="modal" id="addFeedback">
@@ -164,9 +177,6 @@ include('header.php');
 
     <p id="timestamp"></p>
     <pre id="arrPrint"></pre>
-    <!-- <div style="position: relative; height: 800px; width: 800px;" class="heatmap">
-        <img src="img/body.jpg" alt="Body">
-    </div> -->
 
     <!-- Optional JavaScript; choose one of the two! -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -193,6 +203,7 @@ include('header.php');
         });
     </script> -->
 
+    <!-- scripts for modal -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

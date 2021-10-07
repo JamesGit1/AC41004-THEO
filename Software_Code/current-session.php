@@ -95,16 +95,21 @@ include('header.php');
     .heatmap-timeline .time-point.active {
       background: black;
     }
+
+    #legsimg {
+      width: 30%;
+      height: auto;
+    }
   </style>
 </head>
 
 <body class="background">
-  <div class="content-box container p-5 mt-5 border">
+  <div class="content-box container border">
 
     <h3>Current Session</h3>
     <div class="container">
       <div class="row">
-          <select class="form-select form-select mb-3 mt-3" aria-label=".form-select-lg example" onchange="selectChange()" id="viewSelector">
+          <select class="form-select form-select" aria-label=".form-select example" onchange="selectChange()" id="viewSelector">
             <option selected value="f">Front</option>
             <option value="b">Back</option>
           </select>
@@ -131,16 +136,10 @@ include('header.php');
     <!-- <button type="button" class="btn button-orange">
           START
         </button> -->
-    <!--
-        <div id="inputs" class="clearfix">
-            <input class="" type="file" id="files" name="files[]" multiple />
-        </div>
-      -->
-    <!--if sensor selected - show slider -->
 
     <div class="animation-wrapper">
       <div class="heatmap">
-        <img src="images/legsfcolored.png" alt="Body" id="legsImage">
+        <img src="images/legsfcolored.png" alt="Legs" id="legsimg">
       </div>
     </div>
     <div class="d-flex" id="postAnalysisButton">
@@ -149,9 +148,6 @@ include('header.php');
   </div>
   <p id="timestamp"></p>
   <pre id="arrPrint"></pre>
-  <!-- <div style="position: relative; height: 800px; width: 800px;" class="heatmap">
-        <img src="img/body.jpg" alt="Body">
-    </div> -->
 
   <!-- Optional JavaScript; choose one of the two! -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
