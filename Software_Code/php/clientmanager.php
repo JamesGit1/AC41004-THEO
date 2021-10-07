@@ -5,6 +5,7 @@ if (isset($_POST['deleteid'])) {
 
     $query = "DELETE FROM clients WHERE `clientid` = $clientToRemove;";
     $stmt = $pdo->prepare($query);
+    $stmt->execute();
     unset($stmt);
 
     $clientusername = $_POST['clientusername'];
