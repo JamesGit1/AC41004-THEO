@@ -1,5 +1,19 @@
 <?php
 $login_err = "";
+if (isset($_POST['deleteid'])) {
+    $clientToRemove = $_POST['deleteid'];
+
+    $query = "DELETE FROM clients WHERE `clientid` = $clientToRemove;";
+    $stmt = $pdo->prepare($query);
+    unset($stmt);
+
+    $clientusername = $_POST['clientusername'];
+    echo '<script language="javascript">';
+    echo 'alert("Removed ' . $clientusername . ' from your client list")';
+    echo '</script>';
+
+    unset($_POST['deleteid']);
+}
 
 if (isset($_POST['addClient'])) {
     $query = "SELECT * FROM account WHERE username = :username";
@@ -45,21 +59,23 @@ $stmt->bindParam(":id", $userId, PDO::PARAM_STR);
 $userId = $_SESSION['userID'];
 $stmt->execute();
 
-$returnedRows = $stmt->fetchAll();
+if ($stmt->rowCount() > 0) {
+    $returnedRows = $stmt->fetchAll();
 
-$query = "SELECT * FROM account WHERE";
-$i = 0;
+    $query = "SELECT * FROM account WHERE";
+    $i = 0;
 
-foreach ($returnedRows as $row) {
-    if ($i == 0) {
-        $query .= " id = " . $row[2];
-    } else {
-        $query .= " OR id = " . $row[2];
+    foreach ($returnedRows as $row) {
+        if ($i == 0) {
+            $query .= " id = " . $row[2];
+        } else {
+            $query .= " OR id = " . $row[2];
+        }
+        $i++;
     }
-    $i++;
+
+    $stmt = $pdo->prepare($query);
+    $stmt->execute();
+
+    $returnedRows = $stmt->fetchAll();
 }
-
-$stmt = $pdo->prepare($query);
-$stmt->execute();
-
-$returnedRows = $stmt->fetchAll();

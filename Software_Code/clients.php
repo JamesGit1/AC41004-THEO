@@ -16,20 +16,28 @@ include('./php/clientmanager.php')
       <!-- add cards of branches https://getbootstrap.com/docs/4.0/components/card/-->
       <div class="row">
         <?php
-        foreach ($returnedRows as $row) {
-          echo '<div class="col-md-4">
-        <div class="card">
-          <i class="mt-5 fas fa-user fa-7x text-center"></i>
-          <div class="card-body">
-            <h5 class="card-title">' . $row['firstname'] . '</h5>
-            <p class="card-text">
-            ' . $row['email'] . '
-            </p>
-            <a href="track-progress.php" class="btn button-orange">Track progress</a>
-            <a href="DELETE" class="btn button-green"> DELETE</a>
-          </div>
-        </div>
-      </div>';
+        if (isset($returnedRows)) {
+          foreach ($returnedRows as $row) {
+            echo '<div class="col-md-4">
+            <div class="card">
+              <i class="mt-5 fas fa-user fa-7x text-center"></i>
+              <div class="card-body">
+                <h5 class="card-title">' . $row['firstname'] . '</h5>
+                <p class="card-text">
+                ' . $row['email'] . '
+                </p>
+                <form method="post">
+                  <a href="progress-overview.php" class="btn button-orange">Track progress</a>
+                  <input type="hidden" name="clientusername" value="' . $row['username'] . '"/>
+                  <input type="hidden" name="deleteid" value="' . $row['id'] . '"/>
+                  <button class="btn btn-danger" type="submit" name="delete">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>';
+          }
         }
         ?>
 
