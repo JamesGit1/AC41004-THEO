@@ -25,7 +25,7 @@ include('./php/clientmanager.php')
                 </p>
                 <form method="post" action="progress-overview.php" style="display: inline;">
                   <input type="hidden" name="currentclientid" value="' . $row['id'] . '"/>
-                  <button class="btn button-orange" name="addClient" type="submit" >Track progress</button>
+                  <button class="btn button-orange" name="addClient" type="submit" >View Progress</button>
                 </form>
 
                 <button class="btn" data-toggle="modal" data-target="#deleteClientModal' . $row['id'] . '">
@@ -42,27 +42,25 @@ include('./php/clientmanager.php')
                 <!-- Pop-up header -->
                 <div class="modal-header">
                   <h4 class="modal-title">Delete Client</h4>
-                  <button type="button" class="close" data-dismiss="modal">
-                    &times;
-                  </button>
+                  <button type="button" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
                 </div>
-  
-                <div class="modal-body p-0">
-                  <div class="container w-90">
+
+                <div class="modal-body">
                     <form class="p-3" method="post">
                       <div class="form-group">
                         <p> <b>Client "' . $row['firstname'] . ' ' . $row['lastname'] . '" will be deleted from your client list.</b> <br> Would you like to proceed? </p>
                       </div>
-                      <div class="container mt-4 p-0 text-left">
-                        <input type="hidden" name="clientusername" value="' . $row['username'] . '"/>
-                        <input type="hidden" name="deleteid" value="' . $row['id'] . '"/>
-                        <button class="btn" name="delete" type="submit" name="addClient">Yes</button>
-                        <button type="button" class="btn" data-dismiss="modal">No</button>
-                      </div>
+
                     </form>
                   </div>
+
+                <div class="modal-footer">
+                  <input type="hidden" name="clientusername" value="' . $row['username'] . '"/>
+                  <input type="hidden" name="deleteid" value="' . $row['id'] . '"/>
+                  <button class="btn button-orange" name="delete" type="submit" name="addClient">Yes</button>
+                  <button type="button" class="btn" data-dismiss="modal">No</button>
                 </div>
-  
+
               </div>
             </div>
           </div>';
@@ -75,7 +73,7 @@ include('./php/clientmanager.php')
             <i class="fas fa-user-plus fa-7x text-center mt-3"></i>
             <div class="card-body d-flex justify-content-center">
               <!--Button to edit information -->
-              <button type="button" class="btn button-orange text-center" data-toggle="modal" data-target="#editModal">
+              <button type="button" class="btn button-orange text-center" data-toggle="modal" data-target="#addClient">
                 Add Client
               </button>
             </div>
@@ -86,15 +84,13 @@ include('./php/clientmanager.php')
     </div>
 
     <!-- Add client modal -->
-    <div class="modal" id="editModal">
+    <div class="modal" id="addClient">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <!-- Pop-up header -->
           <div class="modal-header">
             <h4 class="modal-title">Add Client</h4>
-            <button type="button" class="close" data-dismiss="modal">
-              &times;
-            </button>
+            <button type="button" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
           </div>
 
           <div class="modal-body p-0">
@@ -104,14 +100,13 @@ include('./php/clientmanager.php')
                   <label>Username: </label>
                   <input type="text" name="inputusername" class="form-control" placeholder="Username" value="" required maxlength="45" />
                 </div>
-                <div class="container mt-4 p-0 text-left">
-                  <button class="btn" type="submit" name="addClient">Add Client</button>
-                  <button type="button" class="btn" data-dismiss="modal">
-                    Cancel
-                  </button>
-                </div>
               </form>
             </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+            <button class="btn button-orange" type="submit" name="addClient">Add Client</button>
           </div>
 
         </div>
