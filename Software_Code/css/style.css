@@ -90,6 +90,11 @@ h3 {
   margin-bottom: 1%;
 }
 
+.card {
+  min-width: 300px;
+  /* max-width: 300px; */
+}
+
 /*RESPONSIVE DESIGN FOR SMALL SCREENS*/
 @media screen and (max-width: 992px) {
   .h3 {
