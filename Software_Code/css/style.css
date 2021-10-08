@@ -104,6 +104,13 @@ h3 {
   width: 50%;
 }
 
+#homeItem {
+  min-width: 250px;
+  /* max-width: 250px; */
+  margin: 15px 5px;
+  padding: 15px;
+}
+
 /*RESPONSIVE DESIGN FOR SMALL SCREENS*/
 @media screen and (max-width: 992px) {
   .h3 {
