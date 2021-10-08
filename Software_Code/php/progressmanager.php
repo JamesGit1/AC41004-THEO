@@ -21,6 +21,10 @@ if(isset($_POST['updatePersonal'])){
     echo '</script>';
 }
 
+if(isset($_POST['currentclientid'])){
+    $userId = $_POST['currentclientid']; // If we're looking for a clients details set the userID to the clients instead of the physios
+}
+
 // Get details of this user
 $query = "SELECT * FROM account WHERE id = $userId";
 $stmt = $pdo->prepare($query);

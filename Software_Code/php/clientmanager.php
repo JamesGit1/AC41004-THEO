@@ -12,11 +12,13 @@ if (isset($_POST['deleteid'])) {
     echo '<script language="javascript">';
     echo 'alert("Removed ' . $clientusername . ' from your client list")';
     echo '</script>';
-
-    unset($_POST['deleteid']);
 }
 
-if (isset($_POST['addClient'])) {
+if(isset($_POST['addClient'])){
+    var_dump($_POST['currentclientid']);
+}
+
+if (isset($_POST['inputusername'])) {
     $query = "SELECT * FROM account WHERE username = :username";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":username", $inputUsername, PDO::PARAM_STR);
@@ -24,27 +26,30 @@ if (isset($_POST['addClient'])) {
     $stmt->execute();
 
     $returnedRow = $stmt->fetch();
-    $clientID = (int)$returnedRow[0];
+    if ($returnedRow !== false) {
+        $clientID = (int)$returnedRow[0];
 
-    if (isset($clientID)) {
-        $query = "SELECT * FROM clients WHERE clientid = :clientID";
-        $stmt = $pdo->prepare($query);
-        $stmt->bindParam(":clientID", $clientID);
-        $stmt->execute();
-
-        if ($stmt->rowCount() == 1) {
-            echo '<script language="javascript">';
-            echo 'alert("Username already assigned physiotherapist")';
-            echo '</script>';
-        } else {
-            $query = "INSERT INTO clients (`physioid`, `clientid`) VALUES (:physioid, :clientid);";
+        if (isset($clientID)) {
+            $query = "SELECT * FROM clients WHERE clientid = :clientID";
             $stmt = $pdo->prepare($query);
-            $stmt->bindParam(":physioid", $id);
-            $stmt->bindParam(":clientid", $clientID);
-            $id = (int)$_SESSION['userID'];
+            $stmt->bindParam(":clientID", $clientID);
             $stmt->execute();
+
+            if ($stmt->rowCount() == 1) {
+                echo '<script language="javascript">';
+                echo 'alert("Username already assigned physiotherapist")';
+                echo '</script>';
+            } else {
+                $query = "INSERT INTO clients (`physioid`, `clientid`) VALUES (:physioid, :clientid);";
+                $stmt = $pdo->prepare($query);
+                $stmt->bindParam(":physioid", $id);
+                $stmt->bindParam(":clientid", $clientID);
+                $id = (int)$_SESSION['userID'];
+                $stmt->execute();
+            }
         }
-    } else {
+    }
+    else{
         echo '<script language="javascript">';
         echo 'alert("Username not found")';
         echo '</script>';
