@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="images/logo.png" />
+  <link rel="icon" href="images/Favicon.png">
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <!--Icons-->
@@ -15,29 +15,37 @@
 </head>
 
 <header>
+
   <nav class="navbar navbar-expand-lg p-3">
     <a href="index.php">
       <img src="images/theo-logo2.png" alt="Logo" width="100" />
     </a>
-    <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
-      <ul class="navbar-nav">
-        <?php
-        if (isset($_SESSION['loggedIn'])) {
-          // When user is logged in 
-          if ($_SESSION['loggedIn']) {
-            echo '<a href="./landing-page.php"><button class="btn button-orange">Home</button></a>
-              <a href="./my-profile.php"><button class="btn button-orange">My Profile</button></a>
-              <a href="./php/logoff.php"><button class="btn">Log out</button></a>';
-          } 
-        }
-        else { // When user not logged in
-          echo '<button type="button" class="btn" data-toggle="modal" data-target="#loginModal">
-            Log In
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="p-4">
+        <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
           </button>
-          <a href="./create-account.php"><button class="btn">Sign Up</button></a>';
-        }
-        ?>
-      </ul>
+          <ul class="navbar-nav">
+            <?php
+            if (isset($_SESSION['loggedIn'])) {
+              // When user is logged in
+              if ($_SESSION['loggedIn']) {
+                echo '<a href="./landing-page.php"><button class="btn button-orange">Home</button></a>
+                  <a href="./my-profile.php"><button class="btn button-orange">My Profile</button></a>
+                  <a href="./php/logoff.php"><button class="btn">Log out</button></a>';
+              }
+            }
+            else { // When user not logged in
+              echo '<button type="button" class="btn" data-toggle="modal" data-target="#loginModal">
+                Log In
+              </button>
+              <a href="./create-account.php"><button class="btn">Sign Up</button></a>';
+            }
+            ?>
+          </ul>
+        </div>
+      </div>
     </div>
   </nav>
 
