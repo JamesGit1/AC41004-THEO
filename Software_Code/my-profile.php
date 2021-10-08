@@ -6,13 +6,13 @@ include('./php/updateDetails.php');
 ?>
 
 <body class="background">
-  <div class="content-box container w-90 mt-5 p-5 border">
+  <div class="content-box container border">
     <div class="container w-90 mb-4 p-0">
-      <h2>My Profile</h2>
+      <h3>My Profile</h3>
     </div>
     <!-- Account details -->
-    <table class="table">
-      <thead id="feedbackTableHeader">
+    <table class="table table-hover" id="myProfileTable">
+      <thead id="myProfileTableHeader">
         <tr>
           <th scope="col">Detail</th>
           <th scope="col">Value</th>
@@ -25,7 +25,7 @@ include('./php/updateDetails.php');
         <td scope="col"> <?php echo $_SESSION['username'] ?></td>
       </tr>
       <tr>
-        <td scope="col"> First Name:</td>
+        <td scope="col"> First Name</td>
         <td scope="col"> <?php echo $_SESSION['firstname'] ?></td>
       </tr>
       <tr>
@@ -37,7 +37,7 @@ include('./php/updateDetails.php');
         <td scope="col"> <?php echo $_SESSION['email'] ?></td>
       </tr>
       <tr>
-        <td scope="col"> Phone</td>
+        <td scope="col"> Phone number</td>
         <td scope="col"> --- </td>
       </tr>
       <tr>
@@ -53,7 +53,7 @@ include('./php/updateDetails.php');
   </div>
 
   <div class="modal" id="editModal">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <!-- Pop-up header -->
         <div class="modal-header">

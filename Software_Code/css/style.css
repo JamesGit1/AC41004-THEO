@@ -95,6 +95,15 @@ h3 {
   /* max-width: 300px; */
 }
 
+#myProfileTableHeader {
+  background-color: #0297a2;
+  color: white;
+}
+
+#myProfileTable {
+  width: 50%;
+}
+
 /*RESPONSIVE DESIGN FOR SMALL SCREENS*/
 @media screen and (max-width: 992px) {
   .h3 {
@@ -148,5 +157,9 @@ h3 {
   #feedbackBox {
     margin-top: 4%;
     margin-bottom: 2%;
+  }
+
+  #myProfileTable {
+    width: 100%;
   }
 }
