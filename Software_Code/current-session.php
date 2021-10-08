@@ -102,7 +102,9 @@ include('./php/commentSubmitter.php');
 
 <body class="background">
   <div class="content-box container border">
-
+    <div>
+      <a href="progress-overview.php"><button class="btn mb-3"><i class="fas fa-arrow-left"></i> Client progress</button></a>
+    </div>
     <h3>Current Session</h3>
     <div class="container">
       <div class="row">
@@ -141,15 +143,13 @@ include('./php/commentSubmitter.php');
     </div>
     <div class="d-flex" id="postAnalysisButton">
       <a href="review-session.php"><button class="btn button-orange">Post Analysis <i class="fas fa-arrow-right"></i> </button></a>
-    </div>
     <?php if ($_SESSION['role'] == "physiotherapist") {
-      echo '<div class="d-flex" id="addFeedbackButton">
-              <button type="button" class="btn button-orange" data-toggle="modal" data-target="#addFeedback">
-                Add Feedback
-                <i class="far fa-comment-alt"></i>
-              </button>
-            </div>';
+      echo '<button type="button" class="btn button-orange" data-toggle="modal" data-target="#addFeedback">
+              Add Feedback
+              <i class="far fa-comment-alt"></i>
+            </button>';
     } ?>
+    </div>
   </div>
   <p id="timestamp"></p>
   <pre id="arrPrint"></pre>
@@ -160,9 +160,7 @@ include('./php/commentSubmitter.php');
 
         <div class="modal-header">
           <h4 class="modal-title">Add feedback</h4>
-          <button type="button" class="close" data-dismiss="modal">
-            &times;
-          </button>
+          <button type="button" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
         </div>
 
         <div class="modal-body p-0">
@@ -174,13 +172,18 @@ include('./php/commentSubmitter.php');
                 <small id="timeHelp" class="form-text text-muted">Current timestamp from sensors</small>
               </div> -->
               <div class="form-group">
-                <label for="textArea">Comment</label>
+                <!-- <label for="textArea">Comment</label> -->
                 <textarea required class="form-control mb-2" id="textArea" name="inputComment" rows="4" placeholder="Leave comment here.."></textarea>
               </div>
-              <button type="submit" name="commentSubmit" class="btn btn-primary mb-2">Save Feedback</button>
             </form>
           </div>
         </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+          <button type="submit" name="commentSubmit" class="btn button-orange">Save Feedback</button>
+        </div>
+
       </div>
     </div>
   </div>

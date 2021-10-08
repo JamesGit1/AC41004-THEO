@@ -101,7 +101,9 @@ include('header.php');
 
 <body class="background">
     <div class="content-box container border">
-
+      <div>
+        <a href="progress-overview.php"><button class="btn mb-3"><i class="fas fa-arrow-left"></i> Client progress</button></a>
+      </div>
         <h3>Review Session</h3>
           <select class="form-select form-select" aria-label=".form-select example" onchange="selectChange()" id="viewSelector">
             <option selected value="f">Front</option>
@@ -150,27 +152,30 @@ include('header.php');
 
             <div class="modal-header">
               <h4 class="modal-title">Add feedback</h4>
-              <button type="button" class="close" data-dismiss="modal">
-                &times;
-              </button>
+                <button type="button" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
             </div>
 
             <div class="modal-body p-0">
               <div class="container w-90">
-                <form>
+                <form method="post">
+                  <!-- <div class="form-group">
+                    <label for="currentTimeInput">Time</label>
+                    <input type="text" class="form-control" id="currentTimeInput" aria-describedby="timeHelp" >
+                    <small id="timeHelp" class="form-text text-muted">Current timestamp from sensors</small>
+                  </div> -->
                   <div class="form-group">
-                      <label for="exampleFormControlTextarea1">Example textarea</label>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Leave comment here.."></textarea>
-                  </div>
-                  <div class="container mt-3 mb-4 p-0 text-left">
-                    <button class="btn" type="submit">Save feedback</button>
-                    <button type="button" class="btn" data-dismiss="modal">
-                      Cancel
-                    </button>
+                    <!-- <label for="textArea">Comment</label> -->
+                    <textarea required class="form-control mb-2" id="textArea" name="inputComment" rows="4" placeholder="Leave comment here.."></textarea>
                   </div>
                 </form>
               </div>
             </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+              <button type="submit" name="commentSubmit" class="btn button-orange">Save Feedback</button>
+            </div>
+
         </div>
       </div>
     </div>

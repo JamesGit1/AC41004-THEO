@@ -48,7 +48,7 @@ include('./php/updateDetails.php');
 
     <!--Button to edit information -->
     <button type="button" class="btn button-orange text-left mt-3" data-toggle="modal" data-target="#editModal">
-      Edit details <i class="fas fa-user-edit"></i>
+      Edit Details <i class="fas fa-user-edit"></i>
     </button>
   </div>
 
@@ -58,9 +58,7 @@ include('./php/updateDetails.php');
         <!-- Pop-up header -->
         <div class="modal-header">
           <h4 class="modal-title">Edit Account Details</h4>
-          <button type="button" class="close" data-dismiss="modal">
-            &times;
-          </button>
+          <button type="button" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
         </div>
 
         <div class="modal-body p-0">
@@ -94,15 +92,15 @@ include('./php/updateDetails.php');
                 <label>Confirm Password: </label>
                 <input type="password" name="inputpassword2" class="form-control" placeholder="******" required />
               </div>
-              <div class="container mt-4 p-0 text-left">
-                <button class="btn" type="submit" name="updateDetails">Save changes</button>
-                <button type="button" class="btn" data-dismiss="modal">
-                  Cancel
-                </button>
-              </div>
             </form>
           </div>
         </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+          <button class="btn button-orange" type="submit" name="updateDetails">Save changes</button>
+        </div>
+
       </div>
     </div>
   </div>

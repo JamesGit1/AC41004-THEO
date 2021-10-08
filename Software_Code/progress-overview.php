@@ -10,7 +10,7 @@ include('./php/progressmanager.php');
     <div class="d-flex justify-content-between" id="progressOverviewTitle">
         <?php if ($_SESSION['role'] == "physiotherapist") {
           echo '<div>
-                  <h3> Client Details - ' . $userdetails["firstname"] . ' ' . $userdetails["lastname"] . ' </h3> 
+                  <h3> Client Details - ' . $userdetails["firstname"] . ' ' . $userdetails["lastname"] . ' </h3>
                 </div>
                 <div>
                   <form method="post" action="current-session.php">
@@ -23,7 +23,7 @@ include('./php/progressmanager.php');
         } ?>
         <?php if ($_SESSION['role'] == "athlete") {
           echo '<div>
-                  <h3> My Details - ' . $userdetails["firstname"] . ' ' . $userdetails["lastname"] . ' </h3> 
+                  <h3> My Details - ' . $userdetails["firstname"] . ' ' . $userdetails["lastname"] . ' </h3>
                 </div>
                 <div>
                   <a href="current-session.php">
@@ -97,7 +97,7 @@ include('./php/progressmanager.php');
             data-toggle="modal"
             data-target="#editModal"
           >
-            Edit details
+            Edit Details <i class="fas fa-user-edit"></i>
           </button>';
       } ?>
     </div>
@@ -105,12 +105,14 @@ include('./php/progressmanager.php');
     <div class="container p-0" id="feedbackBox">
       <h3>History of feedback</h3>
     </div>
+    <a href="review-session.php"><button class="btn mb-3" name="reviewSession" type="submit" >Review latest session <i class="fas fa-history"></i> </button> </a>
+
     <!--if no records have been added yet -->
     <?php if (!$returnedRows) echo "<p>No comments on record.</p>";
     else { ?>
       <!--if there is at least one record -->
       <div class="table-responsive">
-        <table class="table">
+        <table class="table table-hover">
           <thead id="feedbackTableHeader">
             <tr>
               <th scope="col">Date</th>
@@ -141,12 +143,10 @@ include('./php/progressmanager.php');
         <!-- Pop-up header -->
         <div class="modal-header">
           <h4 class="modal-title">Edit Details</h4>
-          <button type="button" class="close" data-dismiss="modal">
-            &times;
-          </button>
+          <button type="button" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
         </div>
 
-        <div class="modal-body p-0">
+        <div class="modal-body">
           <div class="container w-90">
             <form class="p-3" method="post">
               <div class="form-group">
@@ -161,14 +161,13 @@ include('./php/progressmanager.php');
                 <label><b>Age (years):</b></label>
                 <input type="text" class="form-control" value="<?php if (isset($userdetails['age'])) echo $userdetails['age']; ?>" name="inputAge" required maxlength="3" />
               </div>
-              <div class="container mt-4 p-0 text-left">
-                <button class="btn" type="submit" name="updatePersonal">Save changes</button>
-                <button type="button" class="btn" data-dismiss="modal">
-                  Cancel
-                </button>
-              </div>
             </form>
           </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+          <button class="btn button-orange" type="submit" name="updatePersonal">Save changes</button>
         </div>
       </div>
     </div>
