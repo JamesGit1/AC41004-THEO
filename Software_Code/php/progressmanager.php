@@ -2,10 +2,6 @@
 // Get id of user for session
 $userId = $_SESSION['userID'];
 
-if(isset($_POST['currentclientid'])){
-    var_dump($_POST['currentclientid']);
-}
-
 // If we updating details
 if(isset($_POST['updatePersonal'])){
     $query = "UPDATE account SET `weight` = :weight, `height` = :height, `age` = :age WHERE `id` = $userId;";
@@ -23,6 +19,10 @@ if(isset($_POST['updatePersonal'])){
     echo '<script language="javascript">';
     echo 'alert("Details updated :)")';
     echo '</script>';
+}
+
+if(isset($_POST['currentclientid'])){
+    $userId = $_POST['currentclientid']; // If we're looking for a clients details set the userID to the clients instead of the physios
 }
 
 // Get details of this user

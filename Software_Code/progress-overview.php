@@ -8,13 +8,12 @@ include('./php/progressmanager.php');
 <body class="background">
   <div class="content-box container border">
     <div class="d-flex justify-content-between" id="progressOverviewTitle">
-      <div>
-        <!-- FIX THISHISHI -->
-        <h3><?php echo $userdetails['firstname'] . " " . $userdetails['lastname']; ?></h3> 
-      </div>
-      <div>
         <?php if ($_SESSION['role'] == "physiotherapist") {
-          echo '<a href="clients.php">
+          echo '<div>
+                  <h3> Client Details - ' . $userdetails["firstname"] . ' ' . $userdetails["lastname"] . ' </h3> 
+                </div>
+                <div>
+                  <a href="clients.php">
                   <button type="button" class="btn button-orange text-left">
                     << Clients
                     <i class="fas fa-user-friends"></i>
@@ -22,7 +21,11 @@ include('./php/progressmanager.php');
                 </a>';
         } ?>
         <?php if ($_SESSION['role'] == "athlete") {
-          echo '<a href="current-session.php">
+          echo '<div>
+                  <h3> echo My Details - ' . $userdetails["firstname"] . ' ' . $userdetails["lastname"] . ' </h3> 
+                </div>
+                <div>
+                  <a href="current-session.php">
                   <button type="button" class="btn button-orange text-left">
                     Start New Session
                     <i class="fas fa-running"></i>
