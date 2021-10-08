@@ -2,6 +2,10 @@
 // Get id of user for session
 $userId = $_SESSION['userID'];
 
+if(isset($_POST['currentclientid'])){
+    var_dump($_POST['currentclientid']);
+}
+
 // If we updating details
 if(isset($_POST['updatePersonal'])){
     $query = "UPDATE account SET `weight` = :weight, `height` = :height, `age` = :age WHERE `id` = $userId;";
