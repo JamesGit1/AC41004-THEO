@@ -1,15 +1,12 @@
 <?php
 session_start();
 include('header.php');
+include('./php/conn.php');
+include('./php/commentSubmitter.php');
 ?>
 
 <head>
   <style>
-    label {
-      font: white;
-      color: white;
-    }
-
     #share {
       display: none;
       float: right;
@@ -109,10 +106,10 @@ include('header.php');
     <h3>Current Session</h3>
     <div class="container">
       <div class="row">
-          <select class="form-select form-select" aria-label=".form-select example" onchange="selectChange()" id="viewSelector">
-            <option selected value="f">Front</option>
-            <option value="b">Back</option>
-          </select>
+        <select class="form-select form-select" aria-label=".form-select example" onchange="selectChange()" id="viewSelector">
+          <option selected value="f">Front</option>
+          <option value="b">Back</option>
+        </select>
       </div>
       <div class="row">
         <table id="dataTable" class="table">
@@ -131,8 +128,8 @@ include('header.php');
             </tr>
           </tbody>
         </table>
+      </div>
     </div>
-  </div>
     <!-- <button type="button" class="btn button-orange">
           START
         </button> -->
@@ -143,11 +140,50 @@ include('header.php');
       </div>
     </div>
     <div class="d-flex" id="postAnalysisButton">
-      <a href="review-session.php"><button class="btn button-orange" >Post Analysis <i class="fas fa-arrow-right"></i> </button></a>
+      <a href="review-session.php"><button class="btn button-orange">Post Analysis <i class="fas fa-arrow-right"></i> </button></a>
     </div>
+    <?php if ($_SESSION['role'] == "physiotherapist") {
+      echo '<div class="d-flex" id="addFeedbackButton">
+              <button type="button" class="btn button-orange" data-toggle="modal" data-target="#addFeedback">
+                Add Feedback
+                <i class="far fa-comment-alt"></i>
+              </button>
+            </div>';
+    } ?>
   </div>
   <p id="timestamp"></p>
   <pre id="arrPrint"></pre>
+
+  <div class="modal" id="addFeedback">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h4 class="modal-title">Add feedback</h4>
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+        </div>
+
+        <div class="modal-body p-0">
+          <div class="container w-90">
+            <form method="post">
+              <!-- <div class="form-group">
+                <label for="currentTimeInput">Time</label>
+                <input type="text" class="form-control" id="currentTimeInput" aria-describedby="timeHelp" >
+                <small id="timeHelp" class="form-text text-muted">Current timestamp from sensors</small>
+              </div> -->
+              <div class="form-group">
+                <label for="textArea">Comment</label>
+                <textarea required class="form-control mb-2" id="textArea" name="inputComment" rows="4" placeholder="Leave comment here.."></textarea>
+              </div>
+              <button type="submit" name="commentSubmit" class="btn btn-primary mb-2">Save Feedback</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Optional JavaScript; choose one of the two! -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -160,12 +196,10 @@ include('header.php');
   <!--  <script src="main.js">
   </script> -->
 
-  <!-- <script type="text/javascript">
-        window.addEventListener('load', (event) => {
-            var timePoints = document.getElementsByClassName('heatmap-timeline');
-            console.log(timePoints);
-        });
-    </script> -->
+  <!-- scripts for modal -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

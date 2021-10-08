@@ -22,7 +22,11 @@ if(isset($_POST['updatePersonal'])){
 }
 
 if(isset($_POST['currentclientid'])){
+    $_SESSION['currentclientid'] = $_POST['currentclientid']; // set current client to session varible incase we loose post value on page refresh or redirect
     $userId = $_POST['currentclientid']; // If we're looking for a clients details set the userID to the clients instead of the physios
+}
+else if(isset($_SESSION['currentclientid'])){
+    $userId = $_SESSION['currentclientid'];
 }
 
 // Get details of this user
@@ -35,7 +39,7 @@ $userdetails = $stmt->fetch();
 // Get all details on comments from table
 $query = "SELECT * FROM comment WHERE accountid = $userId";
 $stmt = $pdo->prepare($query);
-$stmt->execute();
+$stmt->execute();       
 
 if ($stmt->rowCount() > 0) {
     $returnedRows = $stmt->fetchAll();

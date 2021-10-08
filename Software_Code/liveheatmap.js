@@ -31,7 +31,8 @@ const getData = () => {
         .then(responseData => { // Resolve promise from data
             //console.log(responseData);
             timeDateString = responseData.sensor1.time;
-            var time = (timeDateString.substr(0, timeDateString.indexOf('.'))).split('T')[1]; 
+            var time = (timeDateString.substr(0, timeDateString.indexOf('.'))).split('T')[1];
+            //timeInputField.value = time;
             table.rows[1].cells[0].textContent = time;
 
             if (viewValue == "f") {
@@ -213,6 +214,7 @@ function selectChange() {
     }
 }
 
+//var timeInputField = document.getElementById("currentTimeInput");
 var table = document.getElementById("dataTable");
 
 
