@@ -13,16 +13,17 @@ include('./php/progressmanager.php');
                   <h3> Client Details - ' . $userdetails["firstname"] . ' ' . $userdetails["lastname"] . ' </h3> 
                 </div>
                 <div>
-                  <a href="clients.php">
-                  <button type="button" class="btn button-orange text-left">
-                    << Clients
-                    <i class="fas fa-user-friends"></i>
-                  </button>
-                </a>';
+                  <form method="post" action="current-session.php">
+                    <input type="hidden" name="currentclientid" value="' . $userId . '"/>
+                    <button class="btn button-orange" name="addClient" type="submit" >Track Client
+                    <i class="fas fa-chart-line"></i>
+                    </button>
+                  </form>
+                ';
         } ?>
         <?php if ($_SESSION['role'] == "athlete") {
           echo '<div>
-                  <h3> echo My Details - ' . $userdetails["firstname"] . ' ' . $userdetails["lastname"] . ' </h3> 
+                  <h3> My Details - ' . $userdetails["firstname"] . ' ' . $userdetails["lastname"] . ' </h3> 
                 </div>
                 <div>
                   <a href="current-session.php">
