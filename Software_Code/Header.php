@@ -15,30 +15,52 @@
 </head>
 
 <header>
-  <nav class="navbar navbar-expand-lg p-3">
-    <a href="index.php">
-      <img src="images/theo-logo2.png" alt="Logo" width="100" />
-    </a>
-    <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
-      <ul class="navbar-nav">
-        <?php
-        if (isset($_SESSION['loggedIn'])) {
-          // When user is logged in 
-          if ($_SESSION['loggedIn']) {
-            echo '<a href="./landing-page.php"><button class="btn button-orange">Home</button></a>
-              <a href="./my-profile.php"><button class="btn button-orange">My Profile</button></a>
-              <a href="./php/logoff.php"><button class="btn">Log out</button></a>';
-          } 
-        }
-        else { // When user not logged in
-          echo '<button type="button" class="btn" data-toggle="modal" data-target="#loginModal">
-            Log In
-          </button>
-          <a href="./create-account.php"><button class="btn">Sign Up</button></a>';
-        }
-        ?>
-      </ul>
+
+  <nav id="nav" class="navbar navbar-expand-lg">
+    <div class="container">
+      <a  href="index.php">
+        <img src="images/theo-logo2.png" alt="Logo" width="100" />
+      </a>
+     <button class="navbar-toggler btn" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+         <i class="fa fa-bars" aria-hidden="true"></i>
+     </button>
+      <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
+        <ul class="navbar-nav">
+          <!-- <div class="menu d-flex"> -->
+          <?php
+          if (isset($_SESSION['loggedIn'])) {
+            // When user is logged in
+            if ($_SESSION['loggedIn']) {
+              echo '      <li class="nav-item active">
+                              <a class="nav-link logged-in-menu-item" href="./landing-page.php">Home</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link logged-in-menu-item" href="./my-profile.php">My Profile</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link logged-in-menu-item" href="./clients.php">My Clients</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link logged-in-menu-item" href="./progress-overview.php">My Progress</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link logged-in-menu-item" href="./php/logoff.php"><b>Log out</b></a>
+                          </li>';
+            }
+          }
+          else { // When user not logged in
+            echo '
+            <li class="nav-item not-logged-in-menu-item">
+                <button class="btn" data-toggle="modal" data-target="#loginModal">Log In</button>
+            </li>
+            <li class="nav-item not-logged-in-menu-item">
+                <a href="./create-account.php"><button class="btn button-orange">Sign Up</button></a>
+            </li>';
+          }
+          ?>
+        </ul>
     </div>
+  </div>
   </nav>
 
   <!-- Log-in pop-up -->
@@ -48,30 +70,31 @@
         <!-- Pop-up header -->
         <div class="modal-header">
           <h4 class="modal-title container text-center">Log In to Theo Health</h4>
-          <button type="button" class="close" data-dismiss="modal">
-            &times;
-          </button>
+          <button type="button" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
         </div>
-        <div class="modal-body">
-          <!-- Login form -->
-          <form class="text-left" method="post">
-            <div class="form-group">
-              <label> Username: </label>
-              <input type="text" class="form-control" name="inputUsername" placeholder="Username" />
-            </div>
-            <div class="form-group">
-              <label> Password: </label>
-              <input type="password" class="form-control" name="inputPassword" placeholder="Password" />
-            </div>
-            <span class="help-block"><?php if(isset($login_err)) echo $login_err; ?></span>
-            <div class="container p-0">
-              <button class="btn button-orange w-100 mt-4" type="submit" name="loginRequest">
-                Log In
-              </button>
-            </div>
-          </form>
+
+        <div class="modal-body p-0">
+          <div class="container w-90">
+            <form class="text-left" method="post">
+              <div class="form-group">
+                <label> Username: </label>
+                <input type="text" class="form-control" name="inputUsername" placeholder="Username" />
+              </div>
+              <div class="form-group">
+                <label> Password: </label>
+                <input type="password" class="form-control" name="inputPassword" placeholder="Password" />
+              </div>
+              <span class="help-block"><?php if(isset($login_err)) echo $login_err; ?></span>
+              <div class="container p-0">
+                <button class="btn button-orange w-100 mt-4" type="submit" name="loginRequest">
+                  Log In
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-        <div class="container text-center p-0">
+
+        <div class="container text-center p-0 mt-2">
           <p style="color: black">No account?
             <a href="./create-account.php">Create one
           </p></a>
@@ -81,3 +104,10 @@
   </div>
   <!-- End of login pop-up -->
 </header>
+
+<footer>
+  <!-- jQuery then Bootstrap JS for pop-ups -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</footer>
