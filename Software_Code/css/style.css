@@ -1,12 +1,34 @@
 nav {
-  padding-right: 10px;
-  padding-left: 50px;
+  background-color: black;
+}
+
+.logged-in-menu-item:hover {
+  border: 2px solid #f36d21;
+  border-radius: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.logged-in-menu-item {
+  border: 2px solid black;
+  border-radius: 20px;
+  text-decoration: none;
+  color: white;
+  margin-left: 5px;
 }
 
 .btn {
   margin-right: 5px;
   background-color: #0297a2;
   color: white;
+}
+
+.nav-link {
+  padding: 5px;
+}
+
+.index-para-box {
+  max-width: 50%;
 }
 
 .modal-close {
@@ -167,5 +189,29 @@ h3 {
 
   #myProfileTable {
     width: 100%;
+  }
+
+  .navbar-nav {
+    text-align: end;
+  }
+
+  .not-logged-in-menu-item {
+    margin-top: 5px;
+  }
+
+  .logged-in-menu-item:hover {
+    color: #f36d21;
+    border: none;
+    text-decoration: underline;
+  }
+
+  .logged-in-menu-item {
+    border: none;
+    text-decoration: none;
+    color: white;
+  }
+
+  .index-para-box {
+    max-width: 100%;
   }
 }
