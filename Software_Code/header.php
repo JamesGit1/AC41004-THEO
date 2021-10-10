@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,12 +19,12 @@
 
   <nav id="nav" class="navbar navbar-expand-lg">
     <div class="container">
-      <a  href="index.php">
+      <a href="index.php">
         <img src="images/theo-logo2.png" alt="Logo" width="100" />
       </a>
-     <button class="navbar-toggler btn" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-         <i class="fa fa-bars" aria-hidden="true"></i>
-     </button>
+      <button class="navbar-toggler btn" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
       <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
         <ul class="navbar-nav">
           <!-- <div class="menu d-flex"> -->
@@ -31,24 +32,24 @@
           if (isset($_SESSION['loggedIn'])) {
             // When user is logged in
             if ($_SESSION['loggedIn']) {
-              echo '      <li class="nav-item active">
+              echo '<li class="nav-item active">
                               <a class="nav-link logged-in-menu-item" href="./landing-page.php">Home</a>
                           </li>
                           <li class="nav-item">
                               <a class="nav-link logged-in-menu-item" href="./my-profile.php">My Profile</a>
                           </li>
-                          <li class="nav-item">
-                              <a class="nav-link logged-in-menu-item" href="./clients.php">My Clients</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link logged-in-menu-item" href="./progress-overview.php">My Progress</a>
-                          </li>
-                          <li class="nav-item">
+                          ';
+              if ($_SESSION['role'] == "physiotherapist") {
+                echo '<li class="nav-item"><a class="nav-link logged-in-menu-item" href="./clients.php">My Clients</a></li>';
+              }
+              if ($_SESSION['role'] == "athlete") {
+                echo '<li class="nav-item"><a class="nav-link logged-in-menu-item" href="./progress-overview.php">My Progress</a></li>';
+              }
+              echo '<li class="nav-item">
                               <a class="nav-link logged-in-menu-item" href="./php/logoff.php"><b>Log out</b></a>
                           </li>';
             }
-          }
-          else { // When user not logged in
+          } else { // When user not logged in
             echo '
             <li class="nav-item not-logged-in-menu-item">
                 <button class="btn" data-toggle="modal" data-target="#loginModal">Log In</button>
@@ -59,8 +60,8 @@
           }
           ?>
         </ul>
+      </div>
     </div>
-  </div>
   </nav>
 
   <!-- Log-in pop-up -->
@@ -84,7 +85,7 @@
                 <label> Password: </label>
                 <input type="password" class="form-control" name="inputPassword" placeholder="Password" />
               </div>
-              <span class="help-block"><?php if(isset($login_err)) echo $login_err; ?></span>
+              <span class="help-block"><?php if (isset($login_err)) echo $login_err; ?></span>
               <div class="container p-0">
                 <button class="btn button-orange w-100 mt-4" type="submit" name="loginRequest">
                   Log In
