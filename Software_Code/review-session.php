@@ -95,6 +95,8 @@ include('./php/commentSubmitter.php');
       width: 30%;
       height: auto;
     }
+
+
   </style>
 </head>
 <body class="background">
@@ -103,16 +105,21 @@ include('./php/commentSubmitter.php');
       <a href="progress-overview.php"><button class="btn mb-3"><i class="fas fa-arrow-left"></i> Client progress</button></a>
     </div>
       <h3>Review Session</h3>
-        <div class="container">
+        <div class="container p-0">
       <select class="form-select form-select" aria-label=".form-select example" onchange="selectChange()" id="viewSelector">
         <option selected value="1">Sensor 1</option>
         <option value="2">Sensor 2</option>
         <option value="3">Sensor 3</option>
         <option value="4">Sensor 4</option>
       </select>
-    <div id="inputs" class="clearfix">
+
+      <div class="input-group clearfix mb-2" id="inputs">
+        <input type="file" class="form-control" id="files"  name="files[]" multiple>
+      </div>
+
+    <!-- <div id="inputs" class="clearfix">
     <input type="file" id="files" name="files[]" multiple />
-  </div>
+  </div> -->
   <div class="timeline-wrapper"></div>
     <table id="dataTable" class="table">
       <thead>
@@ -139,11 +146,11 @@ include('./php/commentSubmitter.php');
   </div>
 
 <div class="d-flex" id="addFeedbackButton">
-<button type="button" class="btn button-orange" data-toggle="modal" data-target="#addFeedback">
-  Add Feedback
-  <i class="far fa-comment-alt"></i>
-</button>
-</div>
+  <button type="button" class="btn button-orange" data-toggle="modal" data-target="#addFeedback">
+    Add Feedback
+    <i class="far fa-comment-alt"></i>
+  </button>
+  </div>
 </div>
 
 <div class="modal" id="addFeedback">
