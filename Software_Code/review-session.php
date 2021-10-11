@@ -153,7 +153,7 @@ include('./php/commentSubmitter.php');
   </div>
 </div>
 
-<!-- <div class="modal" id="addFeedback">
+<div class="modal" id="addFeedback">
 <div class="modal-dialog modal-dialog-centered">
 <div class="modal-content">
 
@@ -165,18 +165,18 @@ include('./php/commentSubmitter.php');
   <div class="modal-body p-0">
     <div class="container w-90">
       <form method="post">
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="currentTimeInput">Time</label>
           <input type="text" class="form-control" id="currentTimeInput" aria-describedby="timeHelp" >
           <small id="timeHelp" class="form-text text-muted">Current timestamp from sensors</small>
-        </div> 
+        </div> -->
         <div class="form-group">
-          <label for="textArea">Comment</label>
+          <!-- <label for="textArea">Comment</label> -->
           <textarea required class="form-control mb-2" id="textArea" name="inputComment" rows="4" placeholder="Leave comment here.."></textarea>
         </div>
       </form>
     </div>
-  </div> -->
+  </div>
     <!-- Optional JavaScript; choose one of the two! -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
       <script src="http://evanplaice.github.io/jquery-csv/src/jquery.csv.min.js"></script>
