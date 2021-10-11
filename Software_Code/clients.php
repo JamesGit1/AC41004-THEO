@@ -1,133 +1,114 @@
 <?php
 session_start();
 include('header.php');
-
 include('php/conn.php');
 include('./php/clientmanager.php')
-
 ?>
 
 <body class="background">
-  <div class="content-box container p-5 mt-5 border">
-    <div class="row">
-      <div class="container w-90 mt-4 mb-4">
-        <h2>My Clients</h2>
-      </div>
-      <!-- add cards of branches https://getbootstrap.com/docs/4.0/components/card/-->
-      <div class="row">
+  <div class="content-box container border">
+    <h3>My Clients</h3>
+    <div class="container d-flex justify-content-center">
+      <div class="row card-deck">
         <?php
         if (isset($returnedRows)) {
           foreach ($returnedRows as $row) {
-            echo '<div class="col-md-4">
-            <div class="card">
-              <i class="mt-5 fas fa-user fa-7x text-center"></i>
+            echo '<div class="col">
+            <div class="card p-2 mt-2">
+              <i class="fas fa-user fa-7x text-center mt-3"></i>
               <div class="card-body">
                 <h5 class="card-title">' . $row['firstname'] . '</h5>
                 <p class="card-text">
                 ' . $row['email'] . '
                 </p>
-                <form method="post">
-                  <a href="progress-overview.php" class="btn button-orange">Track progress</a>
+                <form method="post" action="progress-overview.php" style="display: inline;">
+                  <input type="hidden" name="currentclientid" value="' . $row['id'] . '"/>
+                  <button class="btn button-orange" name="addClient" type="submit" >View Progress</button>
+                </form>
+
+                <button class="btn" data-toggle="modal" data-target="#deleteClientModal' . $row['id'] . '">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </div>
+            </div>
+          </div>';
+
+            echo '<!-- Delete client modal -->
+          <div class="modal" id="deleteClientModal' . $row['id'] . '">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <!-- Pop-up header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Delete Client</h4>
+                  <button type="button" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
+                </div>
+
+                <div class="modal-body">
+                    <form class="p-3" method="post">
+                      <div class="form-group">
+                        <p> <b>Client "' . $row['firstname'] . ' ' . $row['lastname'] . '" will be deleted from your client list.</b> <br> Would you like to proceed? </p>
+                      </div>
+
+                    </form>
+                  </div>
+
+                <div class="modal-footer">
                   <input type="hidden" name="clientusername" value="' . $row['username'] . '"/>
                   <input type="hidden" name="deleteid" value="' . $row['id'] . '"/>
-                  <button class="btn btn-danger" type="submit" name="delete">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </form>
+                  <button class="btn button-orange" name="delete" type="submit" name="addClient">Yes</button>
+                  <button type="button" class="btn" data-dismiss="modal">No</button>
+                </div>
+
               </div>
             </div>
           </div>';
           }
         }
         ?>
-
-
-        <!-- <div class="col-md-4">
-                    <div class="card">
-                        <i class="mt-5 fas fa-user fa-7x text-center"></i>
-                        <div class="card-body">
-                            <h5 class="card-title">Nick</h5>
-                            <p class="card-text">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima
-                                neque nihil in distinctio error ad tenetur magni nesciunt fugit!
-                                Dolorum voluptates architecto sit vero laudantium animi nihil
-                                rem, non maxime.
-                            </p>
-                            <a href="track-progress.php" class="btn button-orange">Track progress</a>
-                            <a href="DELETE" class="btn button-green"> DELETE</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-
-                        <i class="mt-5 fas fa-user fa-7x text-center"></i>
-                        <div class="card-body">
-                            <h5 class="card-title">Luke</h5>
-                            <p class="card-text">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                Veniam, sed. Dolorum et repudiandae laborum sed a voluptatibus
-                                voluptates nemo officia dolores, hic, explicabo libero veritatis
-                                corporis aspernatur quaerat eveniet id.
-                            </p>
-                            <a href="track-progress.php" class="btn button-orange">Track progress</a>
-                            <a href="DELETE" class="btn button-green"> DELETE</a>
-
-                        </div>
-                    </div>
-                </div> -->
         <!-- NEW CARD FOR ADDING CLIENTS -->
-        <div class="col-md-4">
-          <div class="card">
-            <i class="mt-5 fas fa-user-plus fa-7x text-center"></i>
-            <div class="card-body">
-              <h5 class="card-title"></h5>
+        <div class="col">
+          <div class="card p-2 mt-2">
+            <i class="fas fa-user-plus fa-7x text-center mt-3"></i>
+            <div class="card-body d-flex justify-content-center">
               <!--Button to edit information -->
-              <button type="button" class="btn button-orange text-left mt-3" data-toggle="modal" data-target="#editModal">
+              <button type="button" class="btn button-orange text-center" data-toggle="modal" data-target="#addClient">
                 Add Client
               </button>
             </div>
-
-            <div class="modal" id="editModal">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <!-- Pop-up header -->
-                  <div class="modal-header">
-                    <h4 class="modal-title">Add Client</h4>
-                    <button type="button" class="close" data-dismiss="modal">
-                      &times;
-                    </button>
-                  </div>
-
-                  <div class="modal-body p-0">
-                    <div class="container w-90">
-                      <form class="p-3" method="post">
-                        <div class="form-group">
-                          <label>Username: </label>
-                          <input type="text" name="inputusername" class="form-control" placeholder="Username" value="" required maxlength="45" />
-                        </div>
-                        <div class="container mt-4 p-0 text-left">
-                          <button class="btn" type="submit" name="addClient">Add Client</button>
-                          <button type="button" class="btn" data-dismiss="modal">
-                            Cancel
-                          </button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-
-
-                </div>
-              </div>
-            </div>
-
           </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Add client modal -->
+    <div class="modal" id="addClient">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <!-- Pop-up header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Add Client</h4>
+            <button type="button" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
+          </div>
+
+          <div class="modal-body p-0">
+            <div class="container w-90">
+              <form class="p-3" method="post">
+                <div class="form-group">
+                  <label>Username: </label>
+                  <input type="text" name="inputusername" class="form-control" placeholder="Username" value="" required maxlength="45" />
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+            <button class="btn button-orange" type="submit" name="addClient">Add Client</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
-<footer>
-  <!-- jQuery then Bootstrap JS for pop-ups -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
-  </script>
-  <script src="js/script.js"></script>
-</footer>

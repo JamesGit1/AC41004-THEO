@@ -25,31 +25,23 @@ if (isset($_POST['inputusername'])) {
     if ($returnedRow !== false) {
         $clientID = (int)$returnedRow[0];
 
-        if ($inputUsername == $_SESSION['username'])
-        {
-            echo '<script language="javascript">';
-            echo 'alert("Username belongs to physiotherapist; cannot add")';
-            echo '</script>';
-        } else {
+        if (isset($clientID)) {
+            $query = "SELECT * FROM clients WHERE clientid = :clientID";
+            $stmt = $pdo->prepare($query);
+            $stmt->bindParam(":clientID", $clientID);
+            $stmt->execute();
 
-            if (isset($clientID)) {
-                $query = "SELECT * FROM clients WHERE clientid = :clientID";
+            if ($stmt->rowCount() == 1) {
+                echo '<script language="javascript">';
+                echo 'alert("Username already assigned physiotherapist")';
+                echo '</script>';
+            } else {
+                $query = "INSERT INTO clients (`physioid`, `clientid`) VALUES (:physioid, :clientid);";
                 $stmt = $pdo->prepare($query);
-                $stmt->bindParam(":clientID", $clientID);
+                $stmt->bindParam(":physioid", $id);
+                $stmt->bindParam(":clientid", $clientID);
+                $id = (int)$_SESSION['userID'];
                 $stmt->execute();
-
-                if ($stmt->rowCount() == 1) {
-                    echo '<script language="javascript">';
-                    echo 'alert("Username already assigned physiotherapist")';
-                    echo '</script>';
-                } else {
-                    $query = "INSERT INTO clients (`physioid`, `clientid`) VALUES (:physioid, :clientid);";
-                    $stmt = $pdo->prepare($query);
-                    $stmt->bindParam(":physioid", $id);
-                    $stmt->bindParam(":clientid", $clientID);
-                    $id = (int)$_SESSION['userID'];
-                    $stmt->execute();
-                }
             }
         }
     }
