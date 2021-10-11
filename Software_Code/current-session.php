@@ -143,12 +143,12 @@ include('./php/commentSubmitter.php');
     </div>
     <div class="d-flex" id="postAnalysisButton">
       <a href="review-session.php"><button class="btn button-orange">Post Analysis <i class="fas fa-arrow-right"></i> </button></a>
-    <?php if ($_SESSION['role'] == "physiotherapist") {
-      echo '<button type="button" class="btn button-orange" data-toggle="modal" data-target="#addFeedback">
+      <?php if ($_SESSION['role'] == "physiotherapist") {
+        echo '<button type="button" class="btn button-orange" data-toggle="modal" data-target="#addFeedback">
               Add Feedback
               <i class="far fa-comment-alt"></i>
             </button>';
-    } ?>
+      } ?>
     </div>
   </div>
   <p id="timestamp"></p>
@@ -175,14 +175,15 @@ include('./php/commentSubmitter.php');
                 <!-- <label for="textArea">Comment</label> -->
                 <textarea required class="form-control mb-2" id="textArea" name="inputComment" rows="4" placeholder="Leave comment here.."></textarea>
               </div>
+              <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+                <button type="submit" name="commentSubmit" class="btn button-orange">Save Feedback</button>
+              </div>
             </form>
           </div>
         </div>
 
-        <div class="modal-footer">
-          <button type="button" class="btn" data-dismiss="modal">Cancel</button>
-          <button type="submit" name="commentSubmit" class="btn button-orange">Save Feedback</button>
-        </div>
+
 
       </div>
     </div>
@@ -199,4 +200,5 @@ include('./php/commentSubmitter.php');
   <!--  <script src="main.js">
   </script> -->
 </body>
+
 </html>

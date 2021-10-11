@@ -92,13 +92,12 @@ include('./php/updateDetails.php');
                 <label>Confirm Password: </label>
                 <input type="password" name="inputpassword2" class="form-control" placeholder="******" required />
               </div>
+              <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+                <button class="btn button-orange" type="submit" name="updateDetails">Save changes</button>
+              </div>
             </form>
           </div>
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn" data-dismiss="modal">Cancel</button>
-          <button class="btn button-orange" type="submit" name="updateDetails">Save changes</button>
         </div>
 
       </div>
