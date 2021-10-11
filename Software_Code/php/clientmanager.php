@@ -14,10 +14,6 @@ if (isset($_POST['deleteid'])) {
     echo '</script>';
 }
 
-if(isset($_POST['addClient'])){
-    var_dump($_POST['currentclientid']);
-}
-
 if (isset($_POST['inputusername'])) {
     $query = "SELECT * FROM account WHERE username = :username";
     $stmt = $pdo->prepare($query);
