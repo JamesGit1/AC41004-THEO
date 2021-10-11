@@ -96,7 +96,26 @@ include('./php/commentSubmitter.php');
       height: auto;
     }
 
+    #pieChart {
+      max-width: 340px;
+      max-height: 340px;
+      margin-top: 3%;
+      margin-bottom: 5%;
+    }
 
+    #barChart {
+      max-width: 840px;
+      max-height: 640px;
+      margin-top: 3%;
+      margin-bottom: 5%;
+    }
+
+    #lineChart {
+      max-width: 840px;
+      max-height: 640px;
+      margin-top: 3%;
+      margin-bottom: 5%;
+    }
   </style>
 </head>
 <body class="background">
@@ -104,52 +123,227 @@ include('./php/commentSubmitter.php');
     <div>
       <a href="progress-overview.php"><button class="btn mb-3"><i class="fas fa-arrow-left"></i> Client progress</button></a>
     </div>
-      <h3>Review Session</h3>
-        <div class="container p-0">
-      <select class="form-select form-select" aria-label=".form-select example" onchange="selectChange()" id="viewSelector">
-        <option selected value="1">Sensor 1</option>
-        <option value="2">Sensor 2</option>
-        <option value="3">Sensor 3</option>
-        <option value="4">Sensor 4</option>
-      </select>
+    <h3>Review Session</h3>
+    <div class="container p-0">
 
       <div class="input-group clearfix mb-2" id="inputs">
         <input type="file" class="form-control" id="files"  name="files[]" multiple>
       </div>
 
-    <!-- <div id="inputs" class="clearfix">
-    <input type="file" id="files" name="files[]" multiple />
-  </div> -->
-  <div class="timeline-wrapper"></div>
-    <table id="dataTable" class="table">
-      <thead>
-        <tr>
-          <th scope="col">Time</th>
-          <th scope="col">Sensor Value</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">00:00:00</th>
-          <td>0</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-
-  <div class="animation-wrapper">
-      <div class="heatmap">
-          <img src="images/legsfcolored.png" alt="Legs" id="legsimg">
+      <!-- <div class="timeline-wrapper"></div>
+        <table id="dataTable" class="table">
+          <thead>
+            <tr>
+              <th scope="col">Time</th>
+              <th scope="col">Sensor Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">00:00:00</th>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
-  </div>
+    <div class="animation-wrapper">
+        <div class="heatmap">
+            <img src="images/legsfcolored.png" alt="Legs" id="legsimg">
+        </div>
+    </div> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<div class="d-flex" id="addFeedbackButton">
-  <button type="button" class="btn button-orange" data-toggle="modal" data-target="#addFeedback">
-    Add Feedback
-    <i class="far fa-comment-alt"></i>
-  </button>
+      <!-- Bar char -->
+      <div class="d-flex align-items-center" id="barChart">
+        <canvas id="myChart"></canvas>
+      </div>
+
+      <select class="form-select form-select" aria-label=".form-select example" onchange="selectChange()" id="viewSelector">
+        <option selected value="1">Select sensors...</option>
+        <option value="2">Front Sensors</option>
+        <option value="3">Back Sensors</option>
+      </select>
+
+      <div class="input-group mb-2" id="targetValue">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Target Value</span>
+        </div>
+        <input type="number" class="form-control" aria-label="Target">
+        <div class="input-group-append">
+          <button class="btn" type="button">Apply</button>
+        </div>
+      </div>
+
+      <div class="d-flex" id="pieChart">
+        <canvas id="myPieChart"></canvas>
+        <!-- <canvas id="myPieChart2"></canvas> -->
+      </div>
+
+      <div class="d-flex" id="pieChart">
+        <canvas id="myPieChart2"></canvas>
+      </div>
+
+      <div class="d-flex" id="lineChart">
+        <canvas id="myLineChart"></canvas>
+      </div>
+
+    <script>
+      const data = {
+        labels: ['Sensor 1', 'Sensor 2','Sensor 3', 'Sensor 4'],
+        datasets: [
+          {
+            label: 'Max Value',
+            data: [510, 120, 400, 80],
+            backgroundColor: 'rgb(243,109,33)',
+            stack: 'Stack 0',
+          },
+          {
+            label: 'Min Value',
+            data: [40, 10, 250, 20],
+            backgroundColor: 'rgb(2, 151, 162)',
+            stack: 'Stack 1',
+          },
+        ]
+      };
+
+      const config = {
+        type: 'bar',
+        data: data,
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              text: 'Min/max value comparison',
+              // size: 24,
+            }
+          }
+        }
+      };
+
+      const data2 = {
+        labels: ['Below target', 'Above target'],
+        datasets: [
+          {
+            label: 'Below target',
+            data: [510, 40],
+            backgroundColor: ['rgb(243,109,33)', 'rgb(2, 151, 162)'],
+          },
+        ]
+      };
+
+      const config2 = {
+        type: 'pie',
+        data: data2,
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              text: 'Target Reach - Left Leg'
+            }
+          }
+        }
+      };
+
+      const data3 = {
+        labels: ['Below target', 'Above target'],
+        datasets: [
+          {
+            label: 'Below target',
+            data: [230, 100],
+            backgroundColor: ['rgb(243,109,33)', 'rgb(2, 151, 162)'],
+          },
+        ]
+      };
+
+      const config3 = {
+        type: 'pie',
+        data: data3,
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              text: 'Target Reach - Right Leg'
+            }
+          }
+        }
+      };
+
+      const data4 = {
+      labels: ['10:51', '10:52', '10:52', '10:53', '10:54', '10:55', '10:56', '10:57', '10:58', '10:59', '11:00', '11:01', '11:02'],
+      datasets: [
+        {
+          label: 'Sensor 1',
+          data: [10, 25, 84, 200, 451, 320, 471, 821, 214, 140, 48, 98, 752, 701, 25],
+          borderColor: 'rgb(243,109,33)',
+          backgroundColor: 'rgb(243,109,33)',
+        },
+        {
+          label: 'Sensor 2',
+          data: [714, 521, 653, 698, 745, 546, 223, 353, 21, 41, 60, 20, 63, 687, 74],
+          borderColor: 'rgb(2, 151, 162)',
+          backgroundColor: 'rgb(2, 151, 162)',
+        }
+      ]
+    };
+
+      const config4 = {
+        type: 'line',
+        data: data4,
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              text: 'Line graph'
+            }
+          }
+        },
+      };
+
+      var myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+      );
+
+      var myPieChart = new Chart(
+        document.getElementById('myPieChart'),
+        config2
+      );
+
+      var myAnotherPieChart = new Chart(
+        document.getElementById('myPieChart2'),
+        config3
+      );
+
+      var myLineChart = new Chart(
+        document.getElementById('myLineChart'),
+        config4
+      );
+
+  </script>
+</div>
+
+  <div class="d-flex" id="addFeedbackButton">
+    <button type="button" class="btn button-orange" data-toggle="modal" data-target="#addFeedback">
+      Add Feedback
+      <i class="far fa-comment-alt"></i>
+    </button>
   </div>
 </div>
 
@@ -173,6 +367,10 @@ include('./php/commentSubmitter.php');
         <div class="form-group">
           <!-- <label for="textArea">Comment</label> -->
           <textarea required class="form-control mb-2" id="textArea" name="inputComment" rows="4" placeholder="Leave comment here.."></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+          <button type="submit" name="commentSubmit" class="btn button-orange">Save Feedback</button>
         </div>
       </form>
     </div>
