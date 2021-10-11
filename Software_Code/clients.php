@@ -48,16 +48,14 @@ include('./php/clientmanager.php')
                       <div class="form-group">
                         <p> <b>Client "' . $row['firstname'] . ' ' . $row['lastname'] . '" will be deleted from your client list.</b> <br> Would you like to proceed? </p>
                       </div>
-
+                      <div class="modal-footer">
+                      <input type="hidden" name="clientusername" value="' . $row['username'] . '"/>
+                      <input type="hidden" name="deleteid" value="' . $row['id'] . '"/>
+                      <button class="btn button-orange" name="delete" type="submit" name="addClient">Yes</button>
+                      <button type="button" class="btn" data-dismiss="modal">No</button>
+                    </div>
                     </form>
                   </div>
-
-                <div class="modal-footer">
-                  <input type="hidden" name="clientusername" value="' . $row['username'] . '"/>
-                  <input type="hidden" name="deleteid" value="' . $row['id'] . '"/>
-                  <button class="btn button-orange" name="delete" type="submit" name="addClient">Yes</button>
-                  <button type="button" class="btn" data-dismiss="modal">No</button>
-                </div>
 
               </div>
             </div>
