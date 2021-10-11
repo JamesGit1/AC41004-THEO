@@ -7,14 +7,15 @@ function handleFileSelect(evt) {
       var files = evt.target.files; // FileList object
       var file = files[0];
       parseData(file);
-      $('#list').append(output);
+      //$('#list').append(output);
       }
 
 function parseData(file) {
       var reader = new FileReader();
       reader.readAsText(file);
       reader.onload = function(event){
-        var csv = event.target.result;
+      var csv = event.target.result;
+        //THIS IS MESSY AND STUPID MAKE IT NICER BETH OF TOMORROW - BETH
         const values1 = [];
         const values2 = [];
         const values3 = [];
@@ -27,6 +28,7 @@ function parseData(file) {
         var counter2=0;
         var counter3=0;
         var counter4=0;
+        //add every "cell" from the csv into an array based on which column they are in
         for(var row in data) {
           for(var item in data[row]) {
             if (item==0){
@@ -50,10 +52,19 @@ function parseData(file) {
                 counter4++;
               }
           }}
+        //the first value in each array will be the titles from the csv, lets remove them as uneeded
         values1.splice(0,1);
         values2.splice(0,1);
         values3.splice(0,1);
         values4.splice(0,1);
-
         timestamps.splice(0,1);
+        console.log(values3);
       }}
+
+function getMinimum(values){
+
+}
+
+function getMaximum(values){
+
+}
