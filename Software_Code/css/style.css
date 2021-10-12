@@ -59,6 +59,24 @@ h3 {
   padding: 3%;
 }
 
+/* MY CSS */
+.content-box-myprofile {
+    background-color: rgba(105,105,105, 0.7);
+    border-radius: 25px;
+    margin-top: 3%;
+    padding: 3%;
+}
+
+.table-text {
+    color: white;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    color: orange;
+}
+
+/*DONE*/
+
 .form-group {
   margin-top: 5px;
 }
