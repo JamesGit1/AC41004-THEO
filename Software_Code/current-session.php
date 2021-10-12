@@ -1,8 +1,8 @@
 <?php
 session_start();
 include('header.php');
-include('./php/conn.php');
-include('./php/commentSubmitter.php');
+// include('./php/conn.php');
+// include('./php/commentSubmitter.php');
 ?>
 
 <head>
@@ -108,10 +108,16 @@ include('./php/commentSubmitter.php');
     <h3>Current Session</h3>
     <div class="container">
       <div class="row">
-        <select class="form-select form-select" aria-label=".form-select example" onchange="selectChange()" id="viewSelector">
+        <button class="btn btn-primary" onclick="viewChange()" id="viewSelector">
+          <i class="fas fa-eye"></i>
+        </button>
+        <button class="btn btn-primary" onclick="zoom()" id="viewSelector">
+          <i class="fas fa-search-plus" id="zoomicon"></i>
+        </button>
+        <!-- <select class="form-select form-select" aria-label=".form-select example" onchange="selectChange()" id="viewSelector">
           <option selected value="f">Front</option>
           <option value="b">Back</option>
-        </select>
+        </select> -->
       </div>
       <div class="row">
         <table id="dataTable" class="table">
