@@ -6,6 +6,7 @@ Group Members:
 - Bruce Miller (190017979)
 - Emilija Budryte (180003228)
 - Beth Ogilvy (170006311)
+- Michael Olori (180010627)
 - Member X (Matriculation Number)
 
 ## Hints:
