@@ -47,6 +47,17 @@ if (isset($_POST['inputusername'])) {
                     $stmt->bindParam(":clientid", $clientID);
                     $id = (int)$_SESSION['userID'];
                     $stmt->execute();
+
+                    $code = rand(10001, 99999);
+                    $query2 = "UPDATE account SET code = $code WHERE id = 2";
+                    $stmt2 = $pdo->prepare($query2);
+                    // $stmt2->bindParam(":code", $code);
+                    // $stmt2->bindParam(":username", $_SESSION['username'])
+                    $stmt2->execute();
+
+                    echo '<script language="javascript">';
+                    echo 'alert("Client added. Please share the following code with them: ' . $code . '" )';
+                    echo '</script>';
                 }
             }
         }
