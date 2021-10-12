@@ -6,12 +6,12 @@ include('./php/updateDetails.php');
 ?>
 
 <body class="background">
-  <div class="content-box container border">
+  <div class="content-box-myprofile container">
     <div class="container w-90 mb-4 p-0">
       <h3>My Profile</h3>
     </div>
     <!-- Account details -->
-    <table class="table table-hover" id="myProfileTable">
+    <table class="table table-hover border table-text" id="myProfileTable">
       <thead id="myProfileTableHeader">
         <tr>
           <th scope="col">Detail</th>
