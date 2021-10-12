@@ -26,12 +26,19 @@ include('./php/commentSubmitter.php');
       margin-top: 3%;
       margin-bottom: 5%;
     }
+    #pieChart2 {
+      max-width: 340px;
+      max-height: 340px;
+      margin-top: 3%;
+      margin-bottom: 5%;
+    }
 
     #barChart {
       max-width: 840px;
       max-height: 640px;
       margin-top: 3%;
       margin-bottom: 5%;
+      overflow: hidden;
     }
 
     #lineChart {
@@ -41,6 +48,14 @@ include('./php/commentSubmitter.php');
       margin-bottom: 5%;
     }
   </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="http://evanplaice.github.io/jquery-csv/src/jquery.csv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+      <script src="postAnalysis.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body class="background">
   <div class="content-box container border">
@@ -54,8 +69,6 @@ include('./php/commentSubmitter.php');
         <input type="file" class="form-control" id="files"  name="files[]" multiple>
       </div>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
       <!-- Bar char -->
       <div class="d-flex align-items-center" id="barChart">
@@ -74,7 +87,7 @@ include('./php/commentSubmitter.php');
         </div>
          <input type="text"  placeholder="Enter Target Value" id="targval"/>
         <div class="input-group-append">
-          <button class="btn" type="button">Apply</button>
+          <button class="btn" type="button" onclick="updateView()">Update</button>
         </div>
       </div>
 
@@ -83,7 +96,7 @@ include('./php/commentSubmitter.php');
         <!-- <canvas id="myPieChart2"></canvas> -->
       </div>
 
-      <div class="d-flex" id="pieChart">
+      <div class="d-flex" id="pieChart2">
         <canvas id="myPieChart2"></canvas>
       </div>
 
@@ -128,14 +141,5 @@ include('./php/commentSubmitter.php');
     </div>
   </div>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-      <script src="http://evanplaice.github.io/jquery-csv/src/jquery.csv.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-
-
-    <script src="postAnalysis.js"></script>
 
 </body>
