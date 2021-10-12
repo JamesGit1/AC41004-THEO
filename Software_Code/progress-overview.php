@@ -161,7 +161,7 @@ include('./php/progressmanager.php');
                   <label><b>Age (years):</b></label>
                   <input type="text" class="form-control" value="<?php if (isset($userdetails['age'])) echo $userdetails['age']; ?>" name="inputAge" required maxlength="3" />
                 </div>
-                <div class="modal-footer mt-3">
+                <div class="modal-footer">
                   <button type="button" class="btn" data-dismiss="modal">Cancel</button>
                   <button class="btn button-orange" type="submit" name="updatePersonal">Save changes</button>
                 </div>
