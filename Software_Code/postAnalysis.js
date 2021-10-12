@@ -2,15 +2,41 @@ $(document).ready(function() {
 
         $('#files').bind('change', createAnalysis);
 });
-
+var file = null;
+var values1=[];
+var values2=[];
+var values3=[];
+var values4=[];
+var timestamps=[];
+var max=[];
+var min=[];
 function createAnalysis(evt) {
       var files = evt.target.files; // FileList object
-      var file = files[0];
+     file = files[0];
       parseData(file);}
 
+function updateView(){
+        console.log(myChart);
+        redraw();
+        createGraphs(values1,values2,values3,values4,timestamps,max,min);
+      }
+function redraw(){
+       $("#myChart").remove();// removing previous canvas element
+      $("#barChart").append("<canvas id='myChart'></canvas>");
+      // document.getElementById('barChart').appendChild('div');
+      // document.getElementById('barChart').innerHTML += "<canvas id='myChart'></canvas>";
+       $("#myPieChart").remove();// removing previous canvas element
+       $("#pieChart").append("<canvas id='myPieChart'></canvas>");
+       $("#myPieChart2").remove();// removing previous canvas element
+       $("#pieChart2").append("<canvas id='myPieChart2'></canvas>");
+       $("#myLineChart").remove();// removing previous canvas element
+       $("#lineChart").append("<canvas id='myLineChart'></canvas>");
 
+
+      }
 function percent(partialVal, totalVal) {
       return (100 * partialVal) / totalVal;}
+
 
 
 function overInput(values, inputVal){
@@ -19,27 +45,26 @@ function overInput(values, inputVal){
     if (values[i] >= inputVal){
       over.push(values[i]);}}
     return over;}
-    function selectChange() {
-        viewValue = document.getElementById("viewSelector").value;
 
+function selectChange() {
+        viewValue = document.getElementById("viewSelector").value;
         if (viewValue == "2"  || viewValue =="1") {
-            var view = "front";
-        }
+            var view = "front";}
         else if (viewValue == "3") {
             var view = "back";
-        }
-    }
+        }}
+      //  if (values1 !== null){
+        //  createGraphs(values1,values2,values3,values4,timestamps,max,min);
+        //}
+
+
 function parseData(file) {
       var reader = new FileReader();
       reader.readAsText(file);
       reader.onload = function(event){
       var csv = event.target.result;
         //THIS IS MESSY AND STUPID MAKE IT NICER BETH OF TOMORROW - BETH
-        const values1 = [];
-        const values2 = [];
-        const values3 = [];
-        const values4 = [];
-        const timestamps = [];
+
         var content = $.csv.toArrays(csv);
         var counter1 = 0;
         var countert = 0;
@@ -77,6 +102,12 @@ function parseData(file) {
         values3.splice(0,1);
         values4.splice(0,1);
         timestamps.splice(0,1);
+        for(let i=0; i<timestamps.length;i++){
+          timestamps[i]=timestamps[i].slice(11, 19);
+        }
+
+        //remove before t and after .
+        //or remove
 
 
         //get max and mins in most simple way, improve tomorrow
@@ -89,10 +120,14 @@ function parseData(file) {
         var max4 = Math.max(...values4);
         var min4 = Math.min(...values4);
 
-        var max = [max1,max2,max3,max4];
-        var min = [min1,min2,min3,min4];
+        max = [max1,max2,max3,max4];
+        min = [min1,min2,min3,min4];
+        createGraphs(values1,values2,values3,values4,timestamps,max,min);}}
 
 
+
+
+function createGraphs(values1,values2,values3,values4,timestamps,max,min){
         //value inputted by user but for now is set
         var comparisonValue = document.getElementById('targval').value;
         console.log(comparisonValue);
@@ -116,7 +151,7 @@ function parseData(file) {
 
 
         const data = {
-          labels: ['Sensor 1', 'Sensor 2','Sensor 3', 'Sensor 4'],
+          labels: ['Left Hamstring', 'Right Hamstring','Left Quad', 'Right Quad'],
           datasets: [
             {
               label: 'Max Value',
@@ -243,31 +278,21 @@ function parseData(file) {
               title: {
                 display: true,
                 text: 'Line graph'
-              }
-            }
-          },
-        };
+              }}},};
 
         var myChart = new Chart(
           document.getElementById('myChart'),
           config
         );
-
         var myPieChart = new Chart(
           document.getElementById('myPieChart'),
           config2
         );
-
         var myAnotherPieChart = new Chart(
           document.getElementById('myPieChart2'),
           config3
         );
-
         var myLineChart = new Chart(
           document.getElementById('myLineChart'),
           config4
-        );
-
-
-
-      }}
+        );}
