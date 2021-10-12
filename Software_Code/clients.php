@@ -93,52 +93,20 @@ include('./php/clientmanager.php')
             <div class="container w-90">
               <form class="p-3" method="post">
                 <div class="form-group">
-                  <label>Forename: </label>
-                  <input type="text" name="inputforename" class="form-control" placeholder="Forename..." value="" required maxlength="45" />
+                  <label>First Name: </label>
+                  <input type="text" name="inputforename" class="form-control" value="" required maxlength="45" />
                 </div>
-              </form>
-            </div>
-          </div>
-          
-          <div class="modal-body p-0">
-            <div class="container w-90">
-              <form class="p-3" method="post">
                 <div class="form-group">
-                  <label>Surname: </label>
-                  <input type="text" name="inputsurname" class="form-control" placeholder="Surname..." value="" required maxlength="45" />
+                  <label>Last Name: </label>
+                  <input type="text" name="inputsurname" class="form-control" value="" required maxlength="45" />
                 </div>
-              </form>
-            </div>
-          </div>
-
-          <div class="modal-body p-0">
-            <div class="container w-90">
-              <form class="p-3" method="post">
                 <div class="form-group">
                   <label>E-Mail: </label>
-                  <input type="text" name="inputemail" class="form-control" placeholder="E-Mail..." value="" required maxlength="200" />
+                  <input type="text" name="inputemail" class="form-control"  value="" required maxlength="200" />
                 </div>
-              </form>
-            </div>
-          </div>
-
-          <div class="modal-body p-0">
-            <div class="container w-90">
-              <form class="p-3" method="post">
                 <div class="form-group">
                   <label>Contact Number: </label>
-                  <input type="tel" name="inputcontactno" class="form-control" placeholder="Contact Number..." value="" required maxlength="11" />
-                </div>
-              </form>
-            </div>
-          </div>
-
-          <div class="modal-body p-0">
-            <div class="container w-90">
-              <form class="p-3" method="post">
-                <div class="form-group">
-                  <label>Username: </label>
-                  <input type="text" name="inputusername" class="form-control" placeholder="Username..." value="" required maxlength="45" />
+                  <input type="tel" name="inputcontactno" class="form-control" value="" required maxlength="11" />
                 </div>
               </form>
             </div>

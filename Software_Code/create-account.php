@@ -46,7 +46,7 @@ include('php/createAccount.php');
             <option value="physiotherapist">Physiotherapist</option>
           </select>
         </div>
-        <div class="form-group">
+        <div class="form-group mb-3">
           <label>Code (ATHLETE ONLY): </label>
           <input type="int" class="form-control" name="code" value="" placeholder="Code..." required maxlength="11" />
         </div>
