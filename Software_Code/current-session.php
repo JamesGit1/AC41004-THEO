@@ -102,9 +102,17 @@ include('./php/commentSubmitter.php');
 
 <body class="background">
   <div class="content-box container border">
-    <div>
-      <a href="progress-overview.php"><button class="btn mb-3"><i class="fas fa-arrow-left"></i> Client progress</button></a>
-    </div>
+    <?php if ($_SESSION['role'] == "physiotherapist") {
+      echo '  <div>
+                <a href="progress-overview.php"><button class="btn mb-3"><i class="fas fa-arrow-left"></i> Client Progress</button></a>
+              </div>
+              ';
+    } ?>
+    <?php if ($_SESSION['role'] == "athlete") {
+      echo '<div>
+              <a href="progress-overview.php"><button class="btn mb-3"><i class="fas fa-arrow-left"></i> My Progress</button></a>
+            </div>';
+    } ?>
     <h3>Current Session</h3>
     <div class="container">
       <div class="row">
@@ -153,7 +161,8 @@ include('./php/commentSubmitter.php');
     <div class="d-flex" id="postAnalysisButton">
       <a href="review-session.php"><button class="btn button-orange">Post Analysis <i class="fas fa-arrow-right"></i> </button></a>
       <?php if ($_SESSION['role'] == "physiotherapist") {
-        echo '<button type="button" class="btn button-orange" data-toggle="modal" data-target="#addFeedback">
+        echo '
+        <button type="button" class="btn button-orange" data-toggle="modal" data-target="#addFeedback">
               Add Feedback
               <i class="far fa-comment-alt"></i>
             </button>';
