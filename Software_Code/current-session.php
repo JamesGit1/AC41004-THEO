@@ -115,40 +115,60 @@ include('./php/commentSubmitter.php');
     } ?>
     <h3>Current Session</h3>
     <div class="container">
-      <div class="row">
+      <div class="row p-0">
         <h6 class="p-0">The heat-map below displays readings of the electrical muscle activity from surface electromyography (sEMG). </h6>
       </div>
-      <div class="row">
-        <!-- <button class="btn button-orange" onclick="viewChange()" id="viewSelector">
-          <i class="fas fa-eye"></i>
-        </button> -->
-        <!-- <button class="btn btn-primary" onclick="zoom()" id="viewSelector">
-          <i class="fas fa-search-plus" id="zoomicon"></i>
-        </button> -->
-        <select class="form-select form-select" aria-label=".form-select example" onchange="viewChange()" id="viewSelector">
-          <option selected value="f">Front</option>
-          <option value="b">Back</option>
-        </select>
-      </div>
-      <div class="row">
-        <table id="dataTable" class="table">
-          <thead>
-            <tr>
-              <th scope="col">Time</th>
-              <th scope="col">Left Quad</th>
-              <th scope="col">Right Quad</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">00:00:00</th>
-              <td>0</td>
-              <td>0</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="row p-0">
+        <div class="d-flex mt-3 p-0">
+          <!-- <button class="btn button-orange" onclick="viewChange()" id="viewSelector">
+            <i class="fas fa-eye"></i>
+          </button> -->
+          <!-- <button class="btn btn-primary" onclick="zoom()" id="viewSelector">
+            <i class="fas fa-search-plus" id="zoomicon"></i>
+          </button> -->
+          <div class="p-0">
+            <select class="form-select form-select" aria-label=".form-select example" onchange="viewChange()" id="viewSelector">
+              <option selected value="f">Front</option>
+              <option value="b">Back</option>
+            </select>
+          </div>
+
+          <div class="p-0">
+            <p class="p-0">
+              <a class="btn" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Legend</a>
+            </p>
+            <div class="row p-0">
+                <div class="collapse multi-collapse" id="multiCollapseExample1">
+                  <div class="card card-body">
+                    The sensor values of range 100 – 200 are displayed in yellow. <br>
+                    The sensor values of range 200 – 400 are displayed in orange. <br>
+                    The sensor values of range 400- 600 are displayed in red. <br>
+                  </div>
+                </div>
+            </div>
+          </div>
       </div>
     </div>
+
+    <div class="row">
+      <table id="dataTable" class="table">
+        <thead>
+          <tr>
+            <th scope="col">Time</th>
+            <th scope="col">Left Quad</th>
+            <th scope="col">Right Quad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">00:00:00</th>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
     <!-- <button type="button" class="btn button-orange">
           START
         </button> -->
