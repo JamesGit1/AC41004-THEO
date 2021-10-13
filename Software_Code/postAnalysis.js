@@ -16,12 +16,12 @@ function createAnalysis(evt) {
       parseData(file);}
 
 function updateView(){
-        console.log(myChart);
+      //  console.log(myChart);
         redraw();
         createGraphs(values1,values2,values3,values4,timestamps,max,min);
       }
 function redraw(){
-       $("#myChart").remove();// removing previous canvas element
+      $("#myChart").remove();// removing previous canvas element
       $("#barChart").append("<canvas id='myChart'></canvas>");
       // document.getElementById('barChart').appendChild('div');
       // document.getElementById('barChart').innerHTML += "<canvas id='myChart'></canvas>";
@@ -30,21 +30,30 @@ function redraw(){
        $("#myPieChart2").remove();// removing previous canvas element
        $("#pieChart2").append("<canvas id='myPieChart2'></canvas>");
        $("#myLineChart").remove();// removing previous canvas element
-       $("#lineChart").append("<canvas id='myLineChart'></canvas>");
+       $("#lineChart").append("<canvas id='myLineChart'></canvas>");  }
+
+  function overInput(values, inputVal){
+        var counter=0;
+         for (var i = 0; i < values.length; i++){
+           if (parseFloat(values[i]) > parseFloat(inputVal)){
+             console.log(values[i],inputVal,"here");
+             counter=counter+1;};}
+             console.log(counter);
+           return counter;}
+//function percent(partialVal, totalVal) {
+  //    return (100 * partialVal) / totalVal;}
 
 
-      }
-function percent(partialVal, totalVal) {
-      return (100 * partialVal) / totalVal;}
 
-
-
-function overInput(values, inputVal){
-  var over = [];
-  for (var i = 0; i < values.length; i++){
-    if (values[i] >= inputVal){
-      over.push(values[i]);}}
-    return over;}
+//function overInput(values, inputVal){
+  //var over =[];
+  //over.splice(0,over.length);
+ //var counter=0;
+  //for (var i = 0; i < values.length; i++){
+    //if (values[i] > inputVal){
+      //counter=counter+1;
+      //over.push(values[i]);}};
+  //  return over;}
 
 function selectChange() {
         viewValue = document.getElementById("viewSelector").value;
@@ -53,9 +62,7 @@ function selectChange() {
         else if (viewValue == "3") {
             var view = "back";
         }}
-      //  if (values1 !== null){
-        //  createGraphs(values1,values2,values3,values4,timestamps,max,min);
-        //}
+
 
 
 function parseData(file) {
@@ -130,23 +137,42 @@ function parseData(file) {
 function createGraphs(values1,values2,values3,values4,timestamps,max,min){
         //value inputted by user but for now is set
         var comparisonValue = document.getElementById('targval').value;
-        console.log(comparisonValue);
         viewValue = document.getElementById("viewSelector").value;
-        console.log(viewValue);
+
         if (viewValue=="2"){
           var sensora=values1;
+          var maxa = max[0];
           var sensorb=values2;
+          var maxb= max[1];
+        }
+        else if(viewValue=="3"){
+          var sensora=values3;
+          var maxa =max[3];
+          var sensorb=values4;
+          var maxb = max[4];
         }
         else{
-          var sensora=values3;
-          var sensorb=values4;
+          sensora = sensorb =[];
+          maxa = maxb =0;
         }
 
-        var valuesOver1 = overInput(sensora, comparisonValue);
-        var percentage1 = percent(valuesOver1.length, sensora.length);
 
-        var valuesOver2 = overInput(sensorb, comparisonValue);
-        var percentage2 = percent(valuesOver2.length, sensorb.length);
+        var valuesOver1=overInput(sensora,comparisonValue);
+        var valuesOver2=overInput(sensorb,comparisonValue);
+    //    console.log(valuesOver1,valuesOver2,"test test");
+        if (comparisonValue>=maxa){
+          valuesOver1=0;
+
+        }
+        if(comparisonValue>=maxb){
+          valuesOver2=0;
+
+        }
+
+
+        var leftover1=sensora.length-valuesOver1;
+        var leftover2=sensorb.length-valuesOver2;
+
 
 
 
@@ -157,16 +183,11 @@ function createGraphs(values1,values2,values3,values4,timestamps,max,min){
               label: 'Max Value',
               data: max,
               backgroundColor: 'rgb(243,109,33)',
-              stack: 'Stack 0',
-            },
-            {
-              label: 'Min Value',
+              stack: 'Stack 0',},
+            {label: 'Min Value',
               data: min,
               backgroundColor: 'rgb(2, 151, 162)',
-              stack: 'Stack 1',
-            },
-          ]
-        };
+              stack: 'Stack 1',},]};
 
         const config = {
           type: 'bar',
@@ -174,28 +195,25 @@ function createGraphs(values1,values2,values3,values4,timestamps,max,min){
           options: {
             responsive: true,
             plugins: {
-              legend: {
-              },
+              legend: {},
               position: 'top',
               title: {
                 display: true,
                 text: 'Min/max value comparison',
                 // size: 24,
-              }
-            }
-          }
-        };
+              }}}};
 
+
+
+//piechart 1
         const data2 = {
-          labels: ['Below target', 'Above target'],
+          labels: ['Above target', 'Below target'],
           datasets: [
             {
-              data: [percentage1, 100-percentage1],
-              label: 'Below target',
+              data: [valuesOver1,leftover1],
+              label: 'Above target',
               backgroundColor: ['rgb(243,109,33)', 'rgb(2, 151, 162)'],
-            },
-          ]
-        };
+            },]};
 
         const config2 = {
           type: 'pie',
@@ -204,25 +222,20 @@ function createGraphs(values1,values2,values3,values4,timestamps,max,min){
             responsive: true,
             plugins: {
               legend: {
-                position: 'top',
-              },
+                position: 'top',},
               title: {
                 display: true,
-                text: 'Target Reach - Left Leg'
-              }
-            }
-          }
-        };
+                text: 'Target Reach - Left Leg'}}}};
 
 
 
-
+//piechart2
         const data3 = {
-          labels: ['Below target', 'Above target'],
+          labels: ['Above target', 'Below target'],
           datasets: [
             {
-              label: 'Below target',
-              data: [percentage2, 100-percentage2],
+              label: 'Above target',
+              data: [valuesOver2,leftover2],
               backgroundColor: ['rgb(243,109,33)', 'rgb(2, 151, 162)'],
             },
           ]
@@ -240,14 +253,11 @@ function createGraphs(values1,values2,values3,values4,timestamps,max,min){
               title: {
                 display: true,
                 text: 'Target Reach - Right Leg'
-              }
-            }
-          }
-        };
+              }}}  };
 
 
 
-
+//line chart
         const data4 = {
         labels: timestamps,
         datasets: [
@@ -262,9 +272,7 @@ function createGraphs(values1,values2,values3,values4,timestamps,max,min){
             data: sensorb,
             borderColor: 'rgb(2, 151, 162)',
             backgroundColor: 'rgb(2, 151, 162)',
-          }
-        ]
-      };
+          }]};
 
         const config4 = {
           type: 'line',
