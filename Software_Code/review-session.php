@@ -76,7 +76,7 @@ include('./php/commentSubmitter.php');
     </div>
     <h3>Review Session</h3>
     <div class="input-group clearfix mb-2" id="inputs">
-      <input type="file" class="form-control" id="files"  name="files[]" multiple>
+      <input type="file" class="form-control" id="files"  name="files[]" accept=".csv,text/csv">
     </div>
     <div class="container p-0" id="bigContainer">
 
