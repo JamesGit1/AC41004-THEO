@@ -116,7 +116,7 @@ include('./php/progressmanager.php');
         <thead id="feedbackTableHeader">
           <tr>
             <th scope="col">Date</th>
-            <th scope="col" class="text-truncate" id="physiotherapist">Physiotherapist</th>
+            <th scope="col">User</th>
             <th scope="col">Comments</th>
           </tr>
         </thead>
