@@ -8,7 +8,6 @@ if(isset($_SESSION['loggedIn'])){
 }
 require('./php/conn.php');
 include('header.php');
-include('./php/login.php');
 ?>
 
 <body class="background">
@@ -16,7 +15,7 @@ include('./php/login.php');
   <div class="row">
     <div class="col index-para-box">
       <img src="images/theo-logo.png" width="400px" class="img-fluid" alt="Responsive image" />
-      <h3>coming soon..</h3>
+      <h3>Coming Soon..</h3>
       <p class="home-text">
         Revolutionising how we train and recover from injury by allowing you
         to measure, track and analyse your muscle development, even before
