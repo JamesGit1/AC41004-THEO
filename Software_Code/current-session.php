@@ -119,14 +119,14 @@ include('./php/commentSubmitter.php');
         <h6 class="p-0">The heat-map below displays readings of the electrical muscle activity from surface electromyography (sEMG). </h6>
       </div>
       <div class="row p-0">
-        <div class="d-flex mt-3 p-0">
+        <div class="d-flex mt-3 mb-1 p-0">
           <!-- <button class="btn button-orange" onclick="viewChange()" id="viewSelector">
             <i class="fas fa-eye"></i>
           </button> -->
           <!-- <button class="btn btn-primary" onclick="zoom()" id="viewSelector">
             <i class="fas fa-search-plus" id="zoomicon"></i>
           </button> -->
-          <div class="p-0">
+          <div>
             <select class="form-select form-select" aria-label=".form-select example" onchange="viewChange()" id="viewSelector">
               <option selected value="f">Front</option>
               <option value="b">Back</option>
@@ -135,11 +135,11 @@ include('./php/commentSubmitter.php');
 
           <div class="p-0">
             <p class="p-0">
-              <a class="btn" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Legend</a>
+              <a class="btn" data-toggle="collapse" href="#legend" role="button" aria-expanded="false" aria-controls="legend">Legend</a>
             </p>
             <div class="row p-0">
-                <div class="collapse multi-collapse" id="multiCollapseExample1">
-                  <div class="card card-body">
+                <div class="collapse multi-collapse" id="legend">
+                  <div class="card card-body" id="legendCard">
                     The sensor values of range 100 – 200 are displayed in yellow. <br>
                     The sensor values of range 200 – 400 are displayed in orange. <br>
                     The sensor values of range 400- 600 are displayed in red. <br>
