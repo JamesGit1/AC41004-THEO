@@ -13,7 +13,15 @@ include('./php/commentSubmitter.php');
       font-size: 14px;
       line-height: 170%;
     }
+    #bigContainer{
+      display: none;
+    }
+    #targetValue{
 
+    }
+    #viewSelector{
+
+    }
     .symbol {
       display: inline !important;
       float: right;
@@ -25,20 +33,23 @@ include('./php/commentSubmitter.php');
       max-height: 340px;
       margin-top: 3%;
       margin-bottom: 5%;
+
     }
     #pieChart2 {
       max-width: 340px;
       max-height: 340px;
       margin-top: 3%;
       margin-bottom: 5%;
+
     }
 
     #barChart {
-      max-width: 840px;
-      max-height: 640px;
-      margin-top: 3%;
-      margin-bottom: 5%;
-      overflow: hidden;
+    max-width: 840px;
+    max-height: 640px;
+    margin-top: 3%;
+    margin-bottom: 5%;
+    overflow: hidden;
+
     }
 
     #lineChart {
@@ -46,6 +57,7 @@ include('./php/commentSubmitter.php');
       max-height: 640px;
       margin-top: 3%;
       margin-bottom: 5%;
+
     }
   </style>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -63,11 +75,12 @@ include('./php/commentSubmitter.php');
       <a href="progress-overview.php"><button class="btn mb-3"><i class="fas fa-arrow-left"></i> Client progress</button></a>
     </div>
     <h3>Review Session</h3>
-    <div class="container p-0">
+    <div class="input-group clearfix mb-2" id="inputs">
+      <input type="file" class="form-control" id="files"  name="files[]" multiple>
+    </div>
+    <div class="container p-0" id="bigContainer">
 
-      <div class="input-group clearfix mb-2" id="inputs">
-        <input type="file" class="form-control" id="files"  name="files[]" multiple>
-      </div>
+
 
 
       <!-- Bar char -->

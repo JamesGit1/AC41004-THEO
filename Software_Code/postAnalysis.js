@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+        elem = document.getElementById('bigContainer');
         $('#files').bind('change', createAnalysis);
 });
 var file = null;
@@ -10,9 +10,13 @@ var values4=[];
 var timestamps=[];
 var max=[];
 var min=[];
+var elem = null;
+
+
+
 function createAnalysis(evt) {
       var files = evt.target.files; // FileList object
-     file = files[0];
+      file = files[0];
       parseData(file);}
 
 function updateView(){
@@ -66,6 +70,8 @@ function selectChange() {
 
 
 function parseData(file) {
+
+      elem.style.display = 'block';
       var reader = new FileReader();
       reader.readAsText(file);
       reader.onload = function(event){
