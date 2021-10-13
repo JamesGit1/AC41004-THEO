@@ -160,13 +160,10 @@ include('./php/commentSubmitter.php');
     </div>
     <div class="d-flex" id="postAnalysisButton">
       <a href="review-session.php"><button class="btn button-orange">Post Analysis <i class="fas fa-arrow-right"></i> </button></a>
-      <?php if ($_SESSION['role'] == "physiotherapist") {
-        echo '
-        <button type="button" class="btn button-orange" data-toggle="modal" data-target="#addFeedback">
-              Add Feedback
-              <i class="far fa-comment-alt"></i>
-            </button>';
-      } ?>
+      <button type="button" class="btn button-orange" data-toggle="modal" data-target="#addFeedback">
+          Add Feedback
+          <i class="far fa-comment-alt"></i>
+      </button>
     </div>
   </div>
   <p id="timestamp"></p>
