@@ -23,6 +23,11 @@ nav {
   color: white;
 }
 
+.btn:hover {
+  background-color: #016870;
+  color: white;
+}
+
 .nav-link {
   padding: 5px;
 }
@@ -47,6 +52,11 @@ h3 {
 
 .button-orange {
   background-color: #f36d21;
+}
+
+.button-orange:hover {
+  background-color: #d54e0c;
+  color: white;
 }
 
 .background {
