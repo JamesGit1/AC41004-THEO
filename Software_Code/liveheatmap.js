@@ -63,7 +63,7 @@ function valueMapper(oldValue, newValue, iterations) {
 
 function loadHeatmap(dataObj) {
     iterator = 1;
-    pushValuesLoop();                   //  start the loop
+    pushValuesLoop(); //  start the loop
 
     if (prevDataObj != null) {
         if (viewValue == "f") {
@@ -261,18 +261,18 @@ function viewChange() {
     }
 }
 
-function zoom() {
-    if (viewValue) {
-        document.getElementById("legsimg").src = "./images/legsfcolored.png";
-        document.getElementById("zoomicon").className = "fas fa-search-plus";
-        viewValue = false;
-    }
-    else if (!viewValue) {
-        document.getElementById("legsimg").src = "./images/legsfcoloredzoom.png";
-        document.getElementById("zoomicon").className = "fas fa-search-minus";
-        viewValue = true;
-    }
-}
+// function zoom() {
+//     if (viewValue) {
+//         document.getElementById("legsimg").src = "./images/legsfcolored.png";
+//         document.getElementById("zoomicon").className = "fas fa-search-plus";
+//         viewValue = false;
+//     }
+//     else if (!viewValue) {
+//         document.getElementById("legsimg").src = "./images/legsfcoloredzoom.png";
+//         document.getElementById("zoomicon").className = "fas fa-search-minus";
+//         viewValue = true;
+//     }
+// }
 
 //var timeInputField = document.getElementById("currentTimeInput");
 var table = document.getElementById("dataTable");
