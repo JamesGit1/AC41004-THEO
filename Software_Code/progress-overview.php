@@ -103,9 +103,9 @@ include('./php/progressmanager.php');
   </div>
 
   <div class="container p-0" id="feedbackBox">
-    <h3>History of feedback</h3>
+    <h3>List of Notes</h3>
   </div>
-  <a href="review-session.php"><button class="btn mb-3" name="reviewSession" type="submit">Review latest session <i class="fas fa-history"></i> </button> </a>
+  <a href="review-session.php"><button class="btn mb-3" name="reviewSession" type="submit">Review Latest Session Analysis <i class="fas fa-history"></i> </button> </a>
 
   <!--if no records have been added yet -->
   <?php if (!$returnedRows) echo "<p>No comments on record.</p>";
@@ -117,7 +117,7 @@ include('./php/progressmanager.php');
           <tr>
             <th scope="col">Date</th>
             <th scope="col">User</th>
-            <th scope="col">Comments</th>
+            <th scope="col">Comment</th>
           </tr>
         </thead>
         <tbody>
@@ -161,7 +161,7 @@ include('./php/progressmanager.php');
                   <label><b>Age (years):</b></label>
                   <input type="text" class="form-control" value="<?php if (isset($userdetails['age'])) echo $userdetails['age']; ?>" name="inputAge" required maxlength="3" />
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer mt-3">
                   <button type="button" class="btn" data-dismiss="modal">Cancel</button>
                   <button class="btn button-orange" type="submit" name="updatePersonal">Save changes</button>
                 </div>

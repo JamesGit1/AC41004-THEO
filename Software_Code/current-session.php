@@ -181,7 +181,7 @@ include('./php/commentSubmitter.php');
     <div class="d-flex" id="postAnalysisButton">
       <a href="review-session.php"><button class="btn button-orange">Post Analysis <i class="fas fa-arrow-right"></i> </button></a>
       <button type="button" class="btn button-orange" data-toggle="modal" data-target="#addFeedback">
-          Add Feedback
+          Add Notes
           <i class="far fa-comment-alt"></i>
       </button>
     </div>
@@ -194,7 +194,7 @@ include('./php/commentSubmitter.php');
       <div class="modal-content">
 
         <div class="modal-header">
-          <h4 class="modal-title">Add feedback</h4>
+          <h4 class="modal-title">Add Notes</h4>
           <button type="button" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
         </div>
 
@@ -212,13 +212,11 @@ include('./php/commentSubmitter.php');
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn" data-dismiss="modal">Cancel</button>
-                <button type="submit" name="commentSubmit" class="btn button-orange">Save Feedback</button>
+                <button type="submit" name="commentSubmit" class="btn button-orange">Save</button>
               </div>
             </form>
           </div>
         </div>
-
-
 
       </div>
     </div>

@@ -71,17 +71,22 @@ include('./php/commentSubmitter.php');
 </head>
 <body class="background">
   <div class="content-box container border">
-    <div>
-      <a href="progress-overview.php"><button class="btn mb-3"><i class="fas fa-arrow-left"></i> Client progress</button></a>
-    </div>
-    <h3>Review Session</h3>
+    <?php if ($_SESSION['role'] == "physiotherapist") {
+      echo '  <div>
+                <a href="progress-overview.php"><button class="btn mb-3"><i class="fas fa-arrow-left"></i> Client Progress</button></a>
+              </div>
+              ';
+    } ?>
+    <?php if ($_SESSION['role'] == "athlete") {
+      echo '<div>
+              <a href="progress-overview.php"><button class="btn mb-3"><i class="fas fa-arrow-left"></i> My Progress</button></a>
+            </div>';
+    } ?>
+    <h3>Post Session Analysis</h3>
     <div class="input-group clearfix mb-2" id="inputs">
       <input type="file" class="form-control" id="files"  name="files[]" multiple>
     </div>
     <div class="container p-0" id="bigContainer">
-
-
-
 
       <!-- Bar char -->
       <div class="d-flex align-items-center" id="barChart">
@@ -116,14 +121,11 @@ include('./php/commentSubmitter.php');
       <div class="d-flex" id="lineChart">
         <canvas id="myLineChart"></canvas>
       </div>
-
-
-
-</div>
+    </div>
 
   <div class="d-flex" id="addFeedbackButton">
     <button type="button" class="btn button-orange" data-toggle="modal" data-target="#addFeedback">
-      Add Feedback
+      Add Notes
       <i class="far fa-comment-alt"></i>
     </button>
   </div>
@@ -134,7 +136,7 @@ include('./php/commentSubmitter.php');
 <div class="modal-content">
 
   <div class="modal-header">
-    <h4 class="modal-title">Add feedback</h4>
+    <h4 class="modal-title">Add Notes</h4>
       <button type="button" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
   </div>
 
@@ -148,7 +150,7 @@ include('./php/commentSubmitter.php');
         </div>
         <div class="modal-footer">
           <button type="button" class="btn" data-dismiss="modal">Cancel</button>
-          <button type="submit" name="commentSubmit" class="btn button-orange">Save Feedback</button>
+          <button type="submit" name="commentSubmit" class="btn button-orange">Save</button>
         </div>
       </form>
     </div>

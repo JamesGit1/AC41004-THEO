@@ -22,27 +22,27 @@ include('header.php');
       </div>
       <div class="form-group">
         <label>First Name: </label>
-        <input type="text" class="form-control" name="firstname" value="<?php if (isset($firstname)) echo $firstname; ?>" placeholder="First Name..." required maxlength="45" />
+        <input type="text" class="form-control" name="firstname" value="<?php if (isset($firstname)) echo $firstname; ?>" required maxlength="45" />
       </div>
       <div class="form-group">
         <label>Last Name: </label>
-        <input type="text" class="form-control" name="lastname" value="<?php if (isset($lastname)) echo $lastname; ?>" placeholder="Last Name..." required maxlength="45" />
+        <input type="text" class="form-control" name="lastname" value="<?php if (isset($lastname)) echo $lastname; ?>" required maxlength="45" />
       </div>
       <div class="form-group">
         <label>Email: </label>
-        <input type="email" class="form-control" name="email" value="<?php if (isset($email)) echo $email; ?>" placeholder="Email..." required maxlength="200" />
+        <input type="email" class="form-control" name="email" value="<?php if (isset($email)) echo $email; ?>" required maxlength="200" />
       </div>
       <div class="form-group w-auto">
         <label>Username: </label>
-        <input type="text" class="form-control" name="inputusername" value="<?php if (isset($inputusername)) echo $inputusername; ?>" placeholder="Username..." required maxlength="45" />
+        <input type="text" class="form-control" name="inputusername" value="<?php if (isset($inputusername)) echo $inputusername; ?>" required maxlength="45" />
       </div>
       <div class="form-group">
         <label>Password: </label>
-        <input type="password" class="form-control" name="password1" placeholder="Password..." required />
+        <input type="password" class="form-control" name="password1" required />
       </div>
       <div class="form-group mb-2">
         <label>Confirm Password: </label>
-        <input type="password" class="form-control" name="password2" placeholder="Confirm Password..." required />
+        <input type="password" class="form-control" name="password2" required />
         <span class="help-block"><?php if (isset($username_err)) echo $username_err; ?></span>
       </div>
       <button class="btn button-orange mt-2 btn-lg" type="submit" name="submitAccount">Register</button>
