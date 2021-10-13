@@ -72,22 +72,22 @@
       <div class="modal-content">
         <!-- Pop-up header -->
         <div class="modal-header">
-          <h4 class="modal-title container text-center">Log In to Theo Health</h4>
+          <h4 class="modal-title container text-center">Theo Health</h4>
           <button type="button" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
         </div>
 
         <div class="modal-body p-0">
           <div class="container w-90">
             <form class="text-left" method="post">
-              <div class="form-group">
+              <div class="form-group mt-2">
                 <label> Username: </label>
-                <input type="text" class="form-control" name="inputUsername" placeholder="Username" />
+                <input type="text" class="form-control" name="inputUsername" placeholder="Username" required/>
               </div>
-              <div class="form-group">
+              <div class="form-group mb-1">
                 <label> Password: </label>
-                <input type="password" class="form-control" name="inputPassword" placeholder="Password" />
+                <input type="password" class="form-control" name="inputPassword" placeholder="Password" required/>
               </div>
-              <span class="help-block"><?php if (isset($login_err)) echo $login_err; ?></span>
+              <span class="help-block" style="color: red;"><?php if (isset($_SESSION['login_err'])) echo $_SESSION['login_err']; ?></span>
               <div class="container p-0">
                 <button class="btn button-orange w-100 mt-4" type="submit" name="loginRequest">
                   Log In
@@ -113,3 +113,9 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </footer>
+
+<?php
+// show modal if user failed last login
+if (isset($_SESSION['login_err']))
+  echo '<script>$(document).ready(function() {$("#loginModal").modal()});</script>';
+?>

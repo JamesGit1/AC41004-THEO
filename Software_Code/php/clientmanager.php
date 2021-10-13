@@ -26,7 +26,7 @@ if (isset($_POST['addClient'])) {
     $firstname = $_POST['inputforename'];
     $lastname = $_POST['inputsurname'];
     $email = $_POST['inputemail'];
-    $code = rand(10001, 99999);
+    $code = rand(10001, 99999); // Probably should check if number is on database
 
     $stmt->execute();
 

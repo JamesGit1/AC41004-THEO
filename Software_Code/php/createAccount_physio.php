@@ -61,6 +61,10 @@ if (isset($_POST['submitAccount'])) {
         $_SESSION['email'] = $email;
         $_SESSION['role'] = $role;
 
+        $_SESSION['signedUp'] = true;
+
+        echo '<script language="javascript">alert("Signed up as physio, redirecting to homepage")</script>';
+
         header("Location: landing-page.php");
         exit;
       }
