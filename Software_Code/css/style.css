@@ -89,9 +89,8 @@ h3 {
 }
 
 #viewSelector {
-  width: 25%;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  width: 150px;
+  margin-right: 10px;
 }
 
 #postAnalysisButton,
@@ -155,9 +154,7 @@ h3 {
   }
 
   #viewSelector {
-    width: 50%;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    width: 150px;
   }
 
   #dataTable {
@@ -223,5 +220,9 @@ h3 {
 
   .index-para-box {
     max-width: 100%;
+  }
+
+  #legendCard {
+    min-width: 150px;
   }
 }
