@@ -6,7 +6,7 @@ include('./php/progressmanager.php');
 ?>
 
 <body class="background">
-  <div class="content-box container border">
+  <div class="content-box-myprofile container">
     <div class="d-flex justify-content-between" id="progressOverviewTitle">
       <?php if ($_SESSION['role'] == "physiotherapist") {
         echo '<div>
@@ -36,7 +36,7 @@ include('./php/progressmanager.php');
     </div>
   </div>
   <!-- Extra personal details -->
-  <div class="border" id="personalInfoBox">
+  <div class="table-text" id="personalInfoBox">
     <div class="row">
       <ul class="list-inline">
         <li class="list-inline-item"> <b> Weight: </b> </li>
@@ -112,7 +112,7 @@ include('./php/progressmanager.php');
   else { ?>
     <!--if there is at least one record -->
     <div class="table-responsive">
-      <table class="table table-hover">
+      <table class="table table-hover border table-text">
         <thead id="feedbackTableHeader">
           <tr>
             <th scope="col">Date</th>
