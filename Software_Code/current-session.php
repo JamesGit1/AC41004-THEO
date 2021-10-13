@@ -108,16 +108,19 @@ include('./php/commentSubmitter.php');
     <h3>Current Session</h3>
     <div class="container">
       <div class="row">
-        <button class="btn btn-primary" onclick="viewChange()" id="viewSelector">
+        <h6 class="p-0">The heat-map below displays readings of the electrical muscle activity from surface electromyography (sEMG). </h6>
+      </div>
+      <div class="row">
+        <!-- <button class="btn button-orange" onclick="viewChange()" id="viewSelector">
           <i class="fas fa-eye"></i>
-        </button>
+        </button> -->
         <!-- <button class="btn btn-primary" onclick="zoom()" id="viewSelector">
           <i class="fas fa-search-plus" id="zoomicon"></i>
         </button> -->
-        <!-- <select class="form-select form-select" aria-label=".form-select example" onchange="selectChange()" id="viewSelector">
+        <select class="form-select form-select" aria-label=".form-select example" onchange="viewChange()" id="viewSelector">
           <option selected value="f">Front</option>
           <option value="b">Back</option>
-        </select> -->
+        </select>
       </div>
       <div class="row">
         <table id="dataTable" class="table">
