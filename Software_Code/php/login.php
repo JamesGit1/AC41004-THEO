@@ -33,13 +33,14 @@ if (isset($_POST['loginRequest'])) {
           $_SESSION['email'] = $email;
           $_SESSION['role'] = $role;
 
+          unset($_SESSION['login_err']);
+          
           header("Location: landing-page.php");
 
       } else {
-          $login_err = "Password or username incorrect please try again...";
+          $_SESSION['login_err'] = "Password or username incorrect please try again...";
       }
   } else {
-      $login_err = "Password or username incorrect please try again...";
+    $_SESSION['login_err'] = "Password or username incorrect please try again...";
   }
 }
-?>
