@@ -6,7 +6,7 @@ include('./php/clientmanager.php')
 ?>
 
 <body class="background">
-  <div class="content-box container border">
+  <div class="content-box-myprofile container">
     <h3>My Clients</h3>
     <div class="container d-flex justify-content-center">
       <div class="row card-deck">
@@ -14,7 +14,7 @@ include('./php/clientmanager.php')
         if (isset($returnedRows)) {
           foreach ($returnedRows as $row) {
             echo '<div class="col">
-            <div class="card p-2 mt-2">
+            <div class="card p-2 mt-2 bg-secondary">
               <i class="fas fa-user fa-7x text-center mt-3"></i>
               <div class="card-body">
                 <h5 class="card-title">' . $row['firstname'] . '</h5>
@@ -65,11 +65,11 @@ include('./php/clientmanager.php')
         ?>
         <!-- NEW CARD FOR ADDING CLIENTS -->
         <div class="col">
-          <div class="card p-2 mt-2">
+          <div class="card p-2 mt-2 bg-secondary card-myclient">
             <i class="fas fa-user-plus fa-7x text-center mt-3"></i>
             <div class="card-body d-flex justify-content-center">
               <!--Button to edit information -->
-              <button type="button" class="btn button-orange text-center" data-toggle="modal" data-target="#addClient">
+              <button type="button" class="btn button-orange text-center button-myclient" data-toggle="modal" data-target="#addClient">
                 Add Client
               </button>
             </div>

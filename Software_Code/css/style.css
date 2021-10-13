@@ -75,6 +75,14 @@ h3 {
     color: orange;
 }
 
+.card-myclient {
+    min-height: 290px;
+}
+
+.button-myclient {
+    max-height: 50px;
+    align-self:end;
+}
 /*DONE*/
 
 .form-group {
