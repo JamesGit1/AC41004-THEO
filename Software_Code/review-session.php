@@ -102,7 +102,7 @@ include('./php/commentSubmitter.php');
         <option value="3">Back Sensors</option>
       </select>
 
-      <div class="input-group mb-2" id="targetValue">
+      <div class="input-group mb-2 mt-2" id="targetValue">
         <div class="input-group-prepend">
           <span class="input-group-text">Target Value</span>
         </div>
@@ -141,7 +141,7 @@ include('./php/commentSubmitter.php');
 
   <div class="modal-header">
     <h4 class="modal-title">Add Notes</h4>
-      <button type="button" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
+      <button type="reset" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
   </div>
 
   <div class="modal-body p-0">
