@@ -28,7 +28,7 @@ include('./php/clientmanager.php')
                         </form>';
                 }
                 else{
-                  echo '<button class="btn button-orange" ' . $row['id'] . '">Setup Code: <b>'.$row['code'].'</b></button>';
+                  echo '<button class="btn button-orange button-cpy" data-clipboard-text="' . $row['code'] . '">Setup Code: <b>'.$row['code'].'</b></button>';
                 }
                 echo '
                 <button class="btn" data-toggle="modal" data-target="#deleteClientModal' . $row['id'] . '">
@@ -121,4 +121,18 @@ include('./php/clientmanager.php')
       </div>
     </div>
   </div>
+
+  <script src="clipboard.min.js"></script>
+
+  <script>
+      var clipboard = new ClipboardJS('.button-cpy');
+
+      clipboard.on('success', function (e) {
+        alert("copied!");
+      });
+
+      clipboard.on('error', function (e) {
+        console.log(e);
+      });
+    </script>
 </body>
