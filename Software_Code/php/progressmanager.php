@@ -37,7 +37,7 @@ $stmt->execute();
 $userdetails = $stmt->fetch();
 
 // Get all details on comments from table
-$query = "SELECT * FROM comment WHERE accountid = $userId";
+$query = "SELECT * FROM comment WHERE accountid = $userId ORDER BY `date` DESC";
 $stmt = $pdo->prepare($query);
 $stmt->execute();       
 

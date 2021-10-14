@@ -26,7 +26,7 @@ if (isset($_POST['submitAccount'])) {
       if ($stmt->rowCount() == 1) {
         echo '<script language="javascript">alert("Username already taken")</script>';
       } else { // Insert account into database
-        $query = "UPDATE account SET `username` = :username, `password` = :password WHERE (`id` = '$id');";
+        $query = "UPDATE account SET `username` = :username, `password` = :password, code = NULL WHERE (`id` = '$id');";
 
         $stmt = $pdo->prepare($query);
 
@@ -45,6 +45,8 @@ if (isset($_POST['submitAccount'])) {
         $_SESSION['firstname'] = $firstname;
         $_SESSION['lastname'] = $lastname;
         $_SESSION['email'] = $email;
+
+        $_SESSION['signedUp'] = true;
 
         header("Location: landing-page.php");
         exit;
