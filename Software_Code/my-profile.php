@@ -36,10 +36,10 @@ include('./php/updateDetails.php');
         <td scope="col"> Email</td>
         <td scope="col"> <?php echo $_SESSION['email'] ?></td>
       </tr>
-      <tr>
+      <!-- <tr>
         <td scope="col"> Phone number</td>
         <td scope="col"> --- </td>
-      </tr>
+      </tr> -->
       <tr>
         <td scope="col"> Password</td>
         <td scope="col"> ******</td>
@@ -65,32 +65,33 @@ include('./php/updateDetails.php');
           <div class="container w-90">
             <form class="p-3" method="post">
               <div class="form-group">
-                <label>Username: </label>
+                <label>* Username: </label>
                 <input type="text" name="inputusername" class="form-control" placeholder="Username" value="<?php echo $_SESSION['username']; ?>" required />
               </div>
               <div class="form-group">
-                <label>First Name: </label>
+                <label>* First Name: </label>
                 <input type="text" name="inputfirstname" class="form-control" value="<?php echo $_SESSION['firstname']; ?>" placeholder="First Name" required />
               </div>
               <div class="form-group">
-                <label>Last Name: </label>
+                <label>* Last Name: </label>
                 <input type="text" name="inputlastname" class="form-control" value="<?php echo $_SESSION['lastname']; ?>" placeholder="Last Name" required />
               </div>
               <div class="form-group">
-                <label>Email: </label>
+                <label>* Email: </label>
                 <input type="email" name="inputemail" class="form-control" value="<?php echo $_SESSION['email']; ?>" placeholder="email@gmail.com" required />
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label>Phone Number: </label>
                 <input type="text" name="inputphone" class="form-control" placeholder="---" disabled />
-              </div>
-              <div class="form-group">
+              </div> -->
+              <div class="form-group mt-3">
                 <label>New Password: </label>
-                <input type="password" name="inputpassword1" class="form-control" placeholder="******" required />
+                <input type="password" name="inputpassword1" class="form-control" placeholder="******"/>
               </div>
               <div class="form-group">
                 <label>Confirm Password: </label>
-                <input type="password" name="inputpassword2" class="form-control" placeholder="******" required />
+                <input type="password" name="inputpassword2" class="form-control" placeholder="******"/>
+                <small class="form-text text-muted"> * required fields</small>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn" data-dismiss="modal">Cancel</button>
