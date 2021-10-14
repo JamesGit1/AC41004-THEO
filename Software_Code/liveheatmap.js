@@ -101,10 +101,13 @@ function pushHeatmapValues(sensorData1, sensorData2) {
     sensorData1 = Math.floor(sensorData1);
     sensorData2 = Math.floor(sensorData2);
 
-    console.log(sensorData1);
+    //console.log(sensorData1);
     var points = [];
     var max = 1024;
-    var containerWidth = container.offsetWidth;
+    var containerWidth = img.width * 3.333333333333333;
+
+    // console.log(containerWidth);
+    // console.log(img.width);
 
     // Get sensor 1 and 2 data and put on model
     if (viewValue == "f") {
@@ -119,11 +122,11 @@ function pushHeatmapValues(sensorData1, sensorData2) {
     else if (viewValue == "b") {
         // Back very similar to front, no change in radius
         // Left
-        var x = 0.44;
+        var x = 0.24;
         var y = 0.205;
         //sensorValue = dataObj.sensor1.value; // Extract value from json object for each sensor
         for (let i = 0; i < 28; i++) {
-            var newRadius = Math.floor(0.016 * container.offsetWidth);
+            var newRadius = Math.floor(0.016 * containerWidth);
             var point = {
                 x: Math.floor(x * containerWidth), // We got to move the heatmaps with the width of the container changes
                 y: Math.floor(y * containerWidth),
@@ -137,11 +140,11 @@ function pushHeatmapValues(sensorData1, sensorData2) {
 
 
         // Right side same but in paralleled
-        var x = 0.562;
+        var x = 0.36;
         var y = 0.205;
         //sensorValue = dataObj.sensor2.value; // Extract value from json object for each sensor
         for (let i = 0; i < 28; i++) {
-            var newRadius = Math.floor(0.016 * container.offsetWidth);
+            var newRadius = Math.floor(0.016 * containerWidth);
             var point = {
                 x: Math.floor(x * containerWidth), // We got to move the heatmaps with the width of the container changes
                 y: Math.floor(y * containerWidth),
@@ -165,45 +168,66 @@ function pushHeatmapValues(sensorData1, sensorData2) {
     // An extremely overcomplex function to map the front heatmaps for both quads
     function pointPlotterf(isLeftQuad, sensorData) {
         var invert = 1;
+        var y = 0.130;
+        
         if (isLeftQuad) { // If this is left front
-            var x = 0.382,
-                y = 0.127;
+            var x = 0.178;
         }
         else { // Otherwise it is right front
-            var x = 0.616,
-                y = 0.127
+            var x = 0.422,
             invert = -1;
         }
 
         // sensorValue = dataObj.sensor3.value; // Extract value from json object for each sensor
-        for (let i = 0; i < 38; i++) {
-            var newRadius = Math.floor(0.005 * container.offsetWidth);
-            if (i > 29) {
-                newRadius = Math.floor(0.019 * container.offsetWidth);
+        for (let i = 0; i < 41; i++) {
+            var newRadius = Math.floor(0.005 * containerWidth);
+            if (i > 39) {
+                newRadius = Math.floor(0.012 * containerWidth);
+            }
+            else if (i > 36) {
+                newRadius = Math.floor(0.016 * containerWidth);
+            }
+            else if (i > 32) {
+                newRadius = Math.floor(0.02 * containerWidth);
             }
             else if (i > 29) {
-                newRadius = Math.floor(0.02 * container.offsetWidth);
+                newRadius = Math.floor(0.024 * containerWidth);
             }
-            else if (i > 25) {
-                newRadius = Math.floor(0.025 * container.offsetWidth);
+            else if (i > 27) {
+                newRadius = Math.floor(0.026 * containerWidth);
                 x -= 0.0005 * invert;
             }
-            else if (i > 17) {
-                newRadius = Math.floor(0.028 * container.offsetWidth);
+            else if (i > 24) {
+                newRadius = Math.floor(0.025* containerWidth);
                 x += 0.001 * invert;
             }
-            else if (i > 15) {
-                newRadius = Math.floor(0.025 * container.offsetWidth);
-                x += 0.0005 * invert;
+            else if (i > 19) {
+                newRadius = Math.floor(0.029 * containerWidth);
+                x += 0.001 * invert;
             }
-            else if (i > 4) {
-                newRadius = Math.floor(0.006 * container.offsetWidth);
-                x += 0.0005 * invert;
+            else if (i > 18) {
+                newRadius = Math.floor(0.025 * containerWidth);
+                x += 0.001 * invert;
+            }
+            else if (i > 16) {
+                newRadius = Math.floor(0.025 * containerWidth);
+            }
+            else if (i > 10) {
+                newRadius = Math.floor(0.010 * containerWidth);
+                x += 0.0008 * invert;
+            }
+            else if (i > 7) {
+                newRadius = Math.floor(0.007 * containerWidth);
+                x += 0.0008 * invert;
+            }
+            else if (i > 5) {
+                newRadius = Math.floor(0.006 * containerWidth);
+                x += 0.0008 * invert;
             }
 
             if (i == 14 || i == 15) {
-                x += 0.006 * invert;
-                y -= 0.005;
+                x += 0.007 * invert;
+                y -= 0.004;
             }
             var point = {
                 x: Math.floor(x * containerWidth),
@@ -213,7 +237,7 @@ function pushHeatmapValues(sensorData1, sensorData2) {
             };
             points.push(point);
 
-            x += 0.0005 * invert;
+            x += 0.0004 * invert;
             y += 0.0049;
         }
         return { x, y, newRadius, point };
@@ -221,6 +245,7 @@ function pushHeatmapValues(sensorData1, sensorData2) {
 }
 
 var container = document.querySelector('.heatmap');
+var img = document.getElementById('legsimg');
 var viewValue = "f";
 var viewZoomed = false;
 

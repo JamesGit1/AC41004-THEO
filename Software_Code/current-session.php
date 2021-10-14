@@ -1,8 +1,8 @@
 <?php
 session_start();
 include('header.php');
-include('./php/conn.php');
-include('./php/commentSubmitter.php');
+// include('./php/conn.php');
+// include('./php/commentSubmitter.php');
 ?>
 
 <head>
@@ -94,7 +94,7 @@ include('./php/commentSubmitter.php');
     }
 
     #legsimg {
-      width: 30%;
+      width: 50%;
       height: auto;
     }
   </style>
@@ -137,38 +137,39 @@ include('./php/commentSubmitter.php');
             <p class="p-0">
               <a class="btn" data-toggle="collapse" href="#legend" role="button" aria-expanded="false" aria-controls="legend">Legend</a>
             </p>
-            <div class="row p-0">
-                <div class="collapse multi-collapse" id="legend">
-                  <div class="card card-body" id="legendCard">
-                    The sensor values of range 100 – 200 are displayed in yellow. <br>
-                    The sensor values of range 200 – 400 are displayed in orange. <br>
-                    The sensor values of range 400- 600 are displayed in red. <br>
-                  </div>
-                </div>
-            </div>
           </div>
+        </div>
+        <div class="collapse multi-collapse" id="legend">
+          <img src="./images/gradient.png" alt="colourgradientlegend" style="width: 100%;">
+          <div class="card card-body mb-3" id="legendCard">
+              Values < 100 are Blue.<br>
+              Values between 100 – 200 are Green. <br>
+              Values between 200 – 300 are Yellow. <br>
+              Values between 300 – 500 are Orange/Red. <br>
+              Values > 600 are a deeper Red. <br>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <table id="dataTable" class="table">
+          <thead>
+            <tr>
+              <th scope="col">Time</th>
+              <th scope="col">Left Quad</th>
+              <th scope="col">Right Quad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">00:00:00</th>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-
-    <div class="row">
-      <table id="dataTable" class="table">
-        <thead>
-          <tr>
-            <th scope="col">Time</th>
-            <th scope="col">Left Quad</th>
-            <th scope="col">Right Quad</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">00:00:00</th>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
     <!-- <button type="button" class="btn button-orange">
           START
         </button> -->
@@ -178,11 +179,11 @@ include('./php/commentSubmitter.php');
         <img src="images/legsfcolored.png" alt="Legs" id="legsimg">
       </div>
     </div>
-    <div class="d-flex" id="postAnalysisButton">
+    <div class="d-flex mt-3" id="postAnalysisButton">
       <a href="review-session.php"><button class="btn button-orange">Post Analysis <i class="fas fa-arrow-right"></i> </button></a>
       <button type="button" class="btn button-orange" data-toggle="modal" data-target="#addFeedback">
-          Add Notes
-          <i class="far fa-comment-alt"></i>
+        Add Notes
+        <i class="far fa-comment-alt"></i>
       </button>
     </div>
   </div>
