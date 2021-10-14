@@ -22,7 +22,7 @@
   <nav id="nav" class="navbar navbar-expand-lg">
     <div class="container">
       <a href="index.php">
-        <img src="images/theo-logo2.png" alt="Logo" width="100" />
+        <img src="images/theo-logo2.png" alt="Theo Health Logo" width="100" />
       </a>
       <button class="navbar-toggler btn" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars" aria-hidden="true"></i>
@@ -67,25 +67,25 @@
   </nav>
 
   <!-- Log-in pop-up -->
-  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
     <div class="modal-dialog-centered modal-dialog">
       <div class="modal-content">
         <!-- Pop-up header -->
         <div class="modal-header">
           <h4 class="modal-title container text-center">Theo Health</h4>
-          <button type="button" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
+          <button type="reset" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
         </div>
 
         <div class="modal-body p-0">
           <div class="container w-90">
             <form class="text-left" method="post">
               <div class="form-group mt-2">
-                <label> Username: </label>
-                <input type="text" class="form-control" name="inputUsername" placeholder="Username" required/>
+                <label for="usernameInput"> Username: </label>
+                <input type="text" class="form-control" name="inputUsername" id="usernameInput" placeholder="Username" required/>
               </div>
               <div class="form-group mb-1">
-                <label> Password: </label>
-                <input type="password" class="form-control" name="inputPassword" placeholder="Password" required/>
+                <label for="passwordInput"> Password: </label>
+                <input type="password" class="form-control" name="inputPassword" id="passwordInput" placeholder="Password" required/>
               </div>
               <span class="help-block" style="color: red;"><?php if (isset($_SESSION['login_err'])) echo $_SESSION['login_err']; ?></span>
               <div class="container p-0">
