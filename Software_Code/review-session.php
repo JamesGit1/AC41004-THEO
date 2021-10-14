@@ -59,6 +59,9 @@ include('./php/commentSubmitter.php');
       margin-bottom: 5%;
 
     }
+    #addFeedbackButton{
+
+    }
   </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="https://evanplaice.github.io/jquery-csv/src/jquery.csv.min.js"></script>
@@ -121,7 +124,7 @@ include('./php/commentSubmitter.php');
       <div class="d-flex" id="lineChart">
         <canvas id="myLineChart"></canvas>
       </div>
-    </div>
+
 
   <div class="d-flex" id="addFeedbackButton">
     <button type="button" class="btn button-orange" data-toggle="modal" data-target="#addFeedback">
@@ -129,6 +132,7 @@ include('./php/commentSubmitter.php');
       <i class="far fa-comment-alt"></i>
     </button>
   </div>
+</div>
 </div>
 
 <div class="modal" id="addFeedback">

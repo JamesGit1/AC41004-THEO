@@ -1,5 +1,6 @@
 $(document).ready(function() {
         elem = document.getElementById('bigContainer');
+
         $('#files').bind('change', createAnalysis);
 });
 var file = null;
@@ -11,6 +12,7 @@ var timestamps=[];
 var max=[];
 var min=[];
 var elem = null;
+var elem2 = null;
 
 
 
@@ -141,6 +143,7 @@ function parseData(file) {
         max = [max1,max2,max3,max4];
         min = [min1,min2,min3,min4];
         elem.style.display = 'block';
+
         createGraphs(values1,values2,values3,values4,timestamps,max,min);}}
 
 
