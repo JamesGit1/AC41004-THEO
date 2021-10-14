@@ -23,7 +23,7 @@ if (isset($_POST['commentSubmit'])) {
     $stmt->execute();
 
     echo '<script language="javascript">';
-    echo 'alert("Thanks ' . $_SESSION['firstname'] . ', your comment has submitted")';
+    echo 'alert("Thanks ' . $_SESSION['firstname'] . ', comment posted on progress page!")';
     echo '</script>';
 
 }

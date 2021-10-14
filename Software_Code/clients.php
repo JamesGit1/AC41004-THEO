@@ -28,8 +28,7 @@ include('./php/clientmanager.php')
                         </form>';
                 }
                 else{
-                  echo '<p>Awaiting Account Setup...</p>'; 
-                  echo '<p>Setup Code: <b>'.$row['code'].'</b></p>';
+                  echo '<button class="btn button-orange button-cpy" data-clipboard-text="' . $row['code'] . '">Setup Code: <b>'.$row['code'].'</b></button>';
                 }
                 echo '
                 <button class="btn" data-toggle="modal" data-target="#deleteClientModal' . $row['id'] . '">
@@ -110,7 +109,7 @@ include('./php/clientmanager.php')
                   <label>E-Mail: </label>
                   <input type="email" name="inputemail" class="form-control" value="" required maxlength="200" placeholder="email@example.com...">
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer mt-3">
                   <button type="button" class="btn" data-dismiss="modal">Cancel</button>
                   <button class="btn button-orange" type="submit" name="addClient">Add Client</button>
                 </div>
@@ -122,4 +121,18 @@ include('./php/clientmanager.php')
       </div>
     </div>
   </div>
+
+  <script src="clipboard.min.js"></script>
+
+  <script>
+      var clipboard = new ClipboardJS('.button-cpy');
+
+      clipboard.on('success', function (e) {
+        alert("copied!");
+      });
+
+      clipboard.on('error', function (e) {
+        console.log(e);
+      });
+    </script>
 </body>

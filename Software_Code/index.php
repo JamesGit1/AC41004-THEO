@@ -11,17 +11,17 @@ include('header.php');
 ?>
 
 <body class="background">
-<div class="container p-3">
+<div class="container index-content-box border">
   <div class="row">
-    <div class="col index-para-box">
-      <img src="images/theo-logo.png" width="400px" class="img-fluid" alt="Responsive image" />
+    <div class="col">
+      <img src="images/theo-logo2.png" class="img-fluid" alt="Responsive image" id="indexImage" />
       <h3>Coming Soon..</h3>
       <p class="home-text">
         Revolutionising how we train and recover from injury by allowing you
         to measure, track and analyse your muscle development, even before
         progress is physically visible.
         <br />
-        Sign up to get started!
+        <b>Sign up to get started!</b>
       </p>
       <a href="./create-account.php"><button class="btn button-orange">Sign Up</button></a>
     </div>
