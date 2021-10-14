@@ -1,5 +1,6 @@
 $(document).ready(function() {
         elem = document.getElementById('bigContainer');
+
         $('#files').bind('change', createAnalysis);
 });
 var file = null;
@@ -11,19 +12,24 @@ var timestamps=[];
 var max=[];
 var min=[];
 var elem = null;
+var elem2 = null;
 
 
 
 function createAnalysis(evt) {
       var files = evt.target.files; // FileList object
       file = files[0];
-      parseData(file);}
+      parseData(file);
+    }
 
+//function to update the piecharts and linegraph with a new choice of sensors/ target value
 function updateView(){
       //  console.log(myChart);
         redraw();
         createGraphs(values1,values2,values3,values4,timestamps,max,min);
       }
+
+//clears all canvases to be replaced with new ones, necessary when using charts.js
 function redraw(){
       $("#myChart").remove();// removing previous canvas element
       $("#barChart").append("<canvas id='myChart'></canvas>");
@@ -34,21 +40,23 @@ function redraw(){
        $("#myPieChart2").remove();// removing previous canvas element
        $("#pieChart2").append("<canvas id='myPieChart2'></canvas>");
        $("#myLineChart").remove();// removing previous canvas element
-       $("#lineChart").append("<canvas id='myLineChart'></canvas>");  }
+       $("#lineChart").append("<canvas id='myLineChart'></canvas>");
+     }
 
+
+//calculates how many items in an array are over a certain value
   function overInput(values, inputVal){
         var counter=0;
          for (var i = 0; i < values.length; i++){
            if (parseFloat(values[i]) > parseFloat(inputVal)){
-             console.log(values[i],inputVal,"here");
-             counter=counter+1;};}
-             console.log(counter);
-           return counter;}
+            // console.log(values[i],inputVal,"here");
+             counter=counter+1;}
+             ;}
+           return counter;
+         }
+
 //function percent(partialVal, totalVal) {
   //    return (100 * partialVal) / totalVal;}
-
-
-
 //function overInput(values, inputVal){
   //var over =[];
   //over.splice(0,over.length);
@@ -65,18 +73,18 @@ function selectChange() {
             var view = "front";}
         else if (viewValue == "3") {
             var view = "back";
-        }}
+        }
+      }
 
 
 
 function parseData(file) {
 
-      elem.style.display = 'block';
+
       var reader = new FileReader();
       reader.readAsText(file);
       reader.onload = function(event){
       var csv = event.target.result;
-        //THIS IS MESSY AND STUPID MAKE IT NICER BETH OF TOMORROW - BETH
 
         var content = $.csv.toArrays(csv);
         var counter1 = 0;
@@ -119,8 +127,7 @@ function parseData(file) {
           timestamps[i]=timestamps[i].slice(11, 19);
         }
 
-        //remove before t and after .
-        //or remove
+
 
 
         //get max and mins in most simple way, improve tomorrow
@@ -135,11 +142,13 @@ function parseData(file) {
 
         max = [max1,max2,max3,max4];
         min = [min1,min2,min3,min4];
+        elem.style.display = 'block';
+
         createGraphs(values1,values2,values3,values4,timestamps,max,min);}}
 
 
 
-
+//function to get the data for graphs and create them
 function createGraphs(values1,values2,values3,values4,timestamps,max,min){
         //value inputted by user but for now is set
         var comparisonValue = document.getElementById('targval').value;
