@@ -124,6 +124,7 @@ include('./php/progressmanager.php');
           <?php
           foreach ($returnedRows as $key => $currentRow) {
             $date = substr($currentRow['date'], 0, strpos($currentRow['date'], " "));
+            //$time = substr($currentRow['date'], strpos($currentRow['date'], " ") + 1);    
             echo "<tr>
                     <td>" . $date . "</td>
                     <td>" . $currentRow['commentfullname'] . "</td>

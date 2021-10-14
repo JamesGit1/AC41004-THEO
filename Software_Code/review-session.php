@@ -16,12 +16,12 @@ include('./php/commentSubmitter.php');
     #bigContainer{
       display: none;
     }
-    #targetValue{
+    /* #targetValue{
 
     }
     #viewSelector{
 
-    }
+    } */
     .symbol {
       display: inline !important;
       float: right;
