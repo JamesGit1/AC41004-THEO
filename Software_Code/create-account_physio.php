@@ -21,28 +21,28 @@ include('header.php');
         </select>
       </div>
       <div class="form-group">
-        <label>First Name: </label>
-        <input type="text" class="form-control" name="firstname" value="<?php if (isset($firstname)) echo $firstname; ?>" required maxlength="45" />
+        <label for="firstNameInput">First Name: </label>
+        <input type="text" class="form-control" name="firstname" id="firstNameInput" value="<?php if (isset($firstname)) echo $firstname; ?>" required maxlength="45" />
       </div>
       <div class="form-group">
-        <label>Last Name: </label>
-        <input type="text" class="form-control" name="lastname" value="<?php if (isset($lastname)) echo $lastname; ?>" required maxlength="45" />
+        <label for="lastNameInput">Last Name: </label>
+        <input type="text" class="form-control" name="lastname" id="lastNameInput" value="<?php if (isset($lastname)) echo $lastname; ?>" required maxlength="45" />
       </div>
       <div class="form-group">
-        <label>Email: </label>
-        <input type="email" class="form-control" name="email" value="<?php if (isset($email)) echo $email; ?>" required maxlength="200" />
+        <label for="emailInput">Email: </label>
+        <input type="email" class="form-control" name="email" id="emailInput" value="<?php if (isset($email)) echo $email; ?>" required maxlength="200" />
       </div>
       <div class="form-group w-auto">
-        <label>Username: </label>
-        <input type="text" class="form-control" name="inputusername" value="<?php if (isset($inputusername)) echo $inputusername; ?>" required maxlength="45" />
+        <label for="usernamePhysioInput">Username: </label>
+        <input type="text" class="form-control" name="inputusername" id="usernamePhysioInput" value="<?php if (isset($inputusername)) echo $inputusername; ?>" required maxlength="45" />
       </div>
       <div class="form-group">
-        <label>Password: </label>
-        <input type="password" class="form-control" name="password1" required />
+        <label for="password1PhysioInput">Password: </label>
+        <input type="password" class="form-control" name="password1" id="password1PhysioInput" required />
       </div>
       <div class="form-group mb-2">
-        <label>Confirm Password: </label>
-        <input type="password" class="form-control" name="password2" required />
+        <label for="password2PhysioInput">Confirm Password: </label>
+        <input type="password" class="form-control" name="password2" id="password2PhysioInput" required />
         <span class="help-block"><?php if (isset($username_err)) echo $username_err; ?></span>
       </div>
       <button class="btn button-orange mt-2 btn-lg" type="submit" name="submitAccount">Register</button>
