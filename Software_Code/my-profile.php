@@ -58,39 +58,39 @@ include('./php/updateDetails.php');
         <!-- Pop-up header -->
         <div class="modal-header">
           <h4 class="modal-title">Edit Account Details</h4>
-          <button type="button" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
+          <button type="reset" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
         </div>
 
         <div class="modal-body p-0">
           <div class="container w-90">
             <form class="p-3" method="post">
               <div class="form-group">
-                <label>* Username: </label>
-                <input type="text" name="inputusername" class="form-control" placeholder="Username" value="<?php echo $_SESSION['username']; ?>" required />
+                <label for="editUsernameInput">* Username: </label>
+                <input type="text" name="inputusername" id="editUsernameInput" class="form-control" placeholder="Username" value="<?php echo $_SESSION['username']; ?>" required />
               </div>
               <div class="form-group">
-                <label>* First Name: </label>
-                <input type="text" name="inputfirstname" class="form-control" value="<?php echo $_SESSION['firstname']; ?>" placeholder="First Name" required />
+                <label for="editFirstNameInput">* First Name: </label>
+                <input type="text" name="inputfirstname" id="editFirstNameInput" class="form-control" value="<?php echo $_SESSION['firstname']; ?>" placeholder="First Name" required />
               </div>
               <div class="form-group">
-                <label>* Last Name: </label>
-                <input type="text" name="inputlastname" class="form-control" value="<?php echo $_SESSION['lastname']; ?>" placeholder="Last Name" required />
+                <label for="editLastNameInput">* Last Name: </label>
+                <input type="text" name="inputlastname" id="editLastNameInput" class="form-control" value="<?php echo $_SESSION['lastname']; ?>" placeholder="Last Name" required />
               </div>
               <div class="form-group">
-                <label>* Email: </label>
-                <input type="email" name="inputemail" class="form-control" value="<?php echo $_SESSION['email']; ?>" placeholder="email@gmail.com" required />
+                <label for="editEmailInput">* Email: </label>
+                <input type="email" name="inputemail" id="editEmailInput" class="form-control" value="<?php echo $_SESSION['email']; ?>" placeholder="email@gmail.com" required />
               </div>
               <!-- <div class="form-group">
                 <label>Phone Number: </label>
                 <input type="text" name="inputphone" class="form-control" placeholder="---" disabled />
               </div> -->
               <div class="form-group mt-3">
-                <label>New Password: </label>
-                <input type="password" name="inputpassword1" class="form-control" placeholder="******"/>
+                <label for="editNewPasswordInput">New Password: </label>
+                <input type="password" name="inputpassword1" id="editNewPasswordInput" class="form-control" placeholder="******"/>
               </div>
               <div class="form-group">
-                <label>Confirm Password: </label>
-                <input type="password" name="inputpassword2" class="form-control" placeholder="******"/>
+                <label for="editConfirmPasswordInput">Confirm Password: </label>
+                <input type="password" name="inputpassword2" id="editConfirmPasswordInput" class="form-control" placeholder="******"/>
                 <small class="form-text text-muted"> * required fields</small>
               </div>
               <div class="modal-footer">

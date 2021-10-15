@@ -124,7 +124,7 @@ include('./php/progressmanager.php');
           <?php
           foreach ($returnedRows as $key => $currentRow) {
             $date = substr($currentRow['date'], 0, strpos($currentRow['date'], " "));
-            //$time = substr($currentRow['date'], strpos($currentRow['date'], " ") + 1);    
+            //$time = substr($currentRow['date'], strpos($currentRow['date'], " ") + 1);
             echo "<tr>
                     <td>" . $date . "</td>
                     <td>" . $currentRow['commentfullname'] . "</td>
@@ -144,23 +144,23 @@ include('./php/progressmanager.php');
           <!-- Pop-up header -->
           <div class="modal-header">
             <h4 class="modal-title">Edit Details</h4>
-            <button type="button" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
+            <button type="reset" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
           </div>
 
           <div class="modal-body">
             <div class="container w-90">
               <form class="p-3" method="post">
                 <div class="form-group">
-                  <label><b>Weight (kg):</b></label>
-                  <input type="text" class="form-control" value="<?php if (isset($userdetails['weight'])) echo $userdetails['weight']; ?>" name="inputWeight" required maxlength="3" />
+                  <label for="editWeight"><b>Weight (kg):</b></label>
+                  <input type="text" class="form-control" id="editWeight" value="<?php if (isset($userdetails['weight'])) echo $userdetails['weight']; ?>" name="inputWeight" required maxlength="3" />
                 </div>
                 <div class="form-group">
-                  <label><b>Height (cm):</b></label>
-                  <input type="text" class="form-control" value="<?php if (isset($userdetails['height'])) echo $userdetails['height']; ?>" name="inputHeight" required maxlength="3" />
+                  <label for="editHeight"><b>Height (cm):</b></label>
+                  <input type="text" class="form-control" id="editHeight" value="<?php if (isset($userdetails['height'])) echo $userdetails['height']; ?>" name="inputHeight" required maxlength="3" />
                 </div>
                 <div class="form-group">
-                  <label><b>Age (years):</b></label>
-                  <input type="text" class="form-control" value="<?php if (isset($userdetails['age'])) echo $userdetails['age']; ?>" name="inputAge" required maxlength="3" />
+                  <label for="editAge"><b>Age (years):</b></label>
+                  <input type="text" class="form-control" id="editAge" value="<?php if (isset($userdetails['age'])) echo $userdetails['age']; ?>" name="inputAge" required maxlength="3" />
                 </div>
                 <div class="modal-footer mt-3">
                   <button type="button" class="btn" data-dismiss="modal">Cancel</button>

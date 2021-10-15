@@ -31,7 +31,7 @@ include('./php/clientmanager.php')
                   echo '<button class="btn button-orange button-cpy" data-clipboard-text="' . $row['code'] . '">Setup Code: <b>'.$row['code'].'</b></button>';
                 }
                 echo '
-                <button class="btn" data-toggle="modal" data-target="#deleteClientModal' . $row['id'] . '">
+                <button type="reset" class="btn" data-toggle="modal" data-target="#deleteClientModal' . $row['id'] . '">
                   <i class="fas fa-trash-alt"></i>
                 </button>
               </div>
@@ -45,7 +45,7 @@ include('./php/clientmanager.php')
                 <!-- Pop-up header -->
                 <div class="modal-header">
                   <h4 class="modal-title">Delete Client</h4>
-                  <button type="button" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
+                  <button type="reset" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
                 </div>
 
                 <div class="modal-body">
@@ -91,23 +91,23 @@ include('./php/clientmanager.php')
           <!-- Pop-up header -->
           <div class="modal-header">
             <h4 class="modal-title">Add Client</h4>
-            <button type="button" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
+            <button type="reset" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
           </div>
 
           <div class="modal-body p-0">
             <div class="container w-90">
               <form class="p-3" method="post">
                 <div class="form-group">
-                  <label>First Name: </label>
-                  <input type="text" name="inputforename" class="form-control" value="" required maxlength="45" placeholder="Firstname..."/>
+                  <label for="addClientFirstName">First Name: </label>
+                  <input type="text" name="inputforename" id="addClientFirstName" class="form-control" value="" required maxlength="45" placeholder="Firstname..."/>
                 </div>
                 <div class="form-group">
-                  <label>Last Name: </label>
-                  <input type="text" name="inputsurname" class="form-control" value="" required maxlength="45" placeholder="Lastname...">
+                  <label for="addClientLastName">Last Name: </label>
+                  <input type="text" name="inputsurname" id="addClientLastName" class="form-control" value="" required maxlength="45" placeholder="Lastname...">
                 </div>
                 <div class="form-group">
-                  <label>E-Mail: </label>
-                  <input type="email" name="inputemail" class="form-control" value="" required maxlength="200" placeholder="email@example.com...">
+                  <label for="addClientEmail">E-Mail: </label>
+                  <input type="email" name="inputemail" id="addClientEmail" class="form-control" value="" required maxlength="200" placeholder="email@example.com...">
                 </div>
                 <div class="modal-footer mt-3">
                   <button type="button" class="btn" data-dismiss="modal">Cancel</button>

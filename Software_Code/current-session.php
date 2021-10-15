@@ -196,7 +196,7 @@ include('header.php');
 
         <div class="modal-header">
           <h4 class="modal-title">Add Notes</h4>
-          <button type="button" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
+          <button type="reset" class="modal-close" data-dismiss="modal"><i class="fas fa-times"></i></button>
         </div>
 
         <div class="modal-body p-0">
@@ -208,7 +208,7 @@ include('header.php');
                 <small id="timeHelp" class="form-text text-muted">Current timestamp from sensors</small>
               </div> -->
               <div class="form-group">
-                <!-- <label for="textArea">Comment</label> -->
+                <!-- <label for="textArea">Leave Note</label> -->
                 <textarea required class="form-control mb-2" id="textArea" name="inputComment" rows="4" placeholder="Leave comment here.."></textarea>
               </div>
               <div class="modal-footer">

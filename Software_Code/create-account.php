@@ -27,20 +27,20 @@ include('header.php');
 
     <form class="" method="post">
       <div class="form-group">
-        <label>Code: </label>
-        <input type="int" class="form-control" name="code" value="" placeholder="5-digit code" required maxlength="11" />
+        <label for="codeInput">Code: </label>
+        <input type="int" class="form-control" name="code" id="codeInput" value="" placeholder="5-digit code" required maxlength="11" />
       </div>
       <div class="form-group">
-        <label>Username: </label>
-        <input type="text" class="form-control" name="inputusername" required maxlength="45" />
+        <label for="newUsernameInput">Username: </label>
+        <input type="text" class="form-control" name="inputusername" id="newUsernameInput" required maxlength="45" />
       </div>
       <div class="form-group">
-        <label>Password: </label>
-        <input type="password" class="form-control" name="password1" required />
+        <label for="newPassword1Input">Password: </label>
+        <input type="password" class="form-control" name="password1" id="newPassword1Input" required />
       </div>
       <div class="form-group mb-2">
-        <label>Confirm Password: </label>
-        <input type="password" class="form-control" name="password2" required />
+        <label for="newPassword2Input">Confirm Password: </label>
+        <input type="password" class="form-control" name="password2" id="newPassword2Input" required />
       </div>
       <button class="btn button-orange mt-2 btn-lg" type="submit" name="submitAccount">Register</button>
     </form>
