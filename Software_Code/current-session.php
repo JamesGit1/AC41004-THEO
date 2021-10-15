@@ -1,8 +1,8 @@
 <?php
 session_start();
 include('header.php');
-// include('./php/conn.php');
-// include('./php/commentSubmitter.php');
+include('./php/conn.php');
+include('./php/commentSubmitter.php');
 ?>
 
 <head>
