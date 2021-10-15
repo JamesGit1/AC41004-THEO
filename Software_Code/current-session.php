@@ -116,7 +116,7 @@ include('./php/commentSubmitter.php');
     <h3>Current Session</h3>
     <div class="container">
       <div class="row p-0">
-        <h6 class="p-0">The heat-map below displays readings of the electrical muscle activity from surface electromyography (sEMG). </h6>
+        <h6 class="p-0">The heat-map below displays readings of the electrical muscle activity from surface electromyography (sEMG) using Myoware muscle sensors. </h6>
       </div>
       <div class="row p-0">
         <div class="d-flex mt-3 mb-1 p-0">
