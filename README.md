@@ -7,6 +7,7 @@ Group Members:
 - Emilija Budryte (180003228)
 - Beth Ogilvy (170006311)
 - Michael Olori (180010627)
+- Paul Crockford (170007945)
 - Member X (Matriculation Number)
 
 ## Notes
