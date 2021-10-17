@@ -48,6 +48,7 @@ const getData = () => {
             delay(400).then(() => { getData(); }); // Don't want to make too many uneccasary calls to api so put a little delay
         });
 }
+// This function helps with smoothing out incoming data to make it less jumpy 
 function valueMapper(oldValue, newValue, iterations) {
     var currentVal = oldValue;
     var mappedValues = [oldValue];
@@ -63,16 +64,17 @@ function valueMapper(oldValue, newValue, iterations) {
 
 function loadHeatmap(dataObj) {
     iterator = 1;
+    numberofIterations = 100; // How many times should we map the heatmap values
     pushValuesLoop(); //  start the loop
 
     if (prevDataObj != null) {
         if (viewValue == "f") {
-            mappedValues1 = valueMapper(prevDataObj.sensor3.value, dataObj.sensor3.value, 100)
-            mappedValues2 = valueMapper(prevDataObj.sensor4.value, dataObj.sensor4.value, 100)
+            mappedValues1 = valueMapper(prevDataObj.sensor3.value, dataObj.sensor3.value, numberofIterations)
+            mappedValues2 = valueMapper(prevDataObj.sensor4.value, dataObj.sensor4.value, numberofIterations)
         }
         else if (viewValue == "b") {
-            mappedValues1 = valueMapper(prevDataObj.sensor1.value, dataObj.sensor1.value, 100)
-            mappedValues2 = valueMapper(prevDataObj.sensor2.value, dataObj.sensor2.value, 100)
+            mappedValues1 = valueMapper(prevDataObj.sensor1.value, dataObj.sensor1.value, numberofIterations)
+            mappedValues2 = valueMapper(prevDataObj.sensor2.value, dataObj.sensor2.value, numberofIterations)
         }
     }
     else {
@@ -97,6 +99,7 @@ function pushValuesLoop() {         //  create a loop function
     }, 25)
 }
 
+// Plot the heatmap points on the canvas from each dataset
 function pushHeatmapValues(sensorData1, sensorData2) {
     sensorData1 = Math.floor(sensorData1);
     sensorData2 = Math.floor(sensorData2);
@@ -169,13 +172,13 @@ function pushHeatmapValues(sensorData1, sensorData2) {
     function pointPlotterf(isLeftQuad, sensorData) {
         var invert = 1;
         var y = 0.130;
-        
+
         if (isLeftQuad) { // If this is left front
             var x = 0.178;
         }
         else { // Otherwise it is right front
             var x = 0.422,
-            invert = -1;
+                invert = -1;
         }
 
         // sensorValue = dataObj.sensor3.value; // Extract value from json object for each sensor
@@ -198,7 +201,7 @@ function pushHeatmapValues(sensorData1, sensorData2) {
                 x -= 0.0005 * invert;
             }
             else if (i > 24) {
-                newRadius = Math.floor(0.025* containerWidth);
+                newRadius = Math.floor(0.025 * containerWidth);
                 x += 0.001 * invert;
             }
             else if (i > 19) {

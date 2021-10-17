@@ -1,6 +1,7 @@
 <?php
 $login_err = "";
-if (isset($_POST['deleteid'])) {
+
+if (isset($_POST['deleteid'])) { // Delete button is submitted
     $clientToRemove = $_POST['deleteid'];
 
     $query = "DELETE FROM clients WHERE `clientid` = $clientToRemove;";
@@ -14,8 +15,9 @@ if (isset($_POST['deleteid'])) {
     echo '</script>';
 }
 
-if (isset($_POST['addClient'])) {
+if (isset($_POST['addClient'])) {  // New client is submitted
 
+    // Insert details into database
     $query = "INSERT INTO account (`firstname`, `lastname`, `email`, `code`) VALUES (:firstname, :lastname, :email, :code)";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":firstname", $firstname);
@@ -26,10 +28,11 @@ if (isset($_POST['addClient'])) {
     $firstname = $_POST['inputforename'];
     $lastname = $_POST['inputsurname'];
     $email = $_POST['inputemail'];
-    $code = rand(10001, 99999); // Probably should check if number is on database
+    $code = rand(10001, 99999); // Generate a random code to allow account activation
 
     $stmt->execute();
 
+    // Get id from the code generated so user can be submitted into clients table with physio
     $query = "SELECT `id` FROM account WHERE `code` = :code;";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":code", $code);
@@ -37,6 +40,7 @@ if (isset($_POST['addClient'])) {
 
     $returnedRow = $stmt->fetch();
 
+    // Insert id of client and physio into clients
     $query = "INSERT INTO clients (`physioid`, `clientid`) VALUES (:physioid, :clientid);";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":physioid", $id);
@@ -48,6 +52,7 @@ if (isset($_POST['addClient'])) {
     echo 'alert("Client added. Please share the following code with them: ' . $code . '" )';
     echo '</script>';
 
+    // OLD CLIENT MANAGER
     // $query = "SELECT * FROM account WHERE username = :username";
     // $stmt = $pdo->prepare($query);
     // $stmt->bindParam(":username", $inputUsername, PDO::PARAM_STR);
