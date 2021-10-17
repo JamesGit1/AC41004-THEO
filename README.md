@@ -11,4 +11,12 @@ Group Members:
 - Daniel Denley ()
 
 ## Notes
-This is the repository for team 9's Theo Health Project
+This is the repository for Team 9's Theo Health Project
+
+## Folder Structure
+
+/Software_Code 
+Contains all site code with pages on main directory and other resources within their own directories
+
+/NodejsAPI
+Code for API deployed on Heroku https://theohealth.herokuapp.com/currentData
