@@ -3,6 +3,8 @@ $(document).ready(function() {
 
         $('#files').bind('change', createAnalysis);
 });
+
+//various variable declarations
 var file = null;
 var values1=[];
 var values2=[];
@@ -15,7 +17,7 @@ var elem = null;
 var elem2 = null;
 
 
-
+//main function once a file has been recieved
 function createAnalysis(evt) {
       var files = evt.target.files; // FileList object
       file = files[0];
@@ -24,7 +26,6 @@ function createAnalysis(evt) {
 
 //function to update the piecharts and linegraph with a new choice of sensors/ target value
 function updateView(){
-      //  console.log(myChart);
         redraw();
         createGraphs(values1,values2,values3,values4,timestamps,max,min);
       }
@@ -47,9 +48,9 @@ function redraw(){
 //calculates how many items in an array are over a certain value
   function overInput(values, inputVal){
         var counter=0;
+        //for length of the array if value[i] > target then increase counter
          for (var i = 0; i < values.length; i++){
            if (parseFloat(values[i]) > parseFloat(inputVal)){
-            // console.log(values[i],inputVal,"here");
              counter=counter+1;}
              ;}
            return counter;
@@ -67,6 +68,9 @@ function redraw(){
       //over.push(values[i]);}};
   //  return over;}
 
+
+//changes whether the user is viewing the front sensors or the back
+//aka whether its hamstrings or quadraceps
 function selectChange() {
         viewValue = document.getElementById("viewSelector").value;
         if (viewValue == "2"  || viewValue =="1") {
@@ -77,15 +81,17 @@ function selectChange() {
       }
 
 
+//processes the data from the csv file into graphable content
 
 function parseData(file) {
+
 
 
       var reader = new FileReader();
       reader.readAsText(file);
       reader.onload = function(event){
       var csv = event.target.result;
-
+      //some variable declarations, this section could be done nicer but kept breaking, so for time kept it slightly less efficient
         var content = $.csv.toArrays(csv);
         var counter1 = 0;
         var countert = 0;
@@ -139,21 +145,25 @@ function parseData(file) {
         var min3 = Math.min(...values3);
         var max4 = Math.max(...values4);
         var min4 = Math.min(...values4);
-
+        //max and mins to arrays
         max = [max1,max2,max3,max4];
         min = [min1,min2,min3,min4];
+        //display the rest of the page that was previously hidden
         elem.style.display = 'block';
-
+        //create the graphs!
         createGraphs(values1,values2,values3,values4,timestamps,max,min);}}
 
 
 
 //function to get the data for graphs and create them
 function createGraphs(values1,values2,values3,values4,timestamps,max,min){
-        //value inputted by user but for now is set
+        //get the users desired target value
         var comparisonValue = document.getElementById('targval').value;
         viewValue = document.getElementById("viewSelector").value;
 
+        //if the target values is greater than the max for each muscle, set it to the max instead
+        //either way the result will be the same, but leaving the target value as a number of the max
+        //led to massive problems in the graphing
         if (viewValue=="2"){
           var sensora=values1;
           var maxa = max[0];
@@ -166,15 +176,18 @@ function createGraphs(values1,values2,values3,values4,timestamps,max,min){
           var sensorb=values4;
           var maxb = max[4];
         }
+        //else just leave it
         else{
           sensora = sensorb =[];
           maxa = maxb =0;
         }
 
-
+        //calculate how many values are over
         var valuesOver1=overInput(sensora,comparisonValue);
         var valuesOver2=overInput(sensorb,comparisonValue);
-    //    console.log(valuesOver1,valuesOver2,"test test");
+
+        //if the targ value was over the max, the valuesover will be wrong
+        //so overwrite the values over with the max to give us the correct answers
         if (comparisonValue>=maxa){
           valuesOver1=0;
 
@@ -184,13 +197,13 @@ function createGraphs(values1,values2,values3,values4,timestamps,max,min){
 
         }
 
-
+        //get how many values are below the target value
         var leftover1=sensora.length-valuesOver1;
         var leftover2=sensorb.length-valuesOver2;
 
 
 
-
+        //create the bar chart for the max and min values for all 4 muscles
         const data = {
           labels: ['Left Hamstring', 'Right Hamstring','Left Quad', 'Right Quad'],
           datasets: [
@@ -220,7 +233,7 @@ function createGraphs(values1,values2,values3,values4,timestamps,max,min){
 
 
 
-//piechart 1
+//piechart 1 this displays the values above and below for muscle a (either left quad or hamstring depending on users choice)
         const data2 = {
           labels: ['Above target', 'Below target'],
           datasets: [
@@ -244,7 +257,7 @@ function createGraphs(values1,values2,values3,values4,timestamps,max,min){
 
 
 
-//piechart2
+//piechart2 this displays the values above and below for muscle a (either right quad or hamstring depending on users choice)
         const data3 = {
           labels: ['Above target', 'Below target'],
           datasets: [
@@ -272,7 +285,7 @@ function createGraphs(values1,values2,values3,values4,timestamps,max,min){
 
 
 
-//line chart
+//line chart for muscle a vs b
         const data4 = {
         labels: timestamps,
         datasets: [
@@ -303,6 +316,7 @@ function createGraphs(values1,values2,values3,values4,timestamps,max,min){
                 text: 'Line graph'
               }}},};
 
+        //display the piecharts
         var myChart = new Chart(
           document.getElementById('myChart'),
           config
