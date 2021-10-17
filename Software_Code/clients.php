@@ -122,7 +122,7 @@ include('./php/clientmanager.php')
     </div>
   </div>
 
-  <script src="clipboard.min.js"></script>
+  <script src="./js/clipboard.min.js"></script>
 
   <script>
       var clipboard = new ClipboardJS('.button-cpy');

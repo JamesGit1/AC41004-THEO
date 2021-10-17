@@ -8,7 +8,7 @@ Group Members:
 - Beth Ogilvy (170006311)
 - Michael Olori (180010627)
 - Paul Crockford (170007945)
-- Member X (Matriculation Number)
+- Daniel Denley ()
 
 ## Notes
 This is the repository for team 9's Theo Health Project
