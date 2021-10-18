@@ -16,6 +16,7 @@ Group Members:
 This is the repository for Team 9's Theo Health Project
 
 ## Folder Structure
+AllSensorsTest is a file containing all of the given sensor data in one csv for use on the review session page.
 
 /Software_Code 
 Contains all site code with pages on main directory and other resources within their own directories
